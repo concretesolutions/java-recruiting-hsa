@@ -1,4 +1,4 @@
-<a href="https://concrete.com.br/"><img src="assets/concrete_symbol.png" width="180px" align="right" /></a>
+<a href="https://concrete.com.br/"><img src=".github/concrete_symbol.png" width="180px" align="right" /></a>
 
 # Desafio Java Concrete
 
@@ -10,11 +10,11 @@ Desafio técnico para evaluar el conocimiento de los aspirantes a unirse al equi
     - [APIs](#apis)
     - [Features](#features)
     - [Puntos a Considerar](#puntos-a-considerar)
-- [¿Qué nos Gustaría Ver?](#qu-nos-gustara-ver)
+- [¿Qué nos Gustaría Ver?](#que-nos-gustaria-ver)
     - [Deseables](#deseables)
-    - [Stack/Pool de Tecnologías](#stackpool-de-tecnologas)
+    - [Stack de Tecnologías](#stack-de-tecnologias)
 - [Forma de Entrega](#forma-de-entrega)
-    - [Importante](#importante)
+- [Importante](#importante)
 
 ## El Desafio
 
@@ -69,7 +69,7 @@ Siga los pasos para implementar y enviar este desafio:
 - Después de completar el desafio, realise un **Pull Request** a este repositorio, utilisando la interface de **Github**. [Check this guide for more details](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork).
 - Si es posible, deja tu repositorio publico para hacer la revision de codigo mas sencilla.
 
-### Importante
+## Importante
 **No** intente hacer un PUSH directo a ESTE repositorio!
 
 ---

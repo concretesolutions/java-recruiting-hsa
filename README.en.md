@@ -12,7 +12,7 @@ Code challenge designed to evaluate technical knowledge of **Backend** candidate
     - [Nice To Have](#nice-to-have)
     - [Technology Stack](#technology-stack)
 - [Submission Guidelines](#submission-guidelines)
-    - [Attention](#attention)
+- [Attention](#attention)
 
 ## The Challenge
 
@@ -68,7 +68,7 @@ Follow the steps below to implement and submit this code challenge:
 - After completing the challenge, open a **Pull Request** to this repository, using **Github** interface. [Check this guide for more details](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork);
 - If possible, let your repository public to make code review easier :)
 
-### ATTENTION
+## ATTENTION
 Do **NOT** try to PUSH direct to THIS repository!
 
 ---
