@@ -10,9 +10,9 @@ Desafio técnico para evaluar el conocimiento de los aspirantes a unirse al equi
     - [APIs](#apis)
     - [Features](#features)
     - [Puntos a Considerar](#puntos-a-considerar)
-- [¿Qué nos Gustaría Ver?](#que-nos-gustaria-ver)
+- [¿Qué nos Gustaría Ver?](#qué-nos-gustaría-ver)
     - [Deseables](#deseables)
-    - [Stack de Tecnologías](#stack-de-tecnologias)
+    - [Stack/Pool de Tecnologías](#stackpool-de-tecnologías)
 - [Forma de Entrega](#forma-de-entrega)
 - [Importante](#importante)
 
