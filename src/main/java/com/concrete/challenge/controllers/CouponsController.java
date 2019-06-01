@@ -6,5 +6,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/coupons")
 public class CouponsController implements BaseController {
-    
+
 }

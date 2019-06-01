@@ -1,20 +1,14 @@
-package com.concrete.challenge.controllers.web;
+package com.concrete.challenge.service;
 
-import com.concrete.challenge.controllers.CategoriesController;
-import com.concrete.challenge.service.CategoriesService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
-public class CategoriesControllerTest {
+public class CategoriesServiceTest {
 
     @InjectMocks
-    private CategoriesController categoriesController;
-
-    @Mock
     private CategoriesService categoriesService;
 
     @Test
@@ -26,5 +20,4 @@ public class CategoriesControllerTest {
     public void notTopFiveCategoriesTest() {
 
     }
-
 }

@@ -1,27 +1,18 @@
-package com.concrete.challenge.controllers.web;
+package com.concrete.challenge.service;
 
-import com.concrete.challenge.controllers.CouponsController;
-import com.concrete.challenge.service.CouponsService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
-public class CouponsControllerTest {
+public class CouponsServiceTest {
 
     @InjectMocks
-    private CouponsController couponsController;
-
-    @Mock
     private CouponsService couponsService;
 
     @Test
     public void notExpiredCouponsTest() {
 
     }
-
-
-
 }
