@@ -1,5 +1,7 @@
-package com.concrete.challenge.controller.web;
+package com.concrete.challenge.controllers.web;
 
+import com.concrete.challenge.controllers.CategoriesController;
+import com.concrete.challenge.service.CategoriesService;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
