@@ -20,6 +20,8 @@ public class Application {
     public static void main(String args[]) {
         RestTemplate restTemplate = new RestTemplate();
         Coupon[] coupons = restTemplate.getForObject("https://cs-hsa-api-coupons.herokuapp.com/coupons", Coupon[].class);
+        Category category = restTemplate.getForObject("https://cs-hsa-api-categories.herokuapp.com/categories", Category.class);
+
         try {
             Date date = new Date();
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -35,10 +37,9 @@ public class Application {
                 log.info(coupon.getId());
 
         } catch (ParseException e) {
-            log.info("Error al parsear la fecha");
+            log.info("PARSING ERROR");
             e.printStackTrace();
         }
-        //coupons.getCoupons().forEach((n)->log.info(n.toString()));
     }
 
 }
