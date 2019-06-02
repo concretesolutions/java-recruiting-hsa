@@ -1,5 +1,6 @@
 package com.concrete.challenge.client;
 
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.MockitoJUnitRunner;
@@ -10,5 +11,8 @@ public class CategoriesClientTest {
     @InjectMocks
     private CategoriesClient categoriesClient;
 
+    @Test
+    public void getCategoriesTest() {
 
+    }
 }
