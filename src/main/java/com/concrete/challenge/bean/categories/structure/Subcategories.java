@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface Subcategories {
 
-    List<Category> getSubcategories();
+    List<? extends Category> getSubcategories();
 }

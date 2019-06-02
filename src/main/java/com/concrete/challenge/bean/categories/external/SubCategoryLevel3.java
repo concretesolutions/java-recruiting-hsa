@@ -2,28 +2,47 @@ package com.concrete.challenge.bean.categories.external;
 
 import com.concrete.challenge.bean.categories.structure.*;
 import lombok.Builder;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.Collections;
 import java.util.List;
 
 @NoArgsConstructor
-@Getter
 public class SubCategoryLevel3
         extends AbstractCategory
-        implements Category, LargeImageUrl, MediumImageUrl, SmallImageUrl, Subcategories {
+        implements LargeImageUrl, MediumImageUrl, SmallImageUrl, Subcategories {
 
-    List<Category> subcategories;
+    private List<SubCategoryLevel4> subcategories;
     private String largeImageUrl;
     private String mediumImageUrl;
     private String smallImageUrl;
 
     @Builder
-    public SubCategoryLevel3(String id, String name, int relevance, String largeImageUrl, String mediumImageUrl, String smallImageUrl, List<Category> subcategories) {
+    public SubCategoryLevel3(String id, String name, int relevance, String largeImageUrl, String mediumImageUrl, String smallImageUrl, List<SubCategoryLevel4> subcategories) {
         super(id, name, relevance);
         this.largeImageUrl = largeImageUrl;
         this.mediumImageUrl = mediumImageUrl;
         this.smallImageUrl = smallImageUrl;
         this.subcategories = subcategories;
+    }
+
+    @Override
+    public List<SubCategoryLevel4> getSubcategories() {
+        return Collections.unmodifiableList(subcategories);
+    }
+
+    @Override
+    public String getLargeImageUrl() {
+        return largeImageUrl;
+    }
+
+    @Override
+    public String getMediumImageUrl() {
+        return mediumImageUrl;
+    }
+
+    @Override
+    public String getSmallImageUrl() {
+        return smallImageUrl;
     }
 }

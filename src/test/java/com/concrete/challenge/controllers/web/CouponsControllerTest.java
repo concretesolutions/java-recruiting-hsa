@@ -52,7 +52,7 @@ public class CouponsControllerTest {
                 Coupon.builder().build(),
                 Coupon.builder().build(),
                 Coupon.builder().build()
-                );
+        );
     }
 
 

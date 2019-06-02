@@ -1,24 +1,27 @@
 package com.concrete.challenge.bean.categories.external;
 
 import com.concrete.challenge.bean.categories.structure.AbstractCategory;
-import com.concrete.challenge.bean.categories.structure.Category;
 import com.concrete.challenge.bean.categories.structure.Subcategories;
 import lombok.Builder;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.Collections;
 import java.util.List;
 
 @NoArgsConstructor
-@Getter
 public class Categories extends AbstractCategory
-        implements Category, Subcategories {
+        implements Subcategories {
 
-    private List<Category> subcategories;
+    private List<SubCategoryLevel2> subcategories;
 
     @Builder
-    public Categories(String id, String name, int relevance, List<Category> subcategories) {
+    public Categories(String id, String name, int relevance, List<SubCategoryLevel2> subcategories) {
         super(id, name, relevance);
         this.subcategories = subcategories;
+    }
+
+    @Override
+    public List<SubCategoryLevel2> getSubcategories() {
+        return Collections.unmodifiableList(subcategories);
     }
 }
