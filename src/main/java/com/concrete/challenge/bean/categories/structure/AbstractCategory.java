@@ -1,6 +1,5 @@
 package com.concrete.challenge.bean.categories.structure;
 
-import com.concrete.challenge.bean.categories.structure.Category;
 import lombok.Getter;
 
 @Getter

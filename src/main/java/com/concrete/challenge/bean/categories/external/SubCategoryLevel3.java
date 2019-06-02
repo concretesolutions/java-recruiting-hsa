@@ -13,10 +13,10 @@ public class SubCategoryLevel3
         extends AbstractCategory
         implements Category, LargeImageUrl, MediumImageUrl, SmallImageUrl, Subcategories {
 
+    List<Category> subcategories;
     private String largeImageUrl;
     private String mediumImageUrl;
     private String smallImageUrl;
-    List<Category> subcategories;
 
     @Builder
     public SubCategoryLevel3(String id, String name, int relevance, String largeImageUrl, String mediumImageUrl, String smallImageUrl, List<Category> subcategories) {
