@@ -3,6 +3,11 @@ package ServiceConsumer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.context.annotation.Bean;
+import org.springframework.boot.CommandLineRunner;
 
 import java.io.IOException;
 import java.text.DateFormat;
@@ -18,21 +23,31 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import java.io.StringWriter;
 
 
-
+@SpringBootApplication
 public class Application {
 
     private static final Logger log = LoggerFactory.getLogger(Application.class);
 
     public static void main(String args[]) {
-        RestTemplate restTemplate = new RestTemplate();
-        Coupon[] coupons = restTemplate.getForObject("https://cs-hsa-api-coupons.herokuapp.com/coupons", Coupon[].class);
-        Category category = restTemplate.getForObject("https://cs-hsa-api-categories.herokuapp.com/categories", Category.class);
+        SpringApplication.run(Application.class);
+    }
 
-        printFetchedJSON(category);
+    @Bean
+    public RestTemplate restTemplate(RestTemplateBuilder builder) {
+        return builder.build();
+    }
 
-        getValidCoupons(coupons);
-        generateCategoryTop5(category);
+    @Bean
+    public CommandLineRunner run(RestTemplate restTemplate) throws Exception {
+        return args -> {
+            Coupon[] coupons = restTemplate.getForObject("https://cs-hsa-api-coupons.herokuapp.com/coupons", Coupon[].class);
+            Category category = restTemplate.getForObject("https://cs-hsa-api-categories.herokuapp.com/categories", Category.class);
 
+            printFetchedJSON(category);
+
+            getValidCoupons(coupons);
+            generateCategoryTop5(category);
+        };
     }
 
 
