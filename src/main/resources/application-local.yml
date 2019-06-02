@@ -1,0 +1,15 @@
+server:
+  port: 8080
+  
+logging:
+  level:
+    root: warn
+    com:
+      aptiliux: debug
+            
+ws:
+  legacy:
+    categories:
+      endpoint: https://cs-hsa-api-categories.herokuapp.com/categories
+    coupons:
+      endpoint: https://cs-hsa-api-coupons.herokuapp.com/coupons
