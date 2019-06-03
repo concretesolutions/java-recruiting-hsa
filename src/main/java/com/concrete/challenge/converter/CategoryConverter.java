@@ -2,7 +2,7 @@ package com.concrete.challenge.converter;
 
 import com.concrete.challenge.bean.categories.adapted.ASubCategoryLevel2;
 import com.concrete.challenge.bean.categories.external.*;
-import com.concrete.challenge.bean.categories.mobile.MobileSubCategoryLevel3;
+import com.concrete.challenge.bean.categories.adapted.mobile.MobileSubCategoryLevel3;
 import com.concrete.challenge.bean.categories.structure.Category;
 import org.springframework.stereotype.Component;
 

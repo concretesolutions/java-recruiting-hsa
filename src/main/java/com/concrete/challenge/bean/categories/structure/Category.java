@@ -1,6 +1,6 @@
 package com.concrete.challenge.bean.categories.structure;
 
-import com.concrete.challenge.bean.categories.mobile.behaviour.ConvertToMobile;
+import com.concrete.challenge.bean.categories.structure.behaviour.ConvertToMobile;
 
 import java.io.Serializable;
 

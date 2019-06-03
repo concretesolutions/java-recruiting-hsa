@@ -1,4 +1,4 @@
-package com.concrete.challenge.bean.categories.mobile;
+package com.concrete.challenge.bean.categories.adapted.mobile;
 
 import com.concrete.challenge.bean.categories.external.SubCategoryLevel4;
 import com.concrete.challenge.bean.categories.structure.AbstractCategory;
