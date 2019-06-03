@@ -74,7 +74,7 @@ public class Application {
         }
     }
 
-    private static void getValidCoupons(Coupon[] coupons) {
+    public static Coupon[] getValidCoupons(Coupon[] coupons) {
         try {
             Date actualDate = new Date();
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -89,9 +89,12 @@ public class Application {
             for(Coupon coupon : upToDateCoupons)
                 log.info(coupon.getId());
 
+            return upToDateCoupons.toArray(new Coupon[upToDateCoupons.size()]);
+
         } catch (ParseException e) {
             log.info("PARSING ERROR");
             e.printStackTrace();
+            return null;
         }
     }
 

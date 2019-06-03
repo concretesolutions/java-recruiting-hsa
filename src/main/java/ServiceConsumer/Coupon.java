@@ -10,6 +10,20 @@ public class Coupon {
     private String image;
     private String expiresAt;
 
+    //Constructor defined for testing purposes
+    public Coupon(String id, String expiresAt) {
+        this.id = id;
+        this.expiresAt = expiresAt;
+    }
+
+    public boolean equals(Object object) {
+        Coupon emp = (Coupon) object;
+            if(this.id.equalsIgnoreCase(emp.getId()) && expiresAt.equalsIgnoreCase(emp.getExpiresAt()))
+            return true;
+        else
+            return false;
+    }
+
     public String getId() {
         return id;
     }
