@@ -38,7 +38,7 @@ public class ContainerConfiguration {
 
         return new Docket(DocumentationType.SWAGGER_2).select()
                 .apis(RequestHandlerSelectors
-                        .basePackage("com.concrete.challenge"))
+                        .basePackage("com.concrete.challenge.controllers"))
                 .paths(PathSelectors.any())
                 .build().apiInfo(apiEndPointsInfo());
     }

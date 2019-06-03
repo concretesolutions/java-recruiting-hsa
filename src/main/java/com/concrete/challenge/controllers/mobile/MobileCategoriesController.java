@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@Api(value = "Categories API", description = "Categories API")
+@Api(value = "Mobile Categories API", description = "Mobile Categories API")
 @RequestMapping("/mobile/categories")
 public class MobileCategoriesController implements BaseController {
 
