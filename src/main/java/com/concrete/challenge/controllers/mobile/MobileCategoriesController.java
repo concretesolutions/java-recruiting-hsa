@@ -1,7 +1,7 @@
 package com.concrete.challenge.controllers.mobile;
 
 import com.concrete.challenge.bean.categories.structure.Category;
-import com.concrete.challenge.controllers.BaseController;
+import com.concrete.challenge.controllers.base.BaseController;
 import com.concrete.challenge.service.CategoriesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

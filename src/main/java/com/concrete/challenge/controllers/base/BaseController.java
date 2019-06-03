@@ -1,4 +1,4 @@
-package com.concrete.challenge.controllers;
+package com.concrete.challenge.controllers.base;
 
 import org.springframework.http.HttpHeaders;
 

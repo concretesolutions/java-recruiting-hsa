@@ -3,7 +3,7 @@ package com.concrete.challenge.service;
 import com.concrete.challenge.bean.categories.external.SubCategoryLevel2;
 import com.concrete.challenge.bean.categories.structure.Category;
 import com.concrete.challenge.client.CategoriesClient;
-import com.concrete.challenge.converter.CategoryConverter;
+import com.concrete.challenge.converter.Converter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +18,7 @@ public class CategoriesService {
     private CategoriesClient categoriesClient;
 
     @Autowired
-    private CategoryConverter categoryConverter;
+    private Converter categoryConverter;
 
     public List<Category> getTopCategories(int relevantCategories) {
         return categoriesClient.getCategory()

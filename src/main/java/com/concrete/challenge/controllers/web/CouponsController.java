@@ -1,6 +1,7 @@
-package com.concrete.challenge.controllers;
+package com.concrete.challenge.controllers.web;
 
 import com.concrete.challenge.bean.coupons.external.Coupon;
+import com.concrete.challenge.controllers.base.BaseController;
 import com.concrete.challenge.service.CouponsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -1,10 +1,10 @@
 package com.concrete.challenge.bean.categories.external;
 
-import com.concrete.challenge.bean.categories.structure.behaviour.ConvertToMobile;
 import com.concrete.challenge.bean.categories.structure.AbstractCategory;
 import com.concrete.challenge.bean.categories.structure.Category;
 import com.concrete.challenge.bean.categories.structure.IconImageUrl;
 import com.concrete.challenge.bean.categories.structure.Subcategories;
+import com.concrete.challenge.bean.categories.structure.behaviour.ConvertToMobile;
 import com.concrete.challenge.converter.CategoryConverter;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
