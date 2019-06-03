@@ -72,4 +72,31 @@ Siga los pasos para implementar y enviar este desafio:
 ## Importante
 **No** intente hacer un PUSH directo a ESTE repositorio!
 
+## Compilar y generar el ensamblado
+    Gradle : ./gradlew build
+    Test   : java -jar build/libs/challenge-1.0.0.jar
+    Swagger: http://localhost:8080/swagger-ui.html
+
+# Crear imagen Docker
+En la raíz del proyecto, ejecutar los siguientes comandos:
+
+## Build de la imagen
+    docker build -f src/main/docker/Dockerfile -t challenge:1.0.0 .
+
+## Test de la imagen:
+    docker run --name challenge --rm -p 8080:8080 challenge:1.0.0
+
+## URL:
+    Swagger: http://localhost:8080/swagger-ui.html
+    Categories: http://localhost:8080/categories/top/5
+    Categories After: http://localhost:8080/categories/after/5
+    Categories Mobile: http://localhost:8080/mobile/categories/top/5
+    Categories After Mobile: http://localhost:8080/mobile/categories/after/5
+    Coupons Active: http://localhost:8080/coupons/active
+
+## Push de la imagen
+    docker tag challenge:1.0.0 REGISTRY_USER/challenge:1.0.0
+    docker push REGISTRY_USER/challenge:1.0.0
+
+
 ---
