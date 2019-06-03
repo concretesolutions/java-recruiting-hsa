@@ -1,7 +1,5 @@
 package com.concrete.challenge.bean.categories.adapted;
 
-import com.concrete.challenge.bean.categories.external.SubCategoryLevel3;
-import com.concrete.challenge.bean.categories.mobile.behaviour.ConvertToMobile;
 import com.concrete.challenge.bean.categories.structure.AbstractCategory;
 import com.concrete.challenge.bean.categories.structure.Category;
 import com.concrete.challenge.bean.categories.structure.IconImageUrl;
@@ -19,8 +17,8 @@ public class ASubCategoryLevel2
         extends AbstractCategory
         implements Category, IconImageUrl, Subcategories {
 
-        private String iconImageUrl;
-        private List<Category> subcategories;
+    private String iconImageUrl;
+    private List<Category> subcategories;
 
     @Builder
     public ASubCategoryLevel2(String id, String name, int relevance, String iconImageUrl, List<Category> subcategories) {
@@ -29,14 +27,14 @@ public class ASubCategoryLevel2
         this.subcategories = subcategories;
     }
 
-        @Override
-        public String getIconImageUrl() {
+    @Override
+    public String getIconImageUrl() {
         return iconImageUrl;
     }
 
-        @Override
-        public List<Category> getSubcategories() {
+    @Override
+    public List<Category> getSubcategories() {
         return Collections.unmodifiableList(subcategories);
     }
 
-    }
+}

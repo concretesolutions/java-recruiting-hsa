@@ -6,7 +6,6 @@ import com.concrete.challenge.bean.categories.structure.Category;
 import com.concrete.challenge.bean.categories.structure.Subcategories;
 import com.concrete.challenge.converter.CategoryConverter;
 import lombok.Builder;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.Collections;

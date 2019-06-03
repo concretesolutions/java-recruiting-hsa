@@ -1,7 +1,6 @@
 package com.concrete.challenge.controllers;
 
 import com.concrete.challenge.bean.coupons.external.Coupon;
-import com.concrete.challenge.controllers.CouponsController;
 import com.concrete.challenge.service.CouponsService;
 import org.junit.Test;
 import org.junit.runner.RunWith;

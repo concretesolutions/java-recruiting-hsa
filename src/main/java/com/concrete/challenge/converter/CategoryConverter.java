@@ -3,7 +3,6 @@ package com.concrete.challenge.converter;
 import com.concrete.challenge.bean.categories.adapted.ASubCategoryLevel2;
 import com.concrete.challenge.bean.categories.external.*;
 import com.concrete.challenge.bean.categories.mobile.MobileSubCategoryLevel3;
-import com.concrete.challenge.bean.categories.mobile.behaviour.ConvertToMobile;
 import com.concrete.challenge.bean.categories.structure.Category;
 import org.springframework.stereotype.Component;
 
@@ -31,8 +30,8 @@ public class CategoryConverter {
                 .relevance(category.getRelevance())
                 .iconImageUrl(category.getIconImageUrl())
                 .subcategories(category.getSubcategories()
-                                .stream()
-                                .map(this::convertToMobile)
+                        .stream()
+                        .map(this::convertToMobile)
                         .collect(Collectors.toList()
                         )
                 )

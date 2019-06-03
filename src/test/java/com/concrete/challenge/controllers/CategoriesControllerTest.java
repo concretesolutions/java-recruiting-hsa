@@ -2,7 +2,6 @@ package com.concrete.challenge.controllers;
 
 import com.concrete.challenge.bean.categories.external.SubCategoryLevel2;
 import com.concrete.challenge.bean.categories.structure.Category;
-import com.concrete.challenge.controllers.CategoriesController;
 import com.concrete.challenge.service.CategoriesService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,10 +11,12 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)

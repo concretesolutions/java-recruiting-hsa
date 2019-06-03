@@ -1,11 +1,8 @@
 package com.concrete.challenge.bean.categories.adapted;
 
-import com.concrete.challenge.bean.categories.external.SubCategoryLevel2;
-import com.concrete.challenge.bean.categories.mobile.behaviour.ConvertToMobile;
 import com.concrete.challenge.bean.categories.structure.AbstractCategory;
 import com.concrete.challenge.bean.categories.structure.Category;
 import com.concrete.challenge.bean.categories.structure.Subcategories;
-import com.concrete.challenge.converter.CategoryConverter;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
