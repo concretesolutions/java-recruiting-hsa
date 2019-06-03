@@ -4,10 +4,14 @@ import com.concrete.challenge.bean.categories.structure.AbstractCategory;
 import com.concrete.challenge.bean.categories.structure.Category;
 import com.concrete.challenge.bean.categories.structure.Subcategories;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.Collections;
 import java.util.List;
 
+@NoArgsConstructor
+@Getter
 public class ACategoryThree
         extends AbstractCategory
         implements Subcategories {

@@ -4,7 +4,7 @@ import com.concrete.challenge.bean.categories.external.Categories;
 import com.concrete.challenge.bean.categories.external.CategoryThree;
 import com.concrete.challenge.bean.categories.external.SubCategoryLevel2;
 import com.concrete.challenge.bean.categories.structure.Category;
-import com.concrete.challenge.client.CategoriesClient;
+import com.concrete.challenge.client.categories.CategoriesClient;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

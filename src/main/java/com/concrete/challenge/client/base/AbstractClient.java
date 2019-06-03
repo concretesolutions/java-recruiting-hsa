@@ -1,5 +1,6 @@
 package com.concrete.challenge.client.base;
 
+import com.concrete.challenge.configuration.ContainerConfiguration;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,7 +21,7 @@ import java.util.Optional;
 public abstract class AbstractClient<T> implements ClientOperations<T> {
 
     @Autowired
-    protected ClientConfiguration clientConfiguration;
+    protected ContainerConfiguration containerConfiguration;
     @Autowired
     protected RestTemplate template;
     private Class<T> clazz;

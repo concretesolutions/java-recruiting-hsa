@@ -1,7 +1,7 @@
 package com.concrete.challenge.service;
 
 import com.concrete.challenge.bean.coupons.external.Coupon;
-import com.concrete.challenge.client.CouponsClient;
+import com.concrete.challenge.client.coupons.CouponsRepository;
 import com.concrete.challenge.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 public class CouponsService {
 
     @Autowired
-    private CouponsClient couponsClient;
+    private CouponsRepository couponsRepository;
 
     @Autowired
     private DateUtil dateUtil;
@@ -23,7 +23,7 @@ public class CouponsService {
 
         LocalDate today = dateUtil.getToday();
 
-        return couponsClient.getCoupons()
+        return couponsRepository.getCoupons()
                 .stream()
                 .filter(coupon ->
                         LocalDate.parse(coupon.getExpiresAt()).isEqual(today) ||

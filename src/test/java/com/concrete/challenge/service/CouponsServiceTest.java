@@ -1,7 +1,7 @@
 package com.concrete.challenge.service;
 
 import com.concrete.challenge.bean.coupons.external.Coupon;
-import com.concrete.challenge.client.CouponsClient;
+import com.concrete.challenge.client.coupons.CouponsClient;
 import com.concrete.challenge.util.DateUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;

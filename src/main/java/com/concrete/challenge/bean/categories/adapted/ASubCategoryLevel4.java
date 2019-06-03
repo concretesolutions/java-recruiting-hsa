@@ -2,7 +2,11 @@ package com.concrete.challenge.bean.categories.adapted;
 
 import com.concrete.challenge.bean.categories.structure.AbstractCategory;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
+@Getter
 public class ASubCategoryLevel4 extends AbstractCategory {
 
     @Builder

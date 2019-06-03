@@ -1,4 +1,4 @@
-package com.concrete.challenge.client.base;
+package com.concrete.challenge.configuration;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,7 +18,7 @@ import org.springframework.web.client.RestTemplate;
 @AllArgsConstructor
 @Getter
 @Setter
-public class ClientConfiguration {
+public class ContainerConfiguration {
 
     @Value("${url.get-categories}")
     private String categoriesUrl;
@@ -29,4 +29,5 @@ public class ClientConfiguration {
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }
+
 }

@@ -2,10 +2,14 @@ package com.concrete.challenge.bean.categories.adapted;
 
 import com.concrete.challenge.bean.categories.structure.*;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.Collections;
 import java.util.List;
 
+@NoArgsConstructor
+@Getter
 public class ASubCategoryLevel3 extends AbstractCategory
         implements LargeImageUrl, MediumImageUrl, SmallImageUrl, Subcategories {
 
@@ -26,21 +30,6 @@ public class ASubCategoryLevel3 extends AbstractCategory
     @Override
     public List<Category> getSubcategories() {
         return Collections.unmodifiableList(subcategories);
-    }
-
-    @Override
-    public String getLargeImageUrl() {
-        return largeImageUrl;
-    }
-
-    @Override
-    public String getMediumImageUrl() {
-        return mediumImageUrl;
-    }
-
-    @Override
-    public String getSmallImageUrl() {
-        return smallImageUrl;
     }
 
 }

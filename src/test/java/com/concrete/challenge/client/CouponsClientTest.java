@@ -1,5 +1,6 @@
 package com.concrete.challenge.client;
 
+import com.concrete.challenge.client.coupons.CouponsClient;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
