@@ -1,6 +1,11 @@
 package com.concrete.challenge.bean.categories.adapted;
 
-import com.concrete.challenge.bean.categories.structure.*;
+import com.concrete.challenge.bean.categories.structure.AbstractCategory;
+import com.concrete.challenge.bean.categories.structure.Category;
+import com.concrete.challenge.bean.categories.structure.LargeImageUrl;
+import com.concrete.challenge.bean.categories.structure.MediumImageUrl;
+import com.concrete.challenge.bean.categories.structure.SmallImageUrl;
+import com.concrete.challenge.bean.categories.structure.Subcategories;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

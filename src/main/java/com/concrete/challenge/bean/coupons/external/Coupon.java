@@ -1,6 +1,10 @@
 package com.concrete.challenge.bean.coupons.external;
 
-import com.concrete.challenge.bean.coupons.structure.*;
+import com.concrete.challenge.bean.coupons.structure.Description;
+import com.concrete.challenge.bean.coupons.structure.ExpiresAt;
+import com.concrete.challenge.bean.coupons.structure.Id;
+import com.concrete.challenge.bean.coupons.structure.Image;
+import com.concrete.challenge.bean.coupons.structure.Seller;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
