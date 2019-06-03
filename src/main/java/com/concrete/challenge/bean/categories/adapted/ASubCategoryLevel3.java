@@ -1,26 +1,21 @@
-package com.concrete.challenge.bean.categories.external;
+package com.concrete.challenge.bean.categories.adapted;
 
-import com.concrete.challenge.bean.categories.mobile.behaviour.ConvertToMobile;
 import com.concrete.challenge.bean.categories.structure.*;
-import com.concrete.challenge.converter.CategoryConverter;
 import lombok.Builder;
-import lombok.NoArgsConstructor;
 
 import java.util.Collections;
 import java.util.List;
 
-@NoArgsConstructor
-public class SubCategoryLevel3
-        extends AbstractCategory
-        implements LargeImageUrl, MediumImageUrl, SmallImageUrl, Subcategories, ConvertToMobile {
+public class ASubCategoryLevel3 extends AbstractCategory
+        implements LargeImageUrl, MediumImageUrl, SmallImageUrl, Subcategories {
 
-    private List<SubCategoryLevel4> subcategories;
+    private List<Category> subcategories;
     private String largeImageUrl;
     private String mediumImageUrl;
     private String smallImageUrl;
 
     @Builder
-    public SubCategoryLevel3(String id, String name, int relevance, String largeImageUrl, String mediumImageUrl, String smallImageUrl, List<SubCategoryLevel4> subcategories) {
+    public ASubCategoryLevel3(String id, String name, int relevance, String largeImageUrl, String mediumImageUrl, String smallImageUrl, List<Category> subcategories) {
         super(id, name, relevance);
         this.largeImageUrl = largeImageUrl;
         this.mediumImageUrl = mediumImageUrl;
@@ -29,7 +24,7 @@ public class SubCategoryLevel3
     }
 
     @Override
-    public List<SubCategoryLevel4> getSubcategories() {
+    public List<Category> getSubcategories() {
         return Collections.unmodifiableList(subcategories);
     }
 
@@ -48,8 +43,4 @@ public class SubCategoryLevel3
         return smallImageUrl;
     }
 
-    @Override
-    public Category convertToMobile(CategoryConverter care) {
-        return care.convertToMobile(this);
-    }
 }

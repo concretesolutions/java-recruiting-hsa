@@ -1,4 +1,4 @@
-package com.concrete.challenge.controllers.web;
+package com.concrete.challenge.controllers;
 
 import com.concrete.challenge.bean.coupons.external.Coupon;
 import com.concrete.challenge.controllers.CouponsController;

@@ -1,4 +1,4 @@
-package com.concrete.challenge.controllers.web;
+package com.concrete.challenge.controllers;
 
 import com.concrete.challenge.bean.categories.external.SubCategoryLevel2;
 import com.concrete.challenge.bean.categories.structure.Category;

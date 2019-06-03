@@ -1,5 +1,6 @@
 package com.concrete.challenge.bean.categories.structure;
 
+import com.concrete.challenge.converter.CategoryConverter;
 import lombok.Getter;
 
 @Getter
@@ -17,6 +18,11 @@ public abstract class AbstractCategory implements Category {
         this.id = id;
         this.name = name;
         this.relevance = relevance;
+    }
+
+    @Override
+    public Category convertToMobile(CategoryConverter care) {
+        return this;
     }
 
 }
