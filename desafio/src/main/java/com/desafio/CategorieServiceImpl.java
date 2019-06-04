@@ -7,6 +7,7 @@ import com.desafio.entidades.SubcategoryLv3;
 import com.desafio.entidades.SubcategoryLv4;
 
 import org.springframework.stereotype.Service;
+import org.yaml.snakeyaml.Yaml;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -35,17 +36,6 @@ public class CategorieServiceImpl implements CategorieService {
             
             top5Categorie = this.categorieRepositorie.getListCategorie();
             
-            //ordena subcategorias nivel 4
-            top5Categorie.getSubcategories().stream()
-			.forEach(x -> x.getSubcategories().stream()
-						   .forEach(lv3 -> lv3.getSubcategorie().stream()
-								   			  .forEach(lv4 -> lv4.setSubcategories(orderCategorie4Relevance(lv4.getSubcategories())))));
-            
-            //ordena subcategorias nivel 3
-            top5Categorie.getSubcategories().stream()
-			.forEach(x -> x.getSubcategories().stream().forEach(lv3 -> lv3.setSubcategorie(orderCategorie3Relevance(lv3.getSubcategorie()))));
-        				
-                        
             //ordena subcategorias nivel 2
             top5Categorie.getSubcategories().stream()
 			.forEach(x -> x.setSubcategories(orderCategorie2Relevance(x.getSubcategories())));
@@ -53,22 +43,40 @@ public class CategorieServiceImpl implements CategorieService {
         } catch (IOException io) {
             throw new NullPointerException();
         }
+        catch(NullPointerException en)
+        {
+        	System.out.println(en.getStackTrace());
+        	System.out.println(en.getMessage());
+        }
+        catch(Exception e)
+        {
+        	System.out.println(e.getStackTrace());
+        }
         return top5Categorie;
     }
 
-    public CategorieThree getCategorieOthers() {
+    @SuppressWarnings("unlikely-arg-type")
+	public CategorieThree getCategorieOthers() {
 
         CategorieThree listAllCategorie = new CategorieThree();
-        CategorieThree listTop5Categorie = new CategorieThree();
 
-        try {
-
-            listAllCategorie = this.categorieRepositorie.getListCategorie();
-            listAllCategorie.getSubcategories().remove(getCategorieTop5().getSubcategories());
-
+        try { 
+        	listAllCategorie = this.categorieRepositorie.getListCategorie();
+        	 CategorieThree top5Categorie =  getCategorieTop5();
+           
+        	 for(Categories cat : top5Categorie.getSubcategories())
+        	 {
+        		 for(SubcategoryLv2 lv2 : cat.getSubcategories())
+        		 {
+        				 listAllCategorie.getSubcategories().stream().forEach(x -> x.getSubcategories().removeIf(y-> y.getId().equals(lv2.getId())));
+        		 }
+        			 
+        	 }
+           
         } catch (IOException io) {
             throw new NullPointerException();
         }
+        
         return listAllCategorie;
     }
     
@@ -77,7 +85,6 @@ public class CategorieServiceImpl implements CategorieService {
     	List<SubcategoryLv2> result = new ArrayList<SubcategoryLv2>();
     	try {
     		result = list.stream().sorted(Comparator.comparingInt(SubcategoryLv2::getRelevance)).collect(Collectors.toList());
-    		if(result.stream().count() > 5)
     			result = result.stream().filter(x-> x.getRelevance() != 0).limit(5).collect(Collectors.toList());
     	}
     	catch(Exception e)
@@ -88,37 +95,6 @@ public class CategorieServiceImpl implements CategorieService {
     	
     }
     
-    private List<SubcategoryLv3> orderCategorie3Relevance(List<SubcategoryLv3> list)
-    {
-    	List<SubcategoryLv3> result = new ArrayList<SubcategoryLv3>();
-    	try {
-    		result = list.stream().sorted(Comparator.comparingInt(SubcategoryLv3::getRelevance)).collect(Collectors.toList());
-    		if(result.stream().count() > 5)
-    			result = result.stream().filter(x-> x.getRelevance() != 0).limit(5).collect(Collectors.toList());
-    	}
-    	catch(Exception e)
-    	{
-    		e.printStackTrace();
-    	}
-    	return result;
-    	
-    }
-    
-    private List<SubcategoryLv4> orderCategorie4Relevance(List<SubcategoryLv4> list)
-    {
-    	List<SubcategoryLv4> result = new ArrayList<SubcategoryLv4>();
-    	try {
-    		result = list.stream().sorted(Comparator.comparingInt(SubcategoryLv4::getRelevance)).collect(Collectors.toList());
-    		if(result.stream().count() > 5)
-    			result = result.stream().filter(x-> x.getRelevance() != 0).limit(5).collect(Collectors.toList());
-    	}
-    	catch(Exception e)
-    	{
-    		e.printStackTrace();
-    	}
-    	return result;
-    	
-    }
-
-
+   
+   
 }

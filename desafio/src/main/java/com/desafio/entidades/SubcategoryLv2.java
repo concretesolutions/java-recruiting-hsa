@@ -11,20 +11,20 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 public class SubcategoryLv2 extends BaseCategorie {
 
     private String iconImageUrl;
-    private List<SubcategoryLv3> subcategorie;
+    private List<SubcategoryLv3> subcategories;
 
     public SubcategoryLv2() {
     }
 
-    public SubcategoryLv2(String iconImageUrl, List<SubcategoryLv3> subcategorie) {
+    public SubcategoryLv2(String iconImageUrl, List<SubcategoryLv3> subcategories) {
         this.iconImageUrl = iconImageUrl;
-        this.subcategorie = (ArrayList<SubcategoryLv3>)subcategorie;
+        this.subcategories = (ArrayList<SubcategoryLv3>)subcategories;
     }
 
-    public SubcategoryLv2(String id, String name, int relevance, String iconImageUrl, List<SubcategoryLv3> subcategorie) {
+    public SubcategoryLv2(String id, String name, int relevance, String iconImageUrl, List<SubcategoryLv3> subcategories) {
         super(id, name, relevance);
         this.iconImageUrl = iconImageUrl;
-        this.subcategorie = (ArrayList<SubcategoryLv3>)subcategorie;
+        this.subcategories = (ArrayList<SubcategoryLv3>)subcategories;
     }
 
     public String getIconImageUrl() {
@@ -35,12 +35,12 @@ public class SubcategoryLv2 extends BaseCategorie {
         this.iconImageUrl = iconImageUrl;
     }
 
-    public List<SubcategoryLv3> getSubcategorie() {
-        return subcategorie;
+    public List<SubcategoryLv3> getSubcategories() {
+        return subcategories;
     }
 
-    public void setSubcategorie(List<SubcategoryLv3> subcategorie) {
-        this.subcategorie = (ArrayList<SubcategoryLv3>) subcategorie;
+    public void setSubcategorie(List<SubcategoryLv3> subcategories) {
+        this.subcategories = (ArrayList<SubcategoryLv3>) subcategories;
     }
 }
 
