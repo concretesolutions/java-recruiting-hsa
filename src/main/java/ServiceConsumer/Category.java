@@ -1,6 +1,9 @@
 package ServiceConsumer;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+/**
+ * Class that represents a category
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Category {
     private String id;

@@ -2,6 +2,9 @@ package ServiceConsumer;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+/**
+ * Class which represents a coupon.
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Coupon {
     private String id;
@@ -10,12 +13,11 @@ public class Coupon {
     private String image;
     private String expiresAt;
 
-    //Constructor defined for testing purposes
-    /*public Coupon(String id, String expiresAt) {
-        this.id = id;
-        this.expiresAt = expiresAt;
-    }*/
-
+    /**
+     * Checks if two coupon objects are equal.
+     * @param object object to compare with
+     * @return true if objects are equal
+     */
     public boolean equals(Object object) {
         Coupon emp = (Coupon) object;
             if(this.id.equalsIgnoreCase(emp.getId()) && expiresAt.equalsIgnoreCase(emp.getExpiresAt()))
@@ -65,6 +67,10 @@ public class Coupon {
         this.expiresAt = expiresAt;
     }
 
+    /**
+     * Returns an string representing a json structure of this object.
+     * @return a string with a json representation
+     */
     @Override
     public String toString() {
         return "Coupon { " +
