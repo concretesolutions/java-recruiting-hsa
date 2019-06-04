@@ -8,5 +8,5 @@ import java.util.List;
 
 public interface CategorieRepositorie {
 
-    List<CategorieThree> getListCategorie() throws IOException;
+    CategorieThree getListCategorie() throws IOException;
 }

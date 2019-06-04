@@ -27,7 +27,7 @@ public class CategorieController {
             produces = MediaType.APPLICATION_JSON_VALUE,
             method = RequestMethod.GET
     )
-    public List<CategorieThree> categorieTop5() {
+    public CategorieThree categorieTop5() {
         return categorieService.getCategorieTop5();
     }
 
@@ -37,7 +37,7 @@ public class CategorieController {
             produces = MediaType.APPLICATION_JSON_VALUE,
             method = RequestMethod.GET
     )
-    public List<CategorieThree> categorieOther() {
+    public CategorieThree categorieOther() {
         return categorieService.getCategorieOthers();
     }
 }

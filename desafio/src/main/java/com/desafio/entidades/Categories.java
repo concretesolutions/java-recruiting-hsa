@@ -1,7 +1,13 @@
 package com.desafio.entidades;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Categories extends BaseCategorie {
 
     private List<SubcategoryLv2> subcategories;

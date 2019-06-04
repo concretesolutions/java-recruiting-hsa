@@ -5,11 +5,15 @@ import com.desafio.entidades.CategorieThree;
 import com.desafio.entidades.Cupon;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import com.google.gson.Gson;
 
 @Repository
 public class CategorieRepositorieImpl implements CategorieRepositorie {
@@ -22,14 +26,16 @@ public class CategorieRepositorieImpl implements CategorieRepositorie {
         this.apiUtils = new CallApiUtils();
     }
 
-    public List<CategorieThree> getListCategorie() throws IOException {
-        List<CategorieThree> categorieThree = null;
+    @SuppressWarnings("static-access")
+	public CategorieThree getListCategorie() throws IOException {
+        CategorieThree categorieThree = new CategorieThree();
 
         ObjectMapper mapper = new ObjectMapper();
 
-        categorieThree = (List<CategorieThree>) mapper.readValue(this.apiUtils.getContentApi(API_CATEGORIE), new TypeReference<List<CategorieThree>>() {
-        });
+        CategorieThree data = new Gson().fromJson(this.apiUtils.getContentApi(API_CATEGORIE), CategorieThree.class);	
+//        categorieThree = mapper.readValue(this.apiUtils.getContentApi(API_CATEGORIE), new TypeReference<CategorieThree>() {
+//        });
 
-        return categorieThree;
+        return data;
     }
 }

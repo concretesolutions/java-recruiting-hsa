@@ -15,7 +15,6 @@ import java.util.stream.Collectors;
 @Service
 public class CuponServiceImpl implements CuponService{
 
-    static final String apiCupones = "https://cs-hsa-api-coupons.herokuapp.com/coupons";
     private CuponRepositorie cuponRepositorie;
 
     public CuponServiceImpl(CuponRepositorie cuponRepositorie) {
