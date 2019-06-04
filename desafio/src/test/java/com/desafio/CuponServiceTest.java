@@ -29,11 +29,18 @@ public class CuponServiceTest {
     }
 
     @Test
-    public void validaExpireDateWhenDateIsAfter() throws IOException
+    public void validaExpireDateWhenDateIsBefore() throws IOException
     {
         when(cuponRepositorie.getListCupon()).thenReturn(CuponMock.withExpiredCupons());
         final List<Cupon> cupon = cuponService.getCuponsValid();
-        assertEquals(2,cupon.size());
+        assertEquals(0,cupon.size());
     }
 
+    @Test
+    public void validaExpireDateWhenDateIsAfter() throws IOException
+    {
+        when(cuponRepositorie.getListCupon()).thenReturn(CuponMock.withNotExpiredCupons());
+        final List<Cupon> cupon = cuponService.getCuponsValid();
+        assertEquals(3,cupon.size());
+    }
 }

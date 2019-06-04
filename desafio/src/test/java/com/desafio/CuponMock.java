@@ -10,8 +10,18 @@ public class CuponMock {
     public static List<Cupon> withExpiredCupons() {
 
         List<Cupon> cupons = new ArrayList<Cupon>();
-        cupons.add(new Cupon("","","","","2020-12-01"));
+        cupons.add(new Cupon("","","","","2010-12-01"));
         cupons.add(new Cupon("","","","","2016-05-05"));
+        cupons.add(new Cupon("","","","","2014-12-20"));
+
+        return cupons;
+    }
+    
+    public static List<Cupon> withNotExpiredCupons() {
+
+        List<Cupon> cupons = new ArrayList<Cupon>();
+        cupons.add(new Cupon("","","","","2020-12-01"));
+        cupons.add(new Cupon("","","","","2030-05-05"));
         cupons.add(new Cupon("","","","","2040-12-20"));
 
         return cupons;
