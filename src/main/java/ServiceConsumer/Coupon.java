@@ -11,10 +11,10 @@ public class Coupon {
     private String expiresAt;
 
     //Constructor defined for testing purposes
-    public Coupon(String id, String expiresAt) {
+    /*public Coupon(String id, String expiresAt) {
         this.id = id;
         this.expiresAt = expiresAt;
-    }
+    }*/
 
     public boolean equals(Object object) {
         Coupon emp = (Coupon) object;

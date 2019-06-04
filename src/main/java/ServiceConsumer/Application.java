@@ -46,7 +46,8 @@ public class Application {
             printFetchedJSON(category);
 
             getValidCoupons(coupons);
-            generateCategoryTop5(category);
+            generateCategoryArray(category, "Top5");
+            generateCategoryArray(category, "Grid");
         };
     }
 
@@ -54,10 +55,10 @@ public class Application {
 
 
 
-    private static void printCategoriesTop5(Category[] top5) {
-        if(top5 != null)
-        for (int i = 0; i < top5.length; i++) {
-            log.info(top5[i].getName());
+    private static void printCategories(Category[] categories) {
+        if(categories != null)
+        for (int i = 0; i < categories.length; i++) {
+            log.info(categories[i].getName());
         }
     }
 
@@ -98,27 +99,38 @@ public class Application {
         }
     }
 
-    private static Category[] generateCategoryTop5( Category rootCategory){
+    private static Category[] generateCategoryArray(Category rootCategory, String categoryGroup){
         try {
             Category[] mobCategory = rootCategory.getSubcategories();
             Category[] principalCategories = mobCategory[0].getSubcategories();
 
-            //Calculate total relevance for each category
-            for (int i = 0; i < principalCategories.length; ++i) {
-                principalCategories[i].setRelevance(calculateTotalCategoryRelevance(principalCategories[i]));
-            }
-
+            principalCategories = calculateCategoriesRelevance(principalCategories);
             principalCategories = orderCategoriesByRelevance(principalCategories);
 
-            //Generate a subarray with the first 5 categories
-            Category[] top5 = Arrays.copyOfRange(principalCategories,0,5);
-            printCategoriesTop5(top5);
-            return top5;
+            Category[] categories;
+            if(categoryGroup.equalsIgnoreCase("Top5")) {
+                //Generate a subarray with the first 5 categories
+                categories = Arrays.copyOfRange(principalCategories, 0, 5);
+                printCategories(categories);
+            } else {
+                //Generate a subarray with the categories out of the top 5
+                categories = Arrays.copyOfRange(principalCategories,5,principalCategories.length);
+                printCategories(categories);
+            }
+            return categories;
 
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
+    }
+
+    private static Category[] calculateCategoriesRelevance(Category[] principalCategories) {
+        //Calculate total relevance for each category
+        for (int i = 0; i < principalCategories.length; ++i) {
+            principalCategories[i].setRelevance(calculateTotalCategoryRelevance(principalCategories[i]));
+        }
+        return principalCategories;
     }
 
     private static Category[] orderCategoriesByRelevance(Category[] principalCategories) {
@@ -133,7 +145,6 @@ public class Application {
         }
         return principalCategories;
     }
-
 
     private static int calculateTotalCategoryRelevance(Category category) {
         if(category.getSubcategories() != null && category.getSubcategories().length > 0)
