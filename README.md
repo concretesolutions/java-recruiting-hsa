@@ -36,7 +36,7 @@ El equipo Mobile necesita construir una pantalla de inicio que debe mostrar:
 - Carrusel con **Top 5** categorias.
 - Carrusel con cupones que no han expirado.
 - Tabla (Grid) con las categorias **restantes**.
-- Mobile **no** necesita de todas las imagenes del modelo de categorías, pero solamente el **icono** y la **imagen más pequeña**. Tu podrías tener que filtrar la respuesta, si tu quieres.
+- Mobile **no** necesita de todas las imagenes del modelo de subcategorías, solamente la **imagen más pequeña**. Tu podrías tener que filtrar la respuesta, si tu quieres.
 
 ### Puntos a Considerar
 - La API de Cupones es **inestable** y a veces demora en responder. ¿Qué podemos hacer para que este problema no se replique en otras capas? ¿Habrá algún patrón que nos ayude?
