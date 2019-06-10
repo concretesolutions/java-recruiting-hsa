@@ -1,12 +1,15 @@
-# Challenge Checklist
-Make a final checkup here to ensure you are not forgetting anything :)  
-There's no problem if you need to fix something and update this **Pull Request** after the submission.
+# Información del Canditado
+**Nombre**: SU_NOMBRE_AQUÍ
+
+# Checklist del Desafío
+Has una verificación final de esta lista para asegurar que no estes olvidando nada :)  
+No tiene problemas si necesitas hacer algún arreglo y atualizar este **Pull Request** después de enviarlo.
 
 ## Checklist
-Put an ```x``` in the boxes that apply.
-- [ ] Code builds
-- [ ] All tests are running (if applied)
-- [ ] Your project is well documented (how to run, test ...)
+Coloque una ```x``` en las cajas que aplican.
+- [ ] El código compila
+- [ ] Todas las pruebas se ejecutan exitosamente
+- [ ] Su proyecto está bien documentado (cómo ejecutar, pruebas ...)
 
-## Comments
-*Place here any comments or suggestions you may have*
+## Comentarios
+*Coloque aquí cualquier comentário o sugerencia que tenga*

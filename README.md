@@ -39,15 +39,16 @@ El equipo Mobile necesita construir una pantalla de inicio que debe mostrar:
 - Mobile **no** necesita de todas las imagenes del modelo de categorías, pero solamente el **icono** y la **imagen más pequeña**. Tu podrías tener que filtrar la respuesta, si tu quieres.
 
 ### Puntos a Considerar
-- La API de Cupones es **inestable** y a veces demora en responder.
-- La API de Categorias responde un modelo complejo de manejar.
+- La API de Cupones es **inestable** y a veces demora en responder. ¿Qué podemos hacer para que este problema no se replique en otras capas? ¿Habrá algún patrón que nos ayude?
+- La API de Categorias responde un modelo complejo de manejar. ¿Qué podríamos hacer para simplificar este modelo y que las integraciones con su aplicación sean más sencillas?
 
 ## ¿Qué nos Gustaría Ver? 
 Eres libre para implementar la solución de la forma que consideres mejor, 
 pero debes considerar el escenario, objetivo, implicaciones de performance y stack/pool de tecnología propuesta abajo.
-- Nos enfocamos mucho en la **calidad** de nuestros proyectos y nos gustaría ver alguna estrategia aplicada. Puedes usar, por ejemplo, **Pruebas Unitárias**;
+- Nos enfocamos mucho en la **calidad** de nuestros proyectos y nos gustaría ver alguna estrategia aplicada. Puedes usar, por ejemplo, **Pruebas Unitárias**.
 - No queremos que la experiencia de usuario se vea afectada por el rendimiento de los servicios;
 - **Usted tiene 1 semana para completar el desafio**. Si necesitas mas tiempo, no hay problema, puede hablar con nosotros y veremos que podemos hacer :)
+- Documentación de como configurar y ejecutar el proyecto. Puede sobrescribir el **README.md** para eso.
 
 ### Deseables
 - Podría ser bueno una documentación de API. Sugerencia: [Swagger](https://swagger.io/).
@@ -64,9 +65,9 @@ pero debes considerar el escenario, objetivo, implicaciones de performance y sta
 
 ## Forma de Entrega
 Siga los pasos para implementar y enviar este desafio:
-- Haga un **Fork** a este repositorio. Mira esta guía para mayores informaciones: [How to Fork a repository](https://help.github.com/en/articles/fork-a-repo).
+- Haga un **Fork** a este repositorio. Mira esta guía para mayores informaciones: [Como hacer fork de un repositorio](https://help.github.com/en/articles/fork-a-repo).
 - Implemente el desafio.
-- Después de completar el desafio, realise un **Pull Request** a este repositorio, utilisando la interface de **Github**. [Check this guide for more details](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork).
+- Después de completar el desafio, realise un **Pull Request** a este repositorio, utilisando la interface de **Github**. [Creando un Pull Request](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork).
 - Si es posible, deja tu repositorio publico para hacer la revision de codigo mas sencilla.
 
 ## Importante
