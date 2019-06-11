@@ -1,0 +1,10 @@
+{
+  "id": "ROOT",
+  "name": "LEGACY_NAVIGATION",
+  "subcategories": [
+    {
+      "id": "AAA",
+      "name": "MOBILE_MARKET"
+    }
+  ]
+}

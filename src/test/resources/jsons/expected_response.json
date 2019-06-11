@@ -1,0 +1,67 @@
+[
+  {
+    "id": "electronics",
+    "name": "Electronics",
+    "relevance": 0,
+    "iconImageUrl": "https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg",
+    "subcategories": [
+      {
+        "id": "tv",
+        "name": "TV",
+        "relevance": 0,
+        "smallImageUrl": "https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg",
+        "subcategories": [
+          {
+            "id": "4k",
+            "name": "4K",
+            "relevance": 700
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sports",
+    "name": "Sports",
+    "relevance": 1,
+    "iconImageUrl": "https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg",
+    "subcategories": [
+      {
+        "id": "bike",
+        "name": "Bike",
+        "relevance": 350,
+        "smallImageUrl": "https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg",
+        "subcategories": []
+      }
+    ]
+  },
+  {
+    "id": "books",
+    "name": "Books",
+    "relevance": 2,
+    "iconImageUrl": "https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg",
+    "subcategories": []
+  },
+  {
+    "id": "outdoor",
+    "name": "Outdoor",
+    "relevance": 3,
+    "iconImageUrl": "https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg",
+    "subcategories": []
+  },
+  {
+    "id": "food",
+    "name": "Food",
+    "relevance": 4,
+    "iconImageUrl": "https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg",
+    "subcategories": [
+      {
+        "id": "hamburger",
+        "name": "Hamburger",
+        "relevance": 350,
+        "smallImageUrl": "https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg",
+        "subcategories": []
+      }
+    ]
+  }
+]
