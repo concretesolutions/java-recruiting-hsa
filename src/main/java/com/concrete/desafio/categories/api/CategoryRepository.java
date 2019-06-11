@@ -9,5 +9,5 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public interface CategoryRepository {
 
   @RequestMapping(method = RequestMethod.GET)
-  ResponseEntity<CategoryThree> getCategoryThree();
+  ResponseEntity<CategoryThree> fetchCategoryThree();
 }

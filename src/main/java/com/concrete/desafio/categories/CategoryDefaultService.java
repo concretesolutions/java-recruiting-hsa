@@ -17,8 +17,8 @@ public class CategoryDefaultService implements CategoryService {
   private static final String MOBILE_MARKET_ID = "MOB";
 
   @Autowired
-  public CategoryDefaultService(final CategoryRepository categoryResponse) {
-    this.categoryRepository = categoryResponse;
+  public CategoryDefaultService(final CategoryRepository categoryRepository) {
+    this.categoryRepository = categoryRepository;
   }
 
   @Override
@@ -44,7 +44,7 @@ public class CategoryDefaultService implements CategoryService {
   }
 
   private List<SubcategoryLvTwo> sortSubCategoryLvTwo() {
-    CategoryThree categoryThree = categoryRepository.getCategoryThree().getBody();
+    CategoryThree categoryThree = categoryRepository.fetchCategoryThree().getBody();
 
     if (categoryThree.getSubcategories() == null) {
       throw new IllegalArgumentException("SubCategories can not be null");
@@ -55,7 +55,7 @@ public class CategoryDefaultService implements CategoryService {
         .collect(Collectors.toList());
   }
 
-  private Subcategory FilterMobileCategories(List<Subcategory> subcategories) {
+  private Subcategory FilterMobileCategories(final List<Subcategory> subcategories) {
     if (subcategories == null) {
       throw new IllegalArgumentException("SubCategories can not be null");
     }
@@ -66,7 +66,7 @@ public class CategoryDefaultService implements CategoryService {
         .orElseThrow(() -> new IllegalArgumentException("Mobile market category not found"));
   }
 
-  private List<CategoryResponse> mapCategories(List<SubcategoryLvTwo> subCategories) {
+  private List<CategoryResponse> mapCategories(final List<SubcategoryLvTwo> subCategories) {
 
     return subCategories.stream()
         .map(
@@ -81,7 +81,7 @@ public class CategoryDefaultService implements CategoryService {
   }
 
   private List<SubCategoryResponse> mapSubCategory(
-      List<SubcategoryLvThree> subcategoryLvThreeList) {
+     final List<SubcategoryLvThree> subcategoryLvThreeList) {
     return subcategoryLvThreeList.stream()
         .map(
             sub ->

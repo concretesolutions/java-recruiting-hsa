@@ -1,6 +1,6 @@
-package com.concrete.desafio.categories;
+package com.concrete.desafio.coupons;
 
-import com.concrete.desafio.utils.ErrorDTO;
+import com.concrete.desafio.coupons.api.Coupon;
 import com.concrete.desafio.utils.ErrorHandler;
 import feign.FeignException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,37 +12,27 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
-@ControllerAdvice
 @Controller
-public class CategoryController {
+@ControllerAdvice
+public class CouponController {
 
-  private CategoryService categoryService;
   private ErrorHandler errorHandler;
+  private CouponService couponService;
 
   @Autowired
-  public CategoryController(
-      final CategoryService categoryService, final ErrorHandler errorHandler) {
-    this.categoryService = categoryService;
+  public CouponController(final ErrorHandler errorHandler, final CouponService couponService) {
     this.errorHandler = errorHandler;
+    this.couponService = couponService;
   }
 
   @ResponseBody
   @RequestMapping(
-      value = "/getTopCategories",
+      value = "/getCoupons",
       produces = MediaType.APPLICATION_JSON_VALUE,
       method = RequestMethod.GET)
-  public ResponseEntity<List<CategoryResponse>> getTopCategories() {
-    return categoryService.topFiveCategories();
-  }
+  public ResponseEntity<List<Coupon>> getCoupons() {
 
-  @ResponseBody
-  @RequestMapping(
-      value = "/getRemainingCategories",
-      produces = MediaType.APPLICATION_JSON_VALUE,
-      method = RequestMethod.GET)
-  public ResponseEntity<List<CategoryResponse>> getRemainingCategories() {
-
-    return categoryService.remainingCategories();
+    return couponService.getCoupons();
   }
 
   @ExceptionHandler(value = Exception.class)
@@ -52,7 +42,8 @@ public class CategoryController {
   }
 
   @ExceptionHandler(FeignException.class)
-  public ResponseEntity handleFeignStatusException(final FeignException e, final HttpServletResponse response) {
+  public ResponseEntity handleFeignStatusException(
+      final FeignException e, final HttpServletResponse response) {
     response.setStatus(e.status());
     return errorHandler.handlerErrorFeignException(e, response);
   }

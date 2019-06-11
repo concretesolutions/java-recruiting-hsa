@@ -5,11 +5,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-@EnableFeignClients(basePackages = {"com.concrete.desafio.categories"})
+@EnableFeignClients(
+    basePackages = {"com.concrete.desafio.categories", "com.concrete.desafio.coupons"})
 public class DesafioConcreteApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(DesafioConcreteApplication.class, args);
-	}
-
+  public static void main(String[] args) {
+    SpringApplication.run(DesafioConcreteApplication.class, args);
+  }
 }
