@@ -35,7 +35,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>api-desafio</finalName>
+		<finalName>${project.name}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.codehaus.cargo</groupId>
@@ -49,12 +49,32 @@
 					<configuration>
 						<type>runtime</type>
 						<properties>
-							<cargo.remote.username>admin</cargo.remote.username>
-							<cargo.remote.password>password</cargo.remote.password>
-							<cargo.tomcat.manager.url>http://localhost:8080/manager/text</cargo.tomcat.manager.url>
+							<cargo.remote.username>${tomcat.user}</cargo.remote.username>
+							<cargo.remote.password>${tomcat.password}</cargo.remote.password>
+							<cargo.tomcat.manager.url>${tomcat.manager.url}</cargo.tomcat.manager.url>
 						</properties>
 					</configuration>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>properties-maven-plugin</artifactId>
+				<version>1.0.0</version>
+				<executions>
+					<execution>
+						<phase>initialize</phase>
+						<goals>
+							<goal>read-project-properties</goal>
+						</goals>
+						<configuration>
+							<!-- <files> <file>secrets.properties</file> </files> -->
+							<urls>
+								<!-- <url>classpath:secrets.properties</url> -->
+								<url>file:///${project.basedir}/secrets.properties</url>
+							</urls>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
