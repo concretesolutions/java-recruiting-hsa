@@ -6,7 +6,7 @@
 	<artifactId>api-desafio</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>api-desafio Maven Webapp</name>
+	<name>${project.name}</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -26,6 +26,16 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+			<version>2.1.2.RELEASE</version>
+		</dependency>
+		<!-- <dependency> <groupId>io.github.openfeign</groupId> <artifactId>feign-core</artifactId> 
+			<version>10.1.0</version> </dependency> <dependency> <groupId>io.github.openfeign</groupId> 
+			<artifactId>feign-okhttp</artifactId> <version>10.1.0</version> </dependency> 
+			<dependency> <groupId>io.github.openfeign</groupId> <artifactId>feign-gson</artifactId> 
+			<version>10.1.0</version> </dependency> -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -49,9 +59,11 @@
 					<configuration>
 						<type>runtime</type>
 						<properties>
-							<cargo.remote.username>${tomcat.user}</cargo.remote.username>
-							<cargo.remote.password>${tomcat.password}</cargo.remote.password>
-							<cargo.tomcat.manager.url>${tomcat.manager.url}</cargo.tomcat.manager.url>
+							<cargo.remote.username>admin</cargo.remote.username>
+							<cargo.remote.password>password</cargo.remote.password>
+							<cargo.tomcat.manager.url>http://localhost:8080/manager/text</cargo.tomcat.manager.url>
+							<!-- <cargo.remote.username>${tomcat.user}</cargo.remote.username> 
+								<cargo.remote.password>${tomcat.password}</cargo.remote.password> <cargo.tomcat.manager.url>${tomcat.manager.url}</cargo.tomcat.manager.url> -->
 						</properties>
 					</configuration>
 				</configuration>
@@ -70,7 +82,7 @@
 							<!-- <files> <file>secrets.properties</file> </files> -->
 							<urls>
 								<!-- <url>classpath:secrets.properties</url> -->
-								<url>file:///${project.basedir}/secrets.properties</url>
+								<url>file:///${project.basedir}/src/main/resources/secrets.properties</url>
 							</urls>
 						</configuration>
 					</execution>

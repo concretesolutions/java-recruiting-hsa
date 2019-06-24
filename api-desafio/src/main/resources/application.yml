@@ -1,0 +1,11 @@
+feign:
+	client:
+		config:
+			default:
+				connectTimeout: 5000
+				readTimeout: 5000
+				loggerLevel: basic
+			 
+coupons.endpoint=https://cs-hsa-api-coupons.herokuapp.com/coupons
+
+categories.endpoint=https://cs-hsa-api-categories.herokuapp.com/categories
