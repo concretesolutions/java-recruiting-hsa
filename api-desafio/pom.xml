@@ -1,17 +1,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
-	<groupId>org.springframework</groupId>
-	<artifactId>gs-spring-boot</artifactId>
-	<version>0.1.0</version>
-
-	<name>api-desafio</name>
+	<groupId>cl.concrete</groupId>
+	<artifactId>api-desafio</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>api-desafio Maven Webapp</name>
+	<url>http://maven.apache.org</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
+		<project.name>api-desafio</project.name>
 	</properties>
 
 	<parent>
@@ -34,10 +35,26 @@
 	</dependencies>
 
 	<build>
+		<finalName>api-desafio</finalName>
 		<plugins>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+				<groupId>org.codehaus.cargo</groupId>
+				<artifactId>cargo-maven2-plugin</artifactId>
+				<version>1.5.0</version>
+				<configuration>
+					<container>
+						<containerId>tomcat8x</containerId>
+						<type>remote</type>
+					</container>
+					<configuration>
+						<type>runtime</type>
+						<properties>
+							<cargo.remote.username>admin</cargo.remote.username>
+							<cargo.remote.password>password</cargo.remote.password>
+							<cargo.tomcat.manager.url>http://localhost:8080/manager/text</cargo.tomcat.manager.url>
+						</properties>
+					</configuration>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
