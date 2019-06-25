@@ -1,4 +1,4 @@
-package cl.concrete.desafio.webservice.client.model;
+package cl.concrete.desafio.ecommerce.webservice.client.model;
 
 import java.util.Date;
 

@@ -1,14 +1,14 @@
-package cl.concrete.desafio.utils;
+package cl.concrete.desafio.ecommerce.utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import cl.concrete.desafio.webservice.client.model.Category;
-import cl.concrete.desafio.webservice.client.model.CategoryDto;
-import cl.concrete.desafio.webservice.client.model.Coupon;
-import cl.concrete.desafio.webservice.client.model.CouponDto;
+import cl.concrete.desafio.ecommerce.webservice.client.model.Category;
+import cl.concrete.desafio.ecommerce.webservice.client.model.CategoryDto;
+import cl.concrete.desafio.ecommerce.webservice.client.model.Coupon;
+import cl.concrete.desafio.ecommerce.webservice.client.model.CouponDto;
 
 public class ResourceTransformer {
 
