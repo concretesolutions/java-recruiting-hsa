@@ -4,7 +4,6 @@ import java.text.ParseException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -41,6 +40,9 @@ public class CouponsServiceImpl implements CouponsService {
 	 */
 	@Scheduled(fixedRateString = "${coupons.refresh.time}")
 	public void refreshData() {
+		if(this.couponsDto != null ) {
+			this.couponsDto.clear();
+		}
 		this.couponsDto = this.client.findAll();
 	}
 

@@ -14,24 +14,9 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableFeignClients
 @EnableScheduling
 public class APIECommerce {
-	
-//	@Autowired
-//	private CouponsService couponsService;
-	
+
 	public static void main(String[] args) {
 		SpringApplication.run(APIECommerce.class, args);
-//		CouponsClientInterface client = Feign.builder()
-//				.decoder(new GsonDecoder())
-//				.target(CouponsClientInterface.class, "https://cs-hsa-api-coupons.herokuapp.com/coupons");
-//		
-//		try {
-//			List<Coupon> coupons = ResourceTransformer.transformDtosToCoupon(client.findAll());
-//			for(Coupon coupon:coupons) {
-//				System.out.println(coupon.getExpiresAt());
-//			}
-//		} catch (ParseException e) {
-//			// Logger
-//		}
 	}
 	
 }

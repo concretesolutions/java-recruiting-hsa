@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import cl.concrete.desafio.ecommerce.webservice.client.model.CouponDto;
 
-@FeignClient(name = "coupons", url = "https://cs-hsa-api-coupons.herokuapp.com")
+@FeignClient(name = "${coupons.webservice.client.service}", url = "${coupons.webservice.client.endpoint}")
 public interface CouponsRestClient {
 
-	@RequestMapping(method = RequestMethod.GET, value = "/coupons")
+	@RequestMapping(method = RequestMethod.GET, value = "/${coupons.webservice.client.service}")
 	public List<CouponDto> findAll();
 
 }

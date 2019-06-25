@@ -15,20 +15,13 @@ public class ResourceTransformer {
 	/**
 	 * 
 	 * @param categoryDto
-	 * @param parentId
 	 * @return
 	 */
-	public static Category transformDtoToCategory(final CategoryDto categoryDto, final String parentId) {
-		final Category category = new Category();
-		category.setId(categoryDto.getId());
-		category.setName(categoryDto.getName());
-		category.setRelevance(Integer.valueOf(categoryDto.getRelevance()));
-		category.setIconImage(categoryDto.getIconImageUrl());
-		category.setParentCategory(parentId);
-		category.getImages().put("large", categoryDto.getLargeImageUrl());
-		category.getImages().put("medium", categoryDto.getMediumImageUrl());
-		category.getImages().put("small", categoryDto.getSmallImageUrl());
-		return category;
+	public static List<Category> transformDtosToCategory(CategoryDto categoryDto) {
+		final List<Category> categories = new ArrayList<Category>();
+		ResourceTransformer.transformDtosToCategory(categories, categoryDto.getSubcategories(), categoryDto.getId());
+		categories.add(ResourceTransformer.transformDtoToCategory(categoryDto, null));
+		return categories;
 	}
 	
 	/**
@@ -37,17 +30,34 @@ public class ResourceTransformer {
 	 * @param parentId
 	 * @return
 	 */
-	public static List<Category> transformDtosToCategory(final CategoryDto[] categoriesDto, final String parentId) {
-		final List<Category> categories = new ArrayList<Category>();
-		for(int cat = 0; cat < categoriesDto.length; cat++) {
-			if(categoriesDto[cat].getSubcategories() != null && categoriesDto[cat].getSubcategories().length > 0) {
+	public static void transformDtosToCategory(final List<Category> categories, final List<CategoryDto> categoriesDto, final String parentId) {
+		for(CategoryDto categoryDto:categoriesDto) {
+			if(categoryDto.getSubcategories() != null && !categoryDto.getSubcategories().isEmpty()) {
 				// Recursive way to transform the service data model structure
-				ResourceTransformer.transformDtosToCategory(categoriesDto[cat].getSubcategories(), categoriesDto[cat].getId());
+				ResourceTransformer.transformDtosToCategory(categories, categoryDto.getSubcategories(), categoryDto.getId());
 			} else {
-				categories.add(ResourceTransformer.transformDtoToCategory(categoriesDto[cat], parentId));
+				categories.add(ResourceTransformer.transformDtoToCategory(categoryDto, parentId));
 			}
 		}
-		return categories;
+	}
+	
+	/**
+	 * 
+	 * @param categoryDto
+	 * @param parentId
+	 * @return
+	 */
+	public static Category transformDtoToCategory(final CategoryDto categoryDto, final String parentId) {
+		final Category category = new Category();
+		category.setId(categoryDto.getId());
+		category.setName(categoryDto.getName());
+		category.setRelevance(categoryDto.getRelevance() == null ? -1 : Integer.valueOf(categoryDto.getRelevance()));
+		category.setIconImage(categoryDto.getIconImageUrl());
+		category.setParentCategory(parentId);
+		category.getImages().put("large", categoryDto.getLargeImageUrl());
+		category.getImages().put("medium", categoryDto.getMediumImageUrl());
+		category.getImages().put("small", categoryDto.getSmallImageUrl());
+		return category;
 	}
 	
 	/**

@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import cl.concrete.desafio.ecommerce.webservice.client.model.CategoryDto;
 
-@FeignClient(name = "categories", url = "https://cs-hsa-api-categories.herokuapp.com")
+@FeignClient(name = "${categories.webservice.client.service}", url = "${categories.webservice.client.endpoint}")
 public interface CategoriesRestClient {
 
-	@RequestMapping(method = RequestMethod.GET, value = "/categories")
-	public CategoryDto[] findAll();
+	@RequestMapping(method = RequestMethod.GET, value = "/${categories.webservice.client.service}")
+	public CategoryDto findAll();
 
 }

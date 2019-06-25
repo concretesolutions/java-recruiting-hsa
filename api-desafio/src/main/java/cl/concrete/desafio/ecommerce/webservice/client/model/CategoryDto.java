@@ -1,5 +1,7 @@
 package cl.concrete.desafio.ecommerce.webservice.client.model;
 
+import java.util.List;
+
 public class CategoryDto {
 	
 	private String id;
@@ -9,7 +11,7 @@ public class CategoryDto {
 	private String mediumImageUrl;
 	private String smallImageUrl;
 	private String iconImageUrl;
-	private CategoryDto[] subcategories;
+	private List<CategoryDto> subcategories;
 	
 	public String getId() {
 		return id;
@@ -67,11 +69,11 @@ public class CategoryDto {
 		this.smallImageUrl = smallImageUrl;
 	}
 
-	public CategoryDto[] getSubcategories() {
+	public List<CategoryDto> getSubcategories() {
 		return subcategories;
 	}
 
-	public void setSubcategories(CategoryDto[] subcategories) {
+	public void setSubcategories(List<CategoryDto> subcategories) {
 		this.subcategories = subcategories;
 	}
 	
