@@ -35,18 +35,20 @@ Se creó una API que interactúa como middleware entre la aplicación Mobile (ta
 
 Para ejecutar la API es necesario descargar imágenes Docker creadas para este propósito.
 - Contenedor 1: Apache Tomcat 9.0.21 <br/>
-  $ docker run -it -d -p 8080:8080 --name tomcat-desafio ??riosoft/tomcat90 <br/>
+  $ docker run -it -d -p 8080:8080 --name tomcat-desafio ??riosoft/tomcat90??<br/>
 - Contenedor 2: Jenkins<br/>
-  $ docker run -it -d -p 8081:8080 --name jenkins-desafio ??jenkins/jenkins<br/>
+  $ docker run -it -d -p 8081:8080 --name jenkins-desafio ??jenkins/jenkins??<br/>
 
 Ya que estos contenedores son ambientes aislados de la máquina host, **la comunicación entre ellos se deberá hacer a través de la IP del host que esté ejecutando los contenedores**.
 
 Una vez iniciados estos contenedores, se puede proceder al levantamiento del Ambiente para la API. Esto se hace a través de 3 Jobs:
 - **ecommerce-api-compile**: Compila el proyecto que se encuentra en GitHub.
-- **ecommerce-api-deployment**: Deploya el WAR generado en el contenedor Tomcat.
-- **ecommerce-api-test**: Ejecuta una prueba de stress de los endpoints a través de la aplicación JMeter. Dura 1 minuto simulando 1000 conexiones.
+- **ecommerce-api-deployment**: Deploya el WAR generado en el contenedor Tomcat. **Se debe ingresar la IP del host para que el contenedor lo pueda reconocer**.
+- **ecommerce-api-test**: Ejecuta una prueba de stress de los endpoints a través de la aplicación JMeter. Dura 1 minuto simulando 1000 conexiones. **Se debe ingresar la IP del host para que el contenedor lo pueda reconocer**.
 
 # Rutas
+
+Suponiendo que los servicios correrán en la máquina host del evaluador, el nombre "localhost" será el adecuado para acceder a los proyectos desde el browser.
 
 **Spring Boot WebApp**
 
@@ -65,14 +67,16 @@ Una vez iniciados estos contenedores, se puede proceder al levantamiento del Amb
 # Docker machines
 
 **Apache Tomcat**
-- http:/localhost:8080
+- http://localhost:8080
 - User: admin
 - Password: password
 
 **Jenkins**
-- http:/localhost:8081
+- http://localhost:8081
 - User: admin
 - Password: password
 
 # Aplicación Mobile
+
+Se conecta a la API, falta desplegar los datos en los componentes de Flutter.
 ---
