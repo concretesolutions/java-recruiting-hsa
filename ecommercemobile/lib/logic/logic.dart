@@ -3,11 +3,16 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-const baseUrl = "http://192.168.0.15:8080/ecommerce";
+const baseUrl = "http://10.90.52.146:8080/ecommerce";
 
 class APICoupons {
   static Future getCoupons() {
     var url = baseUrl + "/coupons";
+    return http.get(url);
+  }
+
+  static Future getCurrentCoupons() {
+    var url = baseUrl + "/coupons/currents";
     return http.get(url);
   }
 }
@@ -54,10 +59,20 @@ class EcommerceListScreenState extends State<EcommerceListScreen> {
     });
   }
 
+  _getCurrentCoupons() {
+    APICoupons.getCurrentCoupons().then((response) {
+      setState(() {
+        Iterable list = json.decode(response.body);
+        coupons = list.map((model) => Coupon.fromJson(model)).toList();
+      });
+    });
+  }
+
   @override
   initState() {
     super.initState();
-    _getCoupons();
+    //_getCoupons();
+    _getCurrentCoupons();
   }
 
   dispose() {
