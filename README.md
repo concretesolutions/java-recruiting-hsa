@@ -46,6 +46,12 @@ Una vez iniciados estos contenedores, se puede proceder al levantamiento del Amb
 - **ecommerce-api-deployment**: Deploya el WAR generado en el contenedor Tomcat. **Se debe ingresar la IP del host para que el contenedor lo pueda reconocer**.
 - **ecommerce-api-test**: Ejecuta una prueba de stress de los endpoints a través de la aplicación JMeter. Dura 1 minuto simulando 1000 conexiones. **Se debe ingresar la IP del host para que el contenedor lo pueda reconocer**.
 
+# Testing
+
+Debido a que el principal foco del proyecto es el rendimiento, es que solo se creó un Job en Jenkins que realiza durante un minuto un test exhaustivo sobre los endpoints a través de la herramienta JMeter de Apache. Es posible realizar pruebas unitarias pero no me enfoqué en este aspecto favoreciendo el desarrollo a la parte de rendimiento.
+
+Ingresando a Jenkins, se pueden observar gráficas de rendimiento a medida que se hacen pruebas. Los rangos de comparación se pueden extender o disminuir de acuerdo a las preferencias de medición.
+
 # Rutas
 
 Suponiendo que los servicios correrán en la máquina host del evaluador, el nombre "localhost" será el adecuado para acceder a los proyectos desde el browser.
