@@ -27,7 +27,9 @@ public class CouponsServiceImpl implements CouponsService {
 	public List<Coupon> findAll() {
 		List<Coupon> coupons = null;
 		try {
-			coupons = ResourceTransformer.transformDtosToCoupon(this.couponsDto);
+			if(this.couponsDto != null && !this.couponsDto.isEmpty()) {
+				coupons = ResourceTransformer.transformDtosToCoupon(this.couponsDto);
+			}
 		} catch (ParseException e) {
 			// TODO Logger
 		}

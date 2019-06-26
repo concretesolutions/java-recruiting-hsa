@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>cl.concrete.desafio</groupId>
 	<artifactId>ecommerce</artifactId>
 	<name>ecommerce</name>
 	<packaging>war</packaging>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<description>Concrete ecommerce</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
+		<start-class>cl.concrete.desafio.ecommerce.APIECommerce</start-class>
 	</properties>
 
 	<parent>
@@ -32,69 +34,35 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-openfeign</artifactId>
-			<version>2.1.2.RELEASE</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		<!-- <dependency> <groupId>io.github.openfeign</groupId> <artifactId>feign-core</artifactId> 
-			<version>10.1.0</version> </dependency> <dependency> <groupId>io.github.openfeign</groupId> 
-			<artifactId>feign-okhttp</artifactId> <version>10.1.0</version> </dependency> 
-			<dependency> <groupId>io.github.openfeign</groupId> <artifactId>feign-gson</artifactId> 
-			<version>10.1.0</version> </dependency> -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+			<version>2.1.2.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
+		<finalName>${project.artifactId}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<plugin>
-				<groupId>org.codehaus.cargo</groupId>
-				<artifactId>cargo-maven2-plugin</artifactId>
-				<version>1.5.0</version>
-				<configuration>
-					<container>
-						<containerId>tomcat8x</containerId>
-						<type>remote</type>
-					</container>
-					<configuration>
-						<type>runtime</type>
-						<properties>
-							<cargo.remote.username>admin</cargo.remote.username>
-							<cargo.remote.password>password</cargo.remote.password>
-							<cargo.tomcat.manager.url>http://localhost:8080/manager/text</cargo.tomcat.manager.url>
-							<!-- <cargo.remote.username>${tomcat.user}</cargo.remote.username> 
-								<cargo.remote.password>${tomcat.password}</cargo.remote.password> <cargo.tomcat.manager.url>${tomcat.manager.url}</cargo.tomcat.manager.url> -->
-						</properties>
-					</configuration>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>properties-maven-plugin</artifactId>
-				<version>1.0.0</version>
-				<executions>
-					<execution>
-						<phase>initialize</phase>
-						<goals>
-							<goal>read-project-properties</goal>
-						</goals>
-						<configuration>
-							<urls>
-								<url>file:///${project.basedir}/src/main/resources/secrets.properties</url>
-							</urls>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
 		</plugins>
-		
 	</build>
 
 </project>
