@@ -3,7 +3,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-const baseUrl = "http://localhost:8080/ecommerce";
+const baseUrl = "http://192.168.0.15:8080/ecommerce";
 
 class APICoupons {
   static Future getCoupons() {
@@ -39,10 +39,10 @@ class Coupon {
 
 class EcommerceListScreen extends StatefulWidget {
   @override
-  createState() => EcommerceListScreenState();
+  EcommerceListScreenState createState() => EcommerceListScreenState();
 }
 
-class EcommerceListScreenState extends State {
+class EcommerceListScreenState extends State<EcommerceListScreen> {
   var coupons = new List<Coupon>();
 
   _getCoupons() {
@@ -54,6 +54,7 @@ class EcommerceListScreenState extends State {
     });
   }
 
+  @override
   initState() {
     super.initState();
     _getCoupons();
@@ -64,7 +65,7 @@ class EcommerceListScreenState extends State {
   }
 
   @override
-  build(context) {
+  Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: Text("Coupons List"),
