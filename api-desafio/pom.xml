@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	
+
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>cl.concrete.desafio</groupId>
 	<artifactId>ecommerce</artifactId>
@@ -20,7 +21,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.1.6.RELEASE</version>
-		<relativePath/>
+		<relativePath />
 	</parent>
 
 	<dependencies>
@@ -47,12 +48,6 @@
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
 			<version>2.1.2.RELEASE</version>
 		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-			<scope>test</scope>
-		</dependency>
 	</dependencies>
 
 	<build>
@@ -62,7 +57,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-				<plugin>
+			<plugin>
 				<groupId>org.codehaus.cargo</groupId>
 				<artifactId>cargo-maven2-plugin</artifactId>
 				<version>1.5.0</version>
@@ -84,7 +79,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		
 	</build>
 
 </project>
