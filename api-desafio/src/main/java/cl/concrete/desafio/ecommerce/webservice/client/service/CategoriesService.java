@@ -6,6 +6,6 @@ import cl.concrete.desafio.ecommerce.webservice.client.model.Category;
 
 public interface CategoriesService {
 	
-	public List<Category> findAll() ;
-
+	public List<Category> findAll();
+	
 }

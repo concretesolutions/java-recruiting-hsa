@@ -48,12 +48,12 @@ public class APIECommerce extends SpringBootServletInitializer {
 	}
 
 	@RequestMapping("/coupons")
-	public List<Coupon> findAll() {
+	public List<Coupon> findAllCoupons() {
 		return this.couponsService.findAll();
 	}
 	
 	@RequestMapping("/coupons/currents")
-	public List<Coupon> findCurrents() {
+	public List<Coupon> findCurrentCoupons() {
 		return this.couponsService.findCurrents();
 	}
 
