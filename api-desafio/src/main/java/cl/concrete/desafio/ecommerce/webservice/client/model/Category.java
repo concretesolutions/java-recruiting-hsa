@@ -3,13 +3,21 @@ package cl.concrete.desafio.ecommerce.webservice.client.model;
 import java.util.HashMap;
 import java.util.Map;
 
+import io.swagger.annotations.ApiModelProperty;
+
 public class Category {
 
+	@ApiModelProperty(notes = "Category ID")
 	private String id;
+	@ApiModelProperty(notes = "Name of the category")
 	private String name;
+	@ApiModelProperty(notes = "Parent of the category (the current category can be a subcategory)")
 	private String parentCategory;
+	@ApiModelProperty(notes = "Position of the category")
 	private Integer relevance;
+	@ApiModelProperty(notes = "The image of the category in several formats")
 	private Map<String, String> images;
+	@ApiModelProperty(notes = "Icon of the category")
 	private String iconImage;
 	
 	public Category() {

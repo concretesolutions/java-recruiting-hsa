@@ -2,12 +2,19 @@ package cl.concrete.desafio.ecommerce.webservice.client.model;
 
 import java.util.Date;
 
+import io.swagger.annotations.ApiModelProperty;
+
 public class Coupon {
 
+	@ApiModelProperty(notes = "Coupon ID")
 	private String id;
+	@ApiModelProperty(notes = "Coupon short description")
 	private String description;
+	@ApiModelProperty(notes = "Seller of the coupon")
 	private String seller;
+	@ApiModelProperty(notes = "Url to image")
 	private String imageUrl;
+	@ApiModelProperty(notes = "Expiration date of coupon")
 	private Date expiresAt;
 	
 	public String getId() {
