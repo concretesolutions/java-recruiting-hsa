@@ -34,10 +34,19 @@ Se creó una API que interactúa como middleware entre la aplicación Mobile (ta
 # Ambiente
 
 Para ejecutar la API es necesario descargar imágenes Docker creadas para este propósito.
-- Contenedor 1: Apache Tomcat 9.0.21 <br/>
-  $ docker run -it -d -p 8080:8080 --name tomcat-desafio ??riosoft/tomcat90??<br/>
+- Contenedor 1: Apache Tomcat 9.0.21<br/>
+  $ docker pull riosoft/tomcat90<br/>
+  $ docker run -it -d -p 8080:8080 --name tomcat-desafio riosoft/tomcat90<br/>
 - Contenedor 2: Jenkins<br/>
-  $ docker run -it -d -p 8081:8080 --name jenkins-desafio ??jenkins/jenkins??<br/>
+  $ docker pull riosoft/jenins-desafio<br/>
+  $ git clone https://github.com/ricardobranco777/docker-volumes.sh.git<br/>
+  $ cd docker-volumes.sh<br/>
+  $ # Colocar volumen de Jenkins acá<br/>
+  $ chmod +x docker-volumes.sh<br/>
+  $ docker run -it -d -p 8081:8080 --name jenkins-desafio riosoft/jenkins-desafio<br/>
+  $ docker stop jenkins-desafio<br/>
+  $ /docker-volumes.sh jenkins-desafio load jenkins-desafio-volumes.tar.gz<br/>
+  $ docker start jenkins-desafio<br/>
 
 Ya que estos contenedores son ambientes aislados de la máquina host, **la comunicación entre ellos se deberá hacer a través de la IP del host que esté ejecutando los contenedores**.
 
