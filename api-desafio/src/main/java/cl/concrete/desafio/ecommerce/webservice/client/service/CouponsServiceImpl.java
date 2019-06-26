@@ -42,10 +42,11 @@ public class CouponsServiceImpl implements CouponsService {
 	 */
 	@Scheduled(fixedRateString = "${coupons.refresh.time}")
 	public void refreshData() {
+		List<CouponDto> tmp = this.client.findAll();
 		if(this.couponsDto != null ) {
 			this.couponsDto.clear();
 		}
-		this.couponsDto = this.client.findAll();
+		this.couponsDto = tmp;
 	}
 
 }
