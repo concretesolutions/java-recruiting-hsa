@@ -7,4 +7,6 @@ import cl.concrete.desafio.ecommerce.webservice.client.model.Coupon;
 public interface CouponsService {
 
 	public List<Coupon> findAll();
+	
+	public List<Coupon> findCurrents();
 }
