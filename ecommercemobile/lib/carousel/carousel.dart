@@ -171,10 +171,17 @@ class _CategoriesCarouselState extends State<CategoriesCarousel> {
 
         );
       },
-      child:Container(
+      child: Container(
         margin: const EdgeInsets.all(10.0),
         color: index % 2 == 0 ? Colors.lightBlue : Colors.lightGreen,
-        child: Image.network(categories[index].images.small, fit: BoxFit.cover,),
+        child: Column(
+          children: <Widget>[
+            Text(categories[index].name, style: TextStyle(fontSize: 25.0),),
+            categories[index].images.small != null ?
+            Image.network(categories[index].images.small, fit: BoxFit.cover,) :
+            Image.asset('assets/nodisponible.png', fit: BoxFit.cover,),
+          ],
+        ) 
       )
     );
   }

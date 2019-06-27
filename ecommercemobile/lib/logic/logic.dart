@@ -56,51 +56,38 @@ class ImageTypes {
   String medium;
   String large;
 
-  ImageTypes(String small, String medium, String large) {
-    this.small = small;
-    this.medium = medium;
-    this.large = large;
-  }
-
-  ImageTypes.fromJson(Map json)
-      : small = json['small'],
-        medium = json['medium'],
-        large = json['large'];
-
-  Map toJson() {
-    return {'small': small, 'medium': medium, 'large': large};
-  }
+  ImageTypes({this.small, this.medium, this.large});
+  factory ImageTypes.fromJson(Map<String, dynamic> json) => _imageTypesFromJson(json);
 }
+
+ImageTypes _imageTypesFromJson(Map<String, dynamic> json) => ImageTypes(
+  small: json['small'] as String,
+  medium: json['medium'] as String,
+  large: json['large'] as String,
+);
 
 class Category {
   String id;
   String name;
   String parentCategory;
   int relevance;
-  ImageTypes images;
   String iconImage;
+  ImageTypes images;
 
-  Category(String id, String name, String parentCategory, int relevance, ImageTypes images, String iconImage) {
-    this.id = id;
-    this.name = name;
-    this.parentCategory = parentCategory;
-    this.relevance = relevance;
-    this.images = images;
-    this.iconImage = iconImage;
-  }
+  Category({this.id, this.name, this.parentCategory, this.relevance, this.iconImage, this.images});
+  factory Category.fromJson(Map<String, dynamic> json) => _categoryFromJson(json);
+}
 
-  Category.fromJson(Map json)
-      : id = json['id'],
-        name = json['name'],
-        parentCategory = json['parentCategory'],
-        relevance = json['relevance'],
-        images = json['images'],
-        iconImage = json['iconImage'];
-
-  Map toJson() {
-    return {'id': id, 'name': name, 'parentCategory': parentCategory, 'relevance': relevance, 'images': images, 'iconImage': iconImage};
-  }
-
+Category _categoryFromJson(Map<String, dynamic> json) {
+  var imagesJson = json['images'];
+  ImageTypes images = imagesJson != null ? new ImageTypes.fromJson(imagesJson) : null;
+  return Category(
+    id: json['id'] as String,
+    name: json['name'] as String,
+    parentCategory: json['parentCategory'] as String,
+    relevance: json['relevance'] as int,
+    images: images,
+  );
 }
 
 // Ignore
