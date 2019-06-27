@@ -8,4 +8,8 @@ public interface CategoriesService {
 	
 	public List<Category> findAll();
 	
+	public List<Category> findTopCategories();
+	
+	public List<Category> findNoTopCategories();
+	
 }

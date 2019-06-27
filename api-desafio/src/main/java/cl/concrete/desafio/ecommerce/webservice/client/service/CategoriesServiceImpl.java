@@ -1,5 +1,7 @@
 package cl.concrete.desafio.ecommerce.webservice.client.service;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +19,31 @@ public class CategoriesServiceImpl implements CategoriesService {
 	@Autowired
 	private CategoriesRestClient client;
 	
-	private CategoryDto categoryDto;
+	private List<Category> categories;
 	
 	@Override
 	public List<Category> findAll() {
-		return ResourceTransformer.transformDtosToCategory(this.categoryDto);
+		return this.categories;
+	}
+	
+	@Override
+	public List<Category> findTopCategories() {
+		Collections.sort(this.categories, Collections.reverseOrder());
+		final List<Category> topCategories = new ArrayList<Category>();
+		for(short top = 0; top < 5; top++) {
+			topCategories.add(this.categories.get(top));
+		}
+		return topCategories;
+	}
+	
+	@Override
+	public List<Category> findNoTopCategories() {
+		Collections.sort(this.categories, Collections.reverseOrder());
+		final List<Category> noTopCategories = new ArrayList<Category>();
+		for(int noTop = 5; noTop < this.categories.size() ; noTop++) {
+			noTopCategories.add(this.categories.get(noTop));
+		}
+		return noTopCategories;
 	}
 	
 	/**
@@ -30,8 +52,11 @@ public class CategoriesServiceImpl implements CategoriesService {
 	 */
 	@Scheduled(fixedRateString = "${categories.refresh.time}")
 	public void refreshData() {
-		this.categoryDto = null;
-		this.categoryDto = this.client.findAll();
+		final CategoryDto categoryDto = this.client.findAll();
+		if(this.categories != null) {
+			this.categories.clear();
+		}
+		this.categories = ResourceTransformer.transformDtosToCategory(categoryDto);
 	}
 
 }

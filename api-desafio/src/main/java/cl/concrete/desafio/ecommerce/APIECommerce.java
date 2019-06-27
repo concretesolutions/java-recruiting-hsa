@@ -50,7 +50,19 @@ public class APIECommerce extends SpringBootServletInitializer {
 	public List<Category> findAllCategories() {
 		return this.categoriesService.findAll();
 	}
+	
+	@ApiOperation(value = "Returns Top categories from https://cs-hsa-api-categories.herokuapp.com/docs")
+	@GetMapping("/categories/top")
+	public List<Category> findTopCategories() {
+		return this.categoriesService.findTopCategories();
+	}
 
+	@ApiOperation(value = "Returns no Top categories from https://cs-hsa-api-categories.herokuapp.com/docs")
+	@GetMapping("/categories/notop")
+	public List<Category> findNoTopCategories() {
+		return this.categoriesService.findNoTopCategories();
+	}
+	
 	@ApiOperation(value = "Returns all coupons from https://cs-hsa-api-coupons.herokuapp.com/docs")
 	@GetMapping("/coupons")
 	public List<Coupon> findAllCoupons() {

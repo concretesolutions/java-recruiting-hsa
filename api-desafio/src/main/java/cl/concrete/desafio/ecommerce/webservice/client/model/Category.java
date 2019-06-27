@@ -5,7 +5,7 @@ import java.util.Map;
 
 import io.swagger.annotations.ApiModelProperty;
 
-public class Category {
+public class Category implements Comparable {
 
 	@ApiModelProperty(notes = "Category ID")
 	private String id;
@@ -73,6 +73,11 @@ public class Category {
 
 	public void setIconImage(String iconImage) {
 		this.iconImage = iconImage;
+	}
+	
+	@Override
+	public int compareTo(Object category) {
+		return Integer.valueOf(this.getRelevance()) - Integer.valueOf(((Category)category).getRelevance()); 
 	}
 	
 }
