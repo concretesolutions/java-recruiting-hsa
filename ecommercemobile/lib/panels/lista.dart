@@ -1,4 +1,7 @@
+import 'package:ecommercemobile/logic/objects.dart';
 import 'package:flutter/material.dart';
+import 'dart:convert';
+import '../logic/logic.dart';
 
 class DLista extends StatefulWidget {
    @override
@@ -6,18 +9,35 @@ class DLista extends StatefulWidget {
 }
 
 class _DListaState extends State<DLista> {
-  var data = [
+   /*var data = [
     {"title": "Titulo 1",      "content": "Contenido 1"    },    {"title": "Titulo 2",      "content": "Contenido 2"    },
     {"title": "Titulo 3",      "content": "Contenido 3"    },    {"title": "Titulo 4",      "content": "Contenido 4"    },
     {"title": "Titulo 5",      "content": "Contenido 5"    },    {"title": "Titulo 6",      "content": "Contenido 6"    },
     {"title": "Titulo 7",      "content": "Contenido 7"    },    {"title": "Titulo 8",      "content": "Contenido 8"    },
     {"title": "Titulo 4",      "content": "Contenido 4"    }   ];
+*/
+  _getCategories() {
+    APICategories.getCategories().then((response) {
+      setState(() {
+        Iterable list = json.decode(response.body);
+        categories = list.map((model) => Category.fromJson(model)).toList();
+      });
+    });
+  }
+
+  @override
+  void initState(){
+    super.initState();
+    this._getCategories();
+  }
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      backgroundColor: Colors.white,
-      
+      backgroundColor: Colors.blueGrey.shade100,
+      appBar: AppBar(
+        title: Text("Categorías"),
+        ),
       body: new Stack(
         children: <Widget>[
           new Transform.translate(
@@ -27,11 +47,12 @@ class _DListaState extends State<DLista> {
               padding: const EdgeInsets.all(0.0),
               scrollDirection: Axis.vertical,
               primary: true,
-              itemCount: data.length,
+              itemCount: categories.length,
               itemBuilder: (BuildContext content, int index) {
                 return AwesomeListItem(
-                    title: data[index]["title"],
-                    content: data[index]["content"]);
+                    title: categories[index].name,
+                    content: categories[index].parentCategory != null ? categories[index].parentCategory : "Sin categoría"
+                    );
               },
             ),
           ),
@@ -67,8 +88,8 @@ class _AwesomeListItemState extends State<AwesomeListItem> {
                 new Text(
                   widget.title,
                   style: TextStyle(
-                      color: Colors.grey.shade800,
-                      fontSize: 18.0,
+                      color: Colors.black,
+                      fontSize: 30.0,
                       fontWeight: FontWeight.bold),
                 ),
                 new Padding(
@@ -76,8 +97,8 @@ class _AwesomeListItemState extends State<AwesomeListItem> {
                   child: new Text(
                     widget.content,
                     style: TextStyle(
-                        color: Colors.grey.shade500,
-                        fontSize: 12.0,
+                        color: Colors.lightBlue,
+                        fontSize: 18.0,
                         fontWeight: FontWeight.bold),
                   ),
                 ),

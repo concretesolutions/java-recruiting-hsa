@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import '../logic/logic.dart';
 import 'dart:convert';
+import '../logic/logic.dart';
+import '../logic/objects.dart';
 
-// Coupons
+/*
+ * Coupons
+ */
 class CouponsCarousel extends StatefulWidget {
   @override
   _CouponsCarouselState createState() => _CouponsCarouselState();
@@ -11,9 +14,6 @@ class CouponsCarousel extends StatefulWidget {
 class _CouponsCarouselState extends State<CouponsCarousel> {
   PageController _pageController;
   int currentPage=0;
-
-  // Coupons list from API ECommerce
-  var coupons = new List<Coupon>();
 
   _getCoupons() {
     APICoupons.getCoupons().then((response) {
@@ -45,7 +45,7 @@ class _CouponsCarouselState extends State<CouponsCarousel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: Colors.blueGrey.shade100,
       appBar: AppBar(
         title: Text("Cupones disponibles"),
       ),
@@ -89,15 +89,16 @@ class _CouponsCarouselState extends State<CouponsCarousel> {
         margin: const EdgeInsets.all(10.0),
         color: index % 2 == 0 ? Colors.lightBlue : Colors.lightGreen,
         child: Center(
-          child: Text(coupons[index].description),
+          child: Text(coupons[index].description, style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),),
         ) 
       )
     );
   }
 }
 
-
-
+/*
+ * Categories
+ */
 class CategoriesCarousel extends StatefulWidget {
   @override
   _CategoriesCarouselState createState() => _CategoriesCarouselState();
@@ -106,9 +107,6 @@ class CategoriesCarousel extends StatefulWidget {
 class _CategoriesCarouselState extends State<CategoriesCarousel> {
   PageController _pageController;
   int currentPage=0;
-
-  // Categories list from API ECommerce
-  var categories = new List<Category>();
 
   _getCategories() {
     APICategories.getCategories().then((response) {
@@ -131,7 +129,7 @@ class _CategoriesCarouselState extends State<CategoriesCarousel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: Colors.blueGrey.shade100,
       appBar: AppBar(
         title: Text("Top categorías"),
       ),
@@ -176,7 +174,7 @@ class _CategoriesCarouselState extends State<CategoriesCarousel> {
         color: index % 2 == 0 ? Colors.lightBlue : Colors.lightGreen,
         child: Column(
           children: <Widget>[
-            Text(categories[index].name, style: TextStyle(fontSize: 25.0),),
+            Text(categories[index].name, style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),),
             categories[index].images.small != null ?
             Image.network(categories[index].images.small, fit: BoxFit.cover,) :
             Image.asset('assets/nodisponible.png', fit: BoxFit.cover,),

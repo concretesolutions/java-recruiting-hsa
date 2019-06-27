@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import '../carousel/carousel.dart';
-import '../lista.dart';
-//import '../logic/logic.dart';
+import '../panels/carousel.dart';
+import '../panels/lista.dart';
 
 class Contendora extends StatelessWidget{
   @override 
@@ -17,7 +16,7 @@ class Contendora extends StatelessWidget{
             child: CouponsCarousel(),
           ),
           Expanded(
-            child: new DLista(),
+            child: DLista(),
           ),
       ],)
     );
