@@ -6,6 +6,8 @@ import 'objects.dart';
 
 const baseUrl = "http://10.90.52.146:8080/ecommerce";
 List<Category> categories = new List<Category>();
+List<Category> topCategories = new List<Category>();
+List<Category> noTopCategories = new List<Category>();
 List<Coupon> coupons = new List<Coupon>();
 
 class APICoupons {
@@ -23,6 +25,16 @@ class APICoupons {
 class APICategories {
   static Future getCategories() {
     var url = baseUrl + "/categories";
+    return http.get(url);
+  }
+
+  static Future getTopCategories() {
+    var url = baseUrl + "/categories/top";
+    return http.get(url);
+  }
+  
+  static Future getNoTopCategories() {
+    var url = baseUrl + "/categories/notop";
     return http.get(url);
   }
 }

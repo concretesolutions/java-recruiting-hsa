@@ -109,10 +109,10 @@ class _CategoriesCarouselState extends State<CategoriesCarousel> {
   int currentPage=0;
 
   _getCategories() {
-    APICategories.getCategories().then((response) {
+    APICategories.getTopCategories().then((response) {
       setState(() {
         Iterable list = json.decode(response.body);
-        categories = list.map((model) => Category.fromJson(model)).toList();
+        topCategories = list.map((model) => Category.fromJson(model)).toList();
       });
     });
   }
@@ -142,7 +142,7 @@ class _CategoriesCarouselState extends State<CategoriesCarousel> {
               });
             },
             controller: _pageController,
-            itemCount: categories.length,
+            itemCount: topCategories.length,
             itemBuilder: (context,index)=>animateItemBuilder(index),
             
           )
@@ -174,9 +174,9 @@ class _CategoriesCarouselState extends State<CategoriesCarousel> {
         color: index % 2 == 0 ? Colors.lightBlue : Colors.lightGreen,
         child: Column(
           children: <Widget>[
-            Text(categories[index].name, style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),),
-            categories[index].images.small != null ?
-            Image.network(categories[index].images.small, fit: BoxFit.cover,) :
+            Text(topCategories[index].name, style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),),
+            topCategories[index].images.small != null ?
+            Image.network(topCategories[index].images.small, fit: BoxFit.cover,) :
             Image.asset('assets/nodisponible.png', fit: BoxFit.cover,),
           ],
         ) 

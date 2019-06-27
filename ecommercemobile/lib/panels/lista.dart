@@ -9,18 +9,12 @@ class DLista extends StatefulWidget {
 }
 
 class _DListaState extends State<DLista> {
-   /*var data = [
-    {"title": "Titulo 1",      "content": "Contenido 1"    },    {"title": "Titulo 2",      "content": "Contenido 2"    },
-    {"title": "Titulo 3",      "content": "Contenido 3"    },    {"title": "Titulo 4",      "content": "Contenido 4"    },
-    {"title": "Titulo 5",      "content": "Contenido 5"    },    {"title": "Titulo 6",      "content": "Contenido 6"    },
-    {"title": "Titulo 7",      "content": "Contenido 7"    },    {"title": "Titulo 8",      "content": "Contenido 8"    },
-    {"title": "Titulo 4",      "content": "Contenido 4"    }   ];
-*/
+
   _getCategories() {
-    APICategories.getCategories().then((response) {
+    APICategories.getNoTopCategories().then((response) {
       setState(() {
         Iterable list = json.decode(response.body);
-        categories = list.map((model) => Category.fromJson(model)).toList();
+        noTopCategories = list.map((model) => Category.fromJson(model)).toList();
       });
     });
   }
@@ -41,17 +35,17 @@ class _DListaState extends State<DLista> {
       body: new Stack(
         children: <Widget>[
           new Transform.translate(
-            offset: new Offset(0.0, MediaQuery.of(context).size.height * 0.1050),
+            offset: new Offset(0.0, 0.0),
             child: new ListView.builder(
               shrinkWrap: true,
               padding: const EdgeInsets.all(0.0),
               scrollDirection: Axis.vertical,
               primary: true,
-              itemCount: categories.length,
+              itemCount: noTopCategories.length,
               itemBuilder: (BuildContext content, int index) {
                 return AwesomeListItem(
-                    title: categories[index].name,
-                    content: categories[index].parentCategory != null ? categories[index].parentCategory : "Sin categoría"
+                    title: noTopCategories[index].name,
+                    content: noTopCategories[index].parentCategory != null ? noTopCategories[index].parentCategory : "Sin categoría"
                     );
               },
             ),
