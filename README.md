@@ -13,7 +13,7 @@ Con lo anterior, es posible realizar Caching de datos dentro de la API. Esto sig
 
 La estructura de datos del webservice de Categorías es de tipo Recursiva. Para simplificar el modelo, se creó una lista lineal en donde cada elemento contiene los mismos atributos (no mandatorios) que el resto. La implementación actual solo considera un tag nuevo que hace referencia a la Categoría padre. Esta estructura puede ser robustecida si se agregan referencias para Categorías hijas (subcategorías).
 
-<img src="diagram.png" align="right" />
+<img src="images/diagram.png" align="right" />
 <br/><br/>
 
 Se creó una API que interactúa como middleware entre la aplicación Mobile (también creada para este proyecto) y los webservices RESTful del E-Commerce.
@@ -37,31 +37,44 @@ Se creó una API que interactúa como middleware entre la aplicación Mobile (ta
 # Ambiente
 
 Para ejecutar la API es necesario descargar imágenes Docker creadas para este propósito.
-- Contenedor 1: Apache Tomcat 9.0.21<br/>
-  *Cargar imagen*<br/>
-  $ docker pull riosoft/tomcat90<br/>
-  $ docker run -it -d -p 8080:8080 --name tomcat-desafio riosoft/tomcat90<br/>
-- Contenedor 2: Jenkins<br/>
-  *Cargar imagen*<br/>
-  $ docker pull riosoft/jenkins-desafio<br/>
-  $ docker run -it -d -p 8081:8080 --name jenkins-desafio riosoft/jenkins-desafio<br/>
-  $ docker stop jenkins-desafio<br/>
-  *Cargar volumen*<br/>
-  $ git clone https://github.com/ricardobranco777/docker-volumes.sh.git<br/>
-  $ cd docker-volumes.sh<br/>
-  $ chmod +x docker-volumes.sh<br/>
-  $ # Descargar comprimdo con volumen Docker desde https://drive.google.com/open?id=1nBl9nKdOY-bh-bmldClTjF77u5ifsMS5<br/>
-  $ # Colocar volumen de Jenkins acá<br/>
-  $ /docker-volumes.sh jenkins-desafio load jenkins-desafio-volumes.tar.gz<br/>
-  $ docker start jenkins-desafio<br/>
+- Contenedor 1: Apache Tomcat 9.0.21
+  ```
+  $ # *Cargar imagen*
+  $ docker pull riosoft/tomcat90
+  $ docker run -it -d -p 8080:8080 --name tomcat-desafio riosoft/tomcat90
+  ```
+- Contenedor 2: Jenkins
+  ```
+  $ # *Cargar imagen*
+  $ docker pull riosoft/jenkins-desafio
+  $ docker run -it -d -p 8081:8080 --name jenkins-desafio riosoft/jenkins-desafio
+  $ docker stop jenkins-desafio
+  $ # *Cargar volumen*
+  $ git clone https://github.com/ricardobranco777/docker-volumes.sh.git
+  $ cd docker-volumes.sh
+  $ chmod +x docker-volumes.sh
+  $ # Descargar comprimdo con volumen Docker desde https://drive.google.com/open?id=1nBl9nKdOY-bh-bmldClTjF77u5ifsMS5
+  $ # Colocar volumen de Jenkins acá
+  $ /docker-volumes.sh jenkins-desafio load jenkins-desafio-volumes.tar.gz
+  $ docker start jenkins-desafio
+  ```
 
 Ya que estos contenedores son ambientes aislados de la máquina host, **la comunicación entre ellos se deberá hacer a través de la IP del host que esté ejecutando los contenedores**.
 
 Una vez iniciados estos contenedores, se puede proceder al levantamiento del Ambiente para la API. Esto se hace a través de 3 Jobs:
-- **ecommerce-api-compile**: Compila el proyecto que se encuentra en GitHub.
+- **ecommerce-api-compile**: Compila el proyecto que se encuentra en GitHub. Descaga el fuente desde la cuenta "davidnilo". Esto se puede cambiar editando el Job.
+<img src="images/jenkins-compile.png" align="right" />
+<br/><br/>
 - **ecommerce-api-deployment**: Deploya el WAR generado en el contenedor Tomcat. **Se debe ingresar la IP del host para que el contenedor lo pueda reconocer**.
+<img src="images/jenkins-deploy.png" align="right" />
+<br/><br/>
 - **ecommerce-api-test**: Ejecuta una prueba de stress de los endpoints a través de la aplicación JMeter. Dura 1 minuto simulando 1000 conexiones. **Se debe ingresar la IP del host para que el contenedor lo pueda reconocer**.
-
+<img src="images/jenkins-test.png" align="right" />
+<br/><br/>
+<img src="images/jenkins-test-graph.png" align="right" />
+<br/><br/>
+<img src="images/jenkins-test-report.png" align="right" />
+<br/><br/>
 # Testing
 
 Debido a que el principal foco del proyecto es el rendimiento, es que solo se creó un Job en Jenkins que realiza durante un minuto un test exhaustivo sobre los endpoints a través de la herramienta JMeter de Apache. Es posible realizar pruebas unitarias pero no me enfoqué en este aspecto favoreciendo el desarrollo a la parte de rendimiento.
@@ -102,7 +115,9 @@ Suponiendo que los servicios correrán en la máquina host del evaluador, el nom
 
 El código fuente puede ser descargado desde GitHub. El nombre del proyecto es **ecommercemobile** y se puede ejecutar con Visual Studio Code + Emulador de Android Studio. Se utilizó el modelo Nexus 6 para conformar la pantalla.
 
-Esta muestra los datos según criterio definido, sin embargo, el look & feel es algo que debe ser mejorado.
+Esta muestra los datos según criterio definido, sin embargo, el *look & feel* es algo que debe ser mejorado.
+
+
 
 # Pendientes
 
