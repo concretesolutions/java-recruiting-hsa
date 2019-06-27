@@ -31,7 +31,9 @@ public class CategoriesServiceImpl implements CategoriesService {
 		Collections.sort(this.categories, Collections.reverseOrder());
 		final List<Category> topCategories = new ArrayList<Category>();
 		for(short top = 0; top < 5; top++) {
-			topCategories.add(this.categories.get(top));
+			if(this.categories.get(top).getRelevance() > 0) {
+				topCategories.add(this.categories.get(top));
+			}
 		}
 		return topCategories;
 	}
@@ -41,7 +43,9 @@ public class CategoriesServiceImpl implements CategoriesService {
 		Collections.sort(this.categories, Collections.reverseOrder());
 		final List<Category> noTopCategories = new ArrayList<Category>();
 		for(int noTop = 5; noTop < this.categories.size() ; noTop++) {
-			noTopCategories.add(this.categories.get(noTop));
+			if(this.categories.get(noTop).getRelevance() > 0) {
+				noTopCategories.add(this.categories.get(noTop));
+			}
 		}
 		return noTopCategories;
 	}
