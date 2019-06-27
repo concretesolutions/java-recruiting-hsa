@@ -13,7 +13,7 @@ Con lo anterior, es posible realizar Caching de datos dentro de la API. Esto sig
 
 La estructura de datos del webservice de Categorías es de tipo Recursiva. Para simplificar el modelo, se creó una lista lineal en donde cada elemento contiene los mismos atributos (no mandatorios) que el resto. La implementación actual solo considera un tag nuevo que hace referencia a la Categoría padre. Esta estructura puede ser robustecida si se agregan referencias para Categorías hijas (subcategorías).
 
-<img src="images/diagram.png" align="right" />
+<img src="images/diagram.png" align="left" />
 <br/><br/>
 
 Se creó una API que interactúa como middleware entre la aplicación Mobile (también creada para este proyecto) y los webservices RESTful del E-Commerce.
@@ -55,25 +55,25 @@ Para ejecutar la API es necesario descargar imágenes Docker creadas para este p
   $ chmod +x docker-volumes.sh
   $ # Descargar comprimdo con volumen Docker desde https://drive.google.com/open?id=1nBl9nKdOY-bh-bmldClTjF77u5ifsMS5
   $ # Colocar volumen de Jenkins acá
-  $ /docker-volumes.sh jenkins-desafio load jenkins-desafio-volumes.tar.gz
+  $ ./docker-volumes.sh jenkins-desafio load jenkins-desafio-volumes.tar.gz
   $ docker start jenkins-desafio
   ```
 
 Ya que estos contenedores son ambientes aislados de la máquina host, **la comunicación entre ellos se deberá hacer a través de la IP del host que esté ejecutando los contenedores**.
 
 Una vez iniciados estos contenedores, se puede proceder al levantamiento del Ambiente para la API. Esto se hace a través de 3 Jobs:
-- **ecommerce-api-compile**: Compila el proyecto que se encuentra en GitHub. Descaga el fuente desde la cuenta "davidnilo". Esto se puede cambiar editando el Job.
-<img src="images/jenkins-compile.png" align="right" />
+- **ecommerce-api-compile**: Compila el proyecto que se encuentra en GitHub. Descaga el fuente desde la cuenta "davidnilo". Esto se puede cambiar editando el Job.<br/>
+<img src="images/jenkins-compile.png" align="left" />
 <br/><br/>
-- **ecommerce-api-deployment**: Deploya el WAR generado en el contenedor Tomcat. **Se debe ingresar la IP del host para que el contenedor lo pueda reconocer**.
-<img src="images/jenkins-deploy.png" align="right" />
+- **ecommerce-api-deployment**: Deploya el WAR generado en el contenedor Tomcat. **Se debe ingresar la IP del host para que el contenedor lo pueda reconocer**.<br/>
+<img src="images/jenkins-deploy.png" align="left" />
 <br/><br/>
-- **ecommerce-api-test**: Ejecuta una prueba de stress de los endpoints a través de la aplicación JMeter. Dura 1 minuto simulando 1000 conexiones. **Se debe ingresar la IP del host para que el contenedor lo pueda reconocer**.
-<img src="images/jenkins-test.png" align="right" />
+- **ecommerce-api-test**: Ejecuta una prueba de stress de los endpoints a través de la aplicación JMeter. Dura 1 minuto simulando 1000 conexiones. **Se debe ingresar la IP del host para que el contenedor lo pueda reconocer**.<br/>
+<img src="images/jenkins-test.png" align="left" />
 <br/><br/>
-<img src="images/jenkins-test-graph.png" align="right" />
+<img src="images/jenkins-test-graph.png" align="left" />
 <br/><br/>
-<img src="images/jenkins-test-report.png" align="right" />
+<img src="images/jenkins-test-report.png" align="left" />
 <br/><br/>
 # Testing
 
@@ -114,10 +114,10 @@ Suponiendo que los servicios correrán en la máquina host del evaluador, el nom
 # Aplicación Mobile
 
 El código fuente puede ser descargado desde GitHub. El nombre del proyecto es **ecommercemobile** y se puede ejecutar con Visual Studio Code + Emulador de Android Studio. Se utilizó el modelo Nexus 6 para conformar la pantalla.
-
 Esta muestra los datos según criterio definido, sin embargo, el *look & feel* es algo que debe ser mejorado.
-
-
+La referencia que apunta a la API se encuentra en el archivo **/lib/logic/logic.dart**.
+<img src="images/vsc_IP-mobile.png" align="left" />
+<br/><br/>
 
 # Pendientes
 
