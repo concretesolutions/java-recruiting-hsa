@@ -12,9 +12,7 @@
 Con lo anterior, es posible realizar Caching de datos dentro de la API. Esto significa que periódicamente se realizaran solicitudes hacia los webservices legados refrescando y almacenando las listas para que las consultas a la API se hagan desde los datos en Caching. Se aplicó esta solución para los dos webservices ya que se optó por mejorar el rendimiento en ambos servicios.
 
 La estructura de datos del webservice de Categorías es de tipo Recursiva. Para simplificar el modelo, se creó una lista lineal en donde cada elemento contiene los mismos atributos (no mandatorios) que el resto. La implementación actual solo considera un tag nuevo que hace referencia a la Categoría padre. Esta estructura puede ser robustecida si se agregan referencias para Categorías hijas (subcategorías).
-
-<img src="images/diagram.png" align="left" />
-<br/><br/>
+![diagram](images/diagram.png)
 
 Se creó una API que interactúa como middleware entre la aplicación Mobile (también creada para este proyecto) y los webservices RESTful del E-Commerce.
 
@@ -63,23 +61,21 @@ Ya que estos contenedores son ambientes aislados de la máquina host, **la comun
 
 Una vez iniciados estos contenedores, se puede proceder al levantamiento del Ambiente para la API. Esto se hace a través de 3 Jobs:
 - **ecommerce-api-compile**: Compila el proyecto que se encuentra en GitHub. Descaga el fuente desde la cuenta "davidnilo". Esto se puede cambiar editando el Job.<br/>
-<img src="images/jenkins-compile.png" align="left" />
-<br/><br/>
+![jenkins-compile](images/jenkins-compile.png)
 - **ecommerce-api-deployment**: Deploya el WAR generado en el contenedor Tomcat. **Se debe ingresar la IP del host para que el contenedor lo pueda reconocer**.<br/>
-<img src="images/jenkins-deploy.png" align="left" />
-<br/><br/>
+![jenkins-deploy](images/jenkins-deploy.png)
 - **ecommerce-api-test**: Ejecuta una prueba de stress de los endpoints a través de la aplicación JMeter. Dura 1 minuto simulando 1000 conexiones. **Se debe ingresar la IP del host para que el contenedor lo pueda reconocer**.<br/>
-<img src="images/jenkins-test.png" align="left" />
-<br/><br/>
-<img src="images/jenkins-test-graph.png" align="left" />
-<br/><br/>
-<img src="images/jenkins-test-report.png" align="left" />
-<br/><br/>
+![jenkins-test](images/jenkins-test.png)
+![jenkins-test](images/jenkins-test-graph.png)
+
 # Testing
 
 Debido a que el principal foco del proyecto es el rendimiento, es que solo se creó un Job en Jenkins que realiza durante un minuto un test exhaustivo sobre los endpoints a través de la herramienta JMeter de Apache. Es posible realizar pruebas unitarias pero no me enfoqué en este aspecto favoreciendo el desarrollo a la parte de rendimiento.
 
 Ingresando a Jenkins, se pueden observar gráficas de rendimiento a medida que se hacen pruebas. Los rangos de comparación se pueden extender o disminuir de acuerdo a las preferencias de medición.
+
+Reporte JMeter (ECommercePlan.jmx):
+![jenkins-test](images/jenkins-test-report.png)
 
 # Rutas
 
@@ -114,14 +110,15 @@ Suponiendo que los servicios correrán en la máquina host del evaluador, el nom
 # Aplicación Mobile
 
 El código fuente puede ser descargado desde GitHub. El nombre del proyecto es **ecommercemobile** y se puede ejecutar con Visual Studio Code + Emulador de Android Studio. Se utilizó el modelo Nexus 6 para conformar la pantalla.
+
 Esta muestra los datos según criterio definido, sin embargo, el *look & feel* es algo que debe ser mejorado.
+
 La referencia que apunta a la API se encuentra en el archivo **/lib/logic/logic.dart**.
-<img src="images/vsc_IP-mobile.png" align="left" />
-<br/><br/>
+![vsc_IP-mobile](images/vsc_IP-mobile.png)
 
 # Pendientes
 
-- La creación de pruebas unitarias quedaron pendientes en favor de pruebas de rendimiento. No obstante, crear un stack de pruebas unitarias para validar los datos que la API procesa es importante. Por otro lado, la API solo devuelve datos y no trabaja ningún valor de entrada, por lo que solo estaríamos limitados a revisar las salidas que esta proporciona.
-- **Datos sensibles**. Debido a la dimensión del desafío, es que valores como contraseñas, usuarios y direcciones se encuentran directamente en el código fuente o en sus respectivas properties. Esta práctica no es buena en ambientes reales y estos deben ser tratados con mayor cuidado.
+- **Pruebas Unitarias**: La creación de pruebas unitarias quedaron pendientes en favor de pruebas de rendimiento. No obstante, crear un stack de pruebas unitarias para validar los datos que la API procesa es importante. Por otro lado, la API solo devuelve datos y no trabaja ningún valor de entrada, por lo que solo estaríamos limitados a revisar las salidas que esta proporciona.
+- **Datos sensibles**: Debido a la dimensión del desafío, es que valores como contraseñas, usuarios y direcciones se encuentran directamente en el código fuente o en sus respectivas properties. Esta práctica no es buena en ambientes reales y estos deben ser tratados con mayor cuidado.
 
 ---
