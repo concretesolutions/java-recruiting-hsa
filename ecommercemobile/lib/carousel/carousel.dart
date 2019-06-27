@@ -33,28 +33,32 @@ class _CouponsCarouselState extends State<CouponsCarousel> {
     });
   }
 
-
   @override
   void initState(){
     super.initState();
     this._getCurrentCoupons();
     _pageController = PageController(
       initialPage:currentPage, keepPage:false, viewportFraction:0.5,
-    );    
+    );   
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blueGrey,
+      appBar: AppBar(
+        title: Text("Cupones disponibles"),
+      ),
       body: Center(
         child: Container(
-          child:PageView.builder(
+          child: PageView.builder(
             onPageChanged: (value){
               setState((){
                 currentPage=value;
               });
             },
             controller: _pageController,
+            itemCount: coupons.length,
             itemBuilder: (context,index)=>animateItemBuilder(index),
             
           )
@@ -73,7 +77,7 @@ class _CouponsCarouselState extends State<CouponsCarousel> {
         }
 
         return Center(
-          child:SizedBox(
+          child: SizedBox(
             height: Curves.easeOut.transform(value) * 200,
             width: Curves.easeOut.transform(value) * 150,
             child: child,
@@ -84,7 +88,9 @@ class _CouponsCarouselState extends State<CouponsCarousel> {
       child: Container(
         margin: const EdgeInsets.all(10.0),
         color: index % 2 == 0 ? Colors.lightBlue : Colors.lightGreen,
-        child: FlutterLogo(),
+        child: Center(
+          child: Text(coupons[index].description),
+        ) 
       )
     );
   }
@@ -92,26 +98,43 @@ class _CouponsCarouselState extends State<CouponsCarousel> {
 
 
 
-class Carousel extends StatefulWidget {
+class CategoriesCarousel extends StatefulWidget {
   @override
-  _CarouselState createState() => _CarouselState();
+  _CategoriesCarouselState createState() => _CategoriesCarouselState();
 }
 
-class _CarouselState extends State<Carousel> {
+class _CategoriesCarouselState extends State<CategoriesCarousel> {
   PageController _pageController;
   int currentPage=0;
+
+  // Categories list from API ECommerce
+  var categories = new List<Category>();
+
+  _getCategories() {
+    APICategories.getCategories().then((response) {
+      setState(() {
+        Iterable list = json.decode(response.body);
+        categories = list.map((model) => Category.fromJson(model)).toList();
+      });
+    });
+  }
 
   @override
   void initState(){
     super.initState();
+    this._getCategories();
     _pageController = PageController(
-    initialPage:currentPage, keepPage:false, viewportFraction:0.5,
+      initialPage:currentPage, keepPage:false, viewportFraction:0.5,
     );    
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blueGrey,
+      appBar: AppBar(
+        title: Text("Top categorías"),
+      ),
       body: Center(
         child: Container(
           child:PageView.builder(
@@ -121,6 +144,7 @@ class _CarouselState extends State<Carousel> {
               });
             },
             controller: _pageController,
+            itemCount: categories.length,
             itemBuilder: (context,index)=>animateItemBuilder(index),
             
           )
@@ -139,7 +163,7 @@ class _CarouselState extends State<Carousel> {
         }
 
         return Center(
-          child:SizedBox(
+          child: SizedBox(
             height: Curves.easeOut.transform(value) * 200,
             width: Curves.easeOut.transform(value)*150,
             child: child,
@@ -150,7 +174,7 @@ class _CarouselState extends State<Carousel> {
       child:Container(
         margin: const EdgeInsets.all(10.0),
         color: index % 2 == 0 ? Colors.lightBlue : Colors.lightGreen,
-        child: FlutterLogo(),
+        child: Image.network(categories[index].images.small, fit: BoxFit.cover,),
       )
     );
   }

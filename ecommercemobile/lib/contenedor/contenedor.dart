@@ -8,16 +8,17 @@ class Contendora extends StatelessWidget{
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.topRight,
-      child: Column(children: <Widget>[
-        Expanded(
-          child: Carousel(),
-        ),
-        Expanded(
-          child: CouponsCarousel(),
-        ),
-        Expanded(
-          child: new DLista(),
-        ),
+      child: Column(
+        children: <Widget>[
+          Expanded(
+            child: CategoriesCarousel(),
+          ),
+          Expanded(
+            child: CouponsCarousel(),
+          ),
+          Expanded(
+            child: new DLista(),
+          ),
       ],)
     );
   }
