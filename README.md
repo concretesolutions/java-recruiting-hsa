@@ -47,6 +47,7 @@ Para ejecutar la API es necesario descargar imágenes Docker creadas para este p
   $ git clone https://github.com/ricardobranco777/docker-volumes.sh.git<br/>
   $ cd docker-volumes.sh<br/>
   $ chmod +x docker-volumes.sh<br/>
+  $ # Descargar comprimdo con volumen Docker desde https://drive.google.com/open?id=1nBl9nKdOY-bh-bmldClTjF77u5ifsMS5<br/>
   $ # Colocar volumen de Jenkins acá<br/>
   $ /docker-volumes.sh jenkins-desafio load jenkins-desafio-volumes.tar.gz<br/>
   $ docker start jenkins-desafio<br/>
