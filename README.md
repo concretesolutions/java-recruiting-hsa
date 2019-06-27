@@ -13,10 +13,8 @@ Con lo anterior, es posible realizar Caching de datos dentro de la API. Esto sig
 
 La estructura de datos del webservice de Categorías es de tipo Recursiva. Para simplificar el modelo, se creó una lista lineal en donde cada elemento contiene los mismos atributos (no mandatorios) que el resto. La implementación actual solo considera un tag nuevo que hace referencia a la Categoría padre. Esta estructura puede ser robustecida si se agregan referencias para Categorías hijas (subcategorías).
 
-
-
 <img src="diagram.png" align="right" />
-
+<br/><br/>
 
 Se creó una API que interactúa como middleware entre la aplicación Mobile (también creada para este proyecto) y los webservices RESTful del E-Commerce.
 
