@@ -97,5 +97,13 @@ Suponiendo que los servicios correrán en la máquina host del evaluador, el nom
 
 # Aplicación Mobile
 
-Se conecta a la API, falta desplegar los datos en los componentes de Flutter.
+El código fuente puede ser descargado desde GitHub. El nombre del proyecto es **ecommercemobile** y se puede ejecutar con Visual Studio Code + Emulador de Android Studio. Se utilizó el modelo Nexus 6 para conformar la pantalla.
+
+Esta muestra los datos según criterio definido, sin embargo, el look & feel es algo que debe ser mejorado.
+
+# Pendientes
+
+- La creación de pruebas unitarias quedaron pendientes en favor de pruebas de rendimiento. No obstante, crear un stack de pruebas unitarias para validar los datos que la API procesa es importante. Por otro lado, la API solo devuelve datos y no trabaja ningún valor de entrada, por lo que solo estaríamos limitados a revisar las salidas que esta proporciona.
+- **Datos sensibles**. Debido a la dimensión del desafío, es que valores como contraseñas, usuarios y direcciones se encuentran directamente en el código fuente o en sus respectivas properties. Esta práctica no es buena en ambientes reales y estos deben ser tratados con mayor cuidado.
+
 ---
