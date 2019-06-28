@@ -88,6 +88,8 @@ Suponiendo que los servicios correrán en la máquina host del evaluador, el nom
 **URLs RESTful**
 
 - http://localhost:8080/ecommerce/categories
+- http://localhost:8080/ecommerce/categories/top
+- http://localhost:8080/ecommerce/categories/notop
 - http://localhost:8080/ecommerce/coupons
 - http://localhost:8080/ecommerce/coupons/currents
 
