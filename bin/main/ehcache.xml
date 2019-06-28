@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache>
+    <defaultCache eternal="true" maxElementsInMemory="1000000" overflowToDisk="false" />
+    <cache name="coupons" 
+           maxElementsInMemory="1000000" 
+           timeToIdleSeconds="1200"
+           timeToLiveSeconds="1200"
+           overflowToDisk="false"
+           memoryStoreEvictionPolicy="LRU" />
+    <cache name="categories" 
+           maxElementsInMemory="1000000" 
+           timeToIdleSeconds="1200"
+           timeToLiveSeconds="1200"
+           overflowToDisk="false"
+           memoryStoreEvictionPolicy="LRU" />
+</ehcache>
