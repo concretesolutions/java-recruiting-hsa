@@ -11,6 +11,17 @@ http://127.0.0.1:8094/swagger-ui.html#/
 
 El proyecto esta hecho con SpringBoot y Gradle.
 
+# Compilar y ejecutar
+
+En el root del proyecto con el terminal ejecutar:
+
+./gradle build
+./gradle run
+
+Ir al navegador e ir a la siguiente direccion:
+
+http://127.0.0.1:8094/swagger-ui.html#/
+
 # Puntos que se consideraron
 Cómo la api de cupones es inestable, decidí utilizar cache del SpringBoot. Nos permiten almacenar en memoria datos devueltos por un método concreto estableciendo un limite de tiempo y de datos.
 
