@@ -74,6 +74,9 @@ Siga los pasos para implementar y enviar este desafio:
 **No** intente hacer un PUSH directo a ESTE repositorio!
 
 ---
+## Comentarios
+-Aplicación construida con Spring Boot, pruebas con mockito, swagger, se usa caching para guardar las solicitudes en cache
+----------------
 
 ## Ejecutar aplicacion
 - Ejecuta el siguiente comando en la raiz del proyecto para correr la aplicacion: .\gradlew bootrun
