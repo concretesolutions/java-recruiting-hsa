@@ -14,7 +14,7 @@ Coloque una ```x``` en las cajas que aplican.
 ## Comentarios
 
 ## Ejecutar aplicacion
-- Ejecuta el siguiente comando en la raiz de proyecto para correr la aplicacion .\gradle bootrun
+- Ejecuta el siguiente comando en la raiz de proyecto para correr la aplicacion .\gradlew bootrun
 
 ## Ver documentación de Swagger
 
