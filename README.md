@@ -74,3 +74,12 @@ Siga los pasos para implementar y enviar este desafio:
 **No** intente hacer un PUSH directo a ESTE repositorio!
 
 ---
+
+## Ejecutar aplicacion
+- Ejecuta el siguiente comando en la raiz de proyecto para correr la aplicacion .\gradle bootrun
+
+## Ver documentación de Swagger
+
+-Para ver la documentación de swagger puedes puedes abrir la siguiente url: http://localhost:8080/swagger-ui.html
+
+---
