@@ -76,7 +76,7 @@ Siga los pasos para implementar y enviar este desafio:
 ---
 
 ## Ejecutar aplicacion
-- Ejecuta el siguiente comando en la raiz de proyecto para correr la aplicacion: .\gradle bootrun
+- Ejecuta el siguiente comando en la raiz de proyecto para correr la aplicacion: .\gradlew bootrun
 
 ## Ver documentación de Swagger
 
