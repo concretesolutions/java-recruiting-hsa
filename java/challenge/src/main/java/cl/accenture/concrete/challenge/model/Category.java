@@ -3,6 +3,9 @@ package cl.accenture.concrete.challenge.model;
 import java.util.List;
 import java.util.StringJoiner;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 public class Category {
 	
 	//Common fields
@@ -10,13 +13,18 @@ public class Category {
 	private String name;
 	private long relevance;
 	
-	//Specific fields
+	//Specific fields (can be null)
+	@JsonInclude(Include.NON_NULL)
 	private String iconImageUrl;
+	@JsonInclude(Include.NON_NULL)
 	private String largeImageUrl;
+	@JsonInclude(Include.NON_NULL)
 	private String mediumImageUrl;
+	@JsonInclude(Include.NON_NULL)
 	private String smallImageUrl;
 	
 	//Subcategories Tree
+	@JsonInclude(Include.NON_EMPTY)
 	private List<Category> subcategories;
 
 	public String getId() {

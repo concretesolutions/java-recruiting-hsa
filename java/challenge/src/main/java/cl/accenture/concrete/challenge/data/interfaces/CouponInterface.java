@@ -1,4 +1,4 @@
-package cl.accenture.concrete.challenge.interfaces;
+package cl.accenture.concrete.challenge.data.interfaces;
 
 import java.util.List;
 

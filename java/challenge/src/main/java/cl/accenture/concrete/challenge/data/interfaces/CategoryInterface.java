@@ -1,6 +1,4 @@
-package cl.accenture.concrete.challenge.interfaces;
-
-import java.util.List;
+package cl.accenture.concrete.challenge.data.interfaces;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
