@@ -1,5 +1,8 @@
 package cl.accenture.concrete.challenge.model;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class Coupon {
 
 	private String id;
@@ -7,7 +10,6 @@ public class Coupon {
 	private String seller;
 	private String image;
 	private String expiresAt;
-
 	
 	public String getId() {
 		return id;
@@ -49,16 +51,8 @@ public class Coupon {
 		this.expiresAt = expiresAt;
 	}
 	
-	public String toString() {
-		StringBuilder str = new StringBuilder();
-		str.append("{");
-		str.append("id: " + getId());
-		str.append("description: " + getDescription());
-		str.append("seller: " + getSeller());
-		str.append("image: " + getImage());
-		str.append("expiresAt: " + getExpiresAt());
-		str.append("}");
-		return str.toString();
+	public boolean isValid(LocalDate dt, String format) {
+		LocalDate couponDate = LocalDate.parse(this.expiresAt, DateTimeFormatter.ofPattern(format));
+		return couponDate.isAfter(dt);
 	}
-
 }

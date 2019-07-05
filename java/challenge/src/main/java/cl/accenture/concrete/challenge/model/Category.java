@@ -1,17 +1,17 @@
 package cl.accenture.concrete.challenge.model;
 
 import java.util.List;
-import java.util.StringJoiner;
+import java.util.stream.Stream;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-public class Category {
+public class Category implements Comparable<Category> {
 	
 	//Common fields
 	private String id;
 	private String name;
-	private long relevance;
+	private int relevance;
 	
 	//Specific fields (can be null)
 	@JsonInclude(Include.NON_NULL)
@@ -43,11 +43,11 @@ public class Category {
 		this.name = name;
 	}
 
-	public long getRelevance() {
+	public int getRelevance() {
 		return relevance;
 	}
 
-	public void setRelevance(long relevance) {
+	public void setRelevance(int relevance) {
 		this.relevance = relevance;
 	}
 
@@ -90,32 +90,16 @@ public class Category {
 	public void setSubcategories(List<Category> subcategories) {
 		this.subcategories = subcategories;
 	}
-	
-	public String toString() {
-		StringBuilder str = new StringBuilder();
-		
-		str.append("{");
-		
-		str.append("id: " + getId());
-		str.append("name: " + getName());
-		str.append("relevance: " + getRelevance());
-		
-		str.append("iconImageUrl: " + getIconImageUrl());
-		str.append("largeImageUrl: " + getLargeImageUrl());
-		str.append("mediumImageUrl: " + getMediumImageUrl());
-		str.append("smallImageUrl: " + getSmallImageUrl());
-		
-		StringJoiner joiner = new StringJoiner(", ", "[", "]");
-		
-		subcategories.forEach(x -> {
-			joiner.add(x.toString());
-		});
-		
-		str.append("subcategories: " + joiner.toString());
 
-		str.append("}");
-		
-		return str.toString();
+	@Override
+	public int compareTo(Category compareCat) {
+		// TODO Auto-generated method stub
+		return Integer.valueOf(this.getRelevance()) - Integer.valueOf(compareCat.getRelevance());
+	}
+	
+	public Stream<Category> flatten(){
+		if(this.getSubcategories() == null) return Stream.of(this);
+		return Stream.concat(Stream.of(this), this.getSubcategories().stream().flatMap(Category::flatten));
 	}
 
 }
