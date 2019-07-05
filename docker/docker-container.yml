@@ -1,0 +1,35 @@
+version: "3"
+services:
+  tomcat:
+    container_name: tomcat
+    image: tomcat
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
+      # The configuration below is only for verification.
+      #- ./manager.xml:/usr/local/tomcat/conf/Catalina/localhost/manager.xml 
+    networks:
+      - concrete
+
+  jenkins:
+    restart: always
+    container_name: jenkinsci
+    ports:
+      - '82:8080'
+    image: 'jenkins/jenkins:lts'
+    networks:
+      - concrete
+    volumes:
+      - jenkins_log:/var/log/jenkins
+      - jenkins_data:/var/jenkins_home
+
+networks:
+  concrete:
+    driver: bridge
+
+volumes:
+  jenkins_data:
+    driver: local
+  jenkins_log:
+    driver: local
