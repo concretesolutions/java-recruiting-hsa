@@ -1,4 +1,4 @@
-package cl.accenture.concrete.challenge.model;
+package cl.accenture.concrete.challenge.dto;
 
 import java.util.List;
 import java.util.stream.Stream;
@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-public class Category implements Comparable<Category> {
+public class CategoryDTO implements Comparable<CategoryDTO> {
 	
 	//Common fields
 	private String id;
@@ -25,7 +25,7 @@ public class Category implements Comparable<Category> {
 	
 	//Subcategories Tree
 	@JsonInclude(Include.NON_EMPTY)
-	private List<Category> subcategories;
+	private List<CategoryDTO> subcategories;
 
 	public String getId() {
 		return id;
@@ -83,23 +83,23 @@ public class Category implements Comparable<Category> {
 		this.smallImageUrl = smallImageUrl;
 	}
 
-	public List<Category> getSubcategories() {
+	public List<CategoryDTO> getSubcategories() {
 		return subcategories;
 	}
 
-	public void setSubcategories(List<Category> subcategories) {
+	public void setSubcategories(List<CategoryDTO> subcategories) {
 		this.subcategories = subcategories;
 	}
 
 	@Override
-	public int compareTo(Category compareCat) {
+	public int compareTo(CategoryDTO compareCat) {
 		// TODO Auto-generated method stub
 		return Integer.valueOf(this.getRelevance()) - Integer.valueOf(compareCat.getRelevance());
 	}
 	
-	public Stream<Category> flatten(){
+	public Stream<CategoryDTO> flatten(){
 		if(this.getSubcategories() == null) return Stream.of(this);
-		return Stream.concat(Stream.of(this), this.getSubcategories().stream().flatMap(Category::flatten));
+		return Stream.concat(Stream.of(this), this.getSubcategories().stream().flatMap(CategoryDTO::flatten));
 	}
 
 }

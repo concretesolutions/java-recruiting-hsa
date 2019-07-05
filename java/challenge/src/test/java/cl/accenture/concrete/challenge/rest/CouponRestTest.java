@@ -20,7 +20,7 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import cl.accenture.concrete.challenge.model.Coupon;
+import cl.accenture.concrete.challenge.dto.CouponDTO;
 
 import org.junit.FixMethodOrder;
 
@@ -77,9 +77,9 @@ class CouponRestTest {
 	void testCoupons3() {
 
 		@SuppressWarnings("unchecked")
-		List<Coupon> normalCouponCall = this.restTemplate.getForObject(getAllPath, ArrayList.class);
+		List<CouponDTO> normalCouponCall = this.restTemplate.getForObject(getAllPath, ArrayList.class);
 		@SuppressWarnings("unchecked")
-		List<Coupon> cachedCouponCall = this.restTemplate.getForObject(getAllPath, ArrayList.class);
+		List<CouponDTO> cachedCouponCall = this.restTemplate.getForObject(getAllPath, ArrayList.class);
 
 		assertEquals(normalCouponCall, cachedCouponCall);
 	}
@@ -106,9 +106,9 @@ class CouponRestTest {
 	// As default, the normal and valid coupons have a difference in size.
 	void testCoupons5() {
 		@SuppressWarnings("unchecked")
-		List<Coupon> normalCouponCall = this.restTemplate.getForObject(getAllPath, ArrayList.class);
+		List<CouponDTO> normalCouponCall = this.restTemplate.getForObject(getAllPath, ArrayList.class);
 		@SuppressWarnings("unchecked")
-		List<Coupon> validCouponCall = this.restTemplate.getForObject(getAllPath + "/valid", ArrayList.class);
+		List<CouponDTO> validCouponCall = this.restTemplate.getForObject(getAllPath + "/valid", ArrayList.class);
 		assertNotEquals(normalCouponCall, validCouponCall);
 	}
 

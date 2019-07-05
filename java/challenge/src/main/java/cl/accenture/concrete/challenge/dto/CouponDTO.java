@@ -1,9 +1,9 @@
-package cl.accenture.concrete.challenge.model;
+package cl.accenture.concrete.challenge.dto;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class Coupon {
+public class CouponDTO {
 
 	private String id;
 	private String description;
@@ -52,7 +52,7 @@ public class Coupon {
 	}
 	
 	public boolean isValid(LocalDate dt, String format) {
-		LocalDate couponDate = LocalDate.parse(this.expiresAt, DateTimeFormatter.ofPattern(format));
+		final LocalDate couponDate = LocalDate.parse(this.expiresAt, DateTimeFormatter.ofPattern(format));
 		return couponDate.isAfter(dt);
 	}
 }

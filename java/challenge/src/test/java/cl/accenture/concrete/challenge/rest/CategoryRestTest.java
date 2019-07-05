@@ -19,7 +19,7 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import cl.accenture.concrete.challenge.model.Category;
+import cl.accenture.concrete.challenge.dto.CategoryDTO;
 
 import org.junit.FixMethodOrder;
 
@@ -46,7 +46,7 @@ class CategoryRestTest {
 	// (normal).
 	void testCategories1() {
 		// Test 1: Normal Call.
-		Category c = this.restTemplate.getForObject(getAllPath, Category.class);
+		CategoryDTO c = this.restTemplate.getForObject(getAllPath, CategoryDTO.class);
 
 		assertTrue(c != null, () -> "There is no data. --" + "Maybe the remote API is down?");
 	}
@@ -59,7 +59,7 @@ class CategoryRestTest {
 		final int lMarginTime = 200;
 
 		startTest = LocalDateTime.now();
-		this.restTemplate.getForObject(getAllPath, Category.class);
+		this.restTemplate.getForObject(getAllPath, CategoryDTO.class);
 		endTest = LocalDateTime.now();
 
 		delta = LocalTime.from(startTest).until(endTest, ChronoUnit.MILLIS);
@@ -87,7 +87,7 @@ class CategoryRestTest {
 	// This test will verify if the top 5 returns the 5 most relevant categories.
 	void testCategories4() {
 		@SuppressWarnings("unchecked")
-		List<Category> validCouponCall = this.restTemplate.getForObject(getAllPath + "/top/5", ArrayList.class);
+		List<CategoryDTO> validCouponCall = this.restTemplate.getForObject(getAllPath + "/top/5", ArrayList.class);
 		assertEquals(validCouponCall.size(), 5);
 	}
 	
