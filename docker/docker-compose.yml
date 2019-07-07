@@ -6,18 +6,22 @@ services:
     ports:
       - '8080:8080'
     volumes:
-      - ./tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
+      - ./tomcat/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
       # The configuration below is only for verification.
-      #- ./manager.xml:/usr/local/tomcat/conf/Catalina/localhost/manager.xml 
+      #- ./tomcat/manager.xml:/usr/local/tomcat/conf/Catalina/localhost/manager.xml 
     networks:
       - concrete
 
   jenkins:
     restart: always
-    container_name: jenkinsci
+    container_name: jenkins_challenge
+    environment:
+      JAVA_OPTS: "-Djava.awt.headless=true"  
+      JAVA_OPTS: "-Djenkins.install.runSetupWizard=false" # Start jenkins unlocked  
     ports:
       - '82:8080'
-    image: 'jenkins/jenkins:lts'
+      - '50000:50000'
+    image: jenkins_challenge:v1
     networks:
       - concrete
     volumes:

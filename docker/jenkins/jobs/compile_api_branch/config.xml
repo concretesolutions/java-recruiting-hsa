@@ -1,0 +1,78 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>Compile the API backend from the selected branch</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>BRANCH_NAME</name>
+          <description>Name of the branch you want to compile</description>
+          <defaultValue></defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.10.0">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/pperez-accenture/java-recruiting-hsa.git</url>
+        <credentialsId>pperez-accenture</credentialsId>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/${BRANCH_NAME}</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>cd ${WORKSPACE}/java/challenge
+chmod +x gradlew</command>
+    </hudson.tasks.Shell>
+    <hudson.plugins.gradle.Gradle plugin="gradle@1.32">
+      <switches></switches>
+      <tasks>clean build</tasks>
+      <rootBuildScriptDir>${WORKSPACE}/java/challenge</rootBuildScriptDir>
+      <buildFile></buildFile>
+      <gradleName>Gradle 5.5</gradleName>
+      <useWrapper>true</useWrapper>
+      <makeExecutable>false</makeExecutable>
+      <useWorkspaceAsHome>false</useWorkspaceAsHome>
+      <wrapperLocation>${WORKSPACE}/java/challenge</wrapperLocation>
+      <passAllAsSystemProperties>false</passAllAsSystemProperties>
+      <projectProperties></projectProperties>
+      <passAllAsProjectProperties>false</passAllAsProjectProperties>
+    </hudson.plugins.gradle.Gradle>
+  </builders>
+  <publishers>
+    <hudson.tasks.ArtifactArchiver>
+      <artifacts>java/challenge/build/libs/*.war</artifacts>
+      <allowEmptyArchive>false</allowEmptyArchive>
+      <onlyIfSuccessful>false</onlyIfSuccessful>
+      <fingerprint>false</fingerprint>
+      <defaultExcludes>true</defaultExcludes>
+      <caseSensitive>true</caseSensitive>
+    </hudson.tasks.ArtifactArchiver>
+    <hudson.tasks.junit.JUnitResultArchiver plugin="junit@1.28">
+      <testResults>java/challenge/build/test-results/**/*.xml</testResults>
+      <keepLongStdio>false</keepLongStdio>
+      <healthScaleFactor>1.0</healthScaleFactor>
+      <allowEmptyResults>false</allowEmptyResults>
+    </hudson.tasks.junit.JUnitResultArchiver>
+  </publishers>
+  <buildWrappers/>
+</project>

@@ -1,0 +1,54 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>This job will deploy the built API into a local tomcat</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>COMPILE_JOB</name>
+          <description>Select the built war to deploy</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>compile_api_master</string>
+              <string>compile_api_branch</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.plugins.copyartifact.CopyArtifact plugin="copyartifact@1.42.1">
+      <project>${COMPILE_JOB}</project>
+      <filter>java/challenge/build/libs/*.war</filter>
+      <target></target>
+      <excludes></excludes>
+      <selector class="hudson.plugins.copyartifact.StatusBuildSelector"/>
+      <flatten>true</flatten>
+      <doNotFingerprintArtifacts>false</doNotFingerprintArtifacts>
+    </hudson.plugins.copyartifact.CopyArtifact>
+  </builders>
+  <publishers>
+    <hudson.plugins.deploy.DeployPublisher plugin="deploy@1.13">
+      <adapters>
+        <hudson.plugins.deploy.tomcat.Tomcat8xAdapter>
+          <credentialsId>tomcat-local</credentialsId>
+          <url>http://tomcat:8080</url>
+        </hudson.plugins.deploy.tomcat.Tomcat8xAdapter>
+      </adapters>
+      <contextPath>challenge</contextPath>
+      <war>*.war</war>
+      <onFailure>false</onFailure>
+    </hudson.plugins.deploy.DeployPublisher>
+  </publishers>
+  <buildWrappers/>
+</project>
