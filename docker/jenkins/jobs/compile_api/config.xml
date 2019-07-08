@@ -1,10 +1,21 @@
 <?xml version='1.1' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description>Compile the API backend from master</description>
+  <description>Compile the API backend</description>
   <keepDependencies>false</keepDependencies>
-  <properties/>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.10.0">
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>BRANCH_NAME</name>
+          <description>Choose the branch to compile</description>
+          <defaultValue>master</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.10.1">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -14,7 +25,7 @@
     </userRemoteConfigs>
     <branches>
       <hudson.plugins.git.BranchSpec>
-        <name>*/master</name>
+        <name>*/${BRANCH_NAME}</name>
       </hudson.plugins.git.BranchSpec>
     </branches>
     <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
@@ -32,7 +43,7 @@
       <command>cd ${WORKSPACE}/java/challenge
 chmod +x gradlew</command>
     </hudson.tasks.Shell>
-    <hudson.plugins.gradle.Gradle plugin="gradle@1.32">
+    <hudson.plugins.gradle.Gradle plugin="gradle@1.33">
       <switches></switches>
       <tasks>clean build</tasks>
       <rootBuildScriptDir>${WORKSPACE}/java/challenge</rootBuildScriptDir>

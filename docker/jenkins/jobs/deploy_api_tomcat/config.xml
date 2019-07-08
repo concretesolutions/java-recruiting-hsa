@@ -3,22 +3,7 @@
   <actions/>
   <description>This job will deploy the built API into a local tomcat</description>
   <keepDependencies>false</keepDependencies>
-  <properties>
-    <hudson.model.ParametersDefinitionProperty>
-      <parameterDefinitions>
-        <hudson.model.ChoiceParameterDefinition>
-          <name>COMPILE_JOB</name>
-          <description>Select the built war to deploy</description>
-          <choices class="java.util.Arrays$ArrayList">
-            <a class="string-array">
-              <string>compile_api_master</string>
-              <string>compile_api_branch</string>
-            </a>
-          </choices>
-        </hudson.model.ChoiceParameterDefinition>
-      </parameterDefinitions>
-    </hudson.model.ParametersDefinitionProperty>
-  </properties>
+  <properties/>
   <scm class="hudson.scm.NullSCM"/>
   <canRoam>true</canRoam>
   <disabled>false</disabled>
@@ -28,7 +13,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.plugins.copyartifact.CopyArtifact plugin="copyartifact@1.42.1">
-      <project>${COMPILE_JOB}</project>
+      <project>compile_api</project>
       <filter>java/challenge/build/libs/*.war</filter>
       <target></target>
       <excludes></excludes>
@@ -41,7 +26,7 @@
     <hudson.plugins.deploy.DeployPublisher plugin="deploy@1.13">
       <adapters>
         <hudson.plugins.deploy.tomcat.Tomcat8xAdapter>
-          <credentialsId>tomcat-local</credentialsId>
+          <credentialsId>tomcat-user</credentialsId>
           <url>http://tomcat:8080</url>
         </hudson.plugins.deploy.tomcat.Tomcat8xAdapter>
       </adapters>

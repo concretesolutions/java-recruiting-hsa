@@ -1,76 +1,53 @@
-<a href="https://concrete.com.br/"><img src=".github/concrete_symbol.png" width="180px" align="right" /></a>
+# Java Concrete Challenge Proposal
+Este proyecto consiste en la propuesta realizada para el reclutamiento de Backend. La implementación se encuentra en el Branch **challenge**. Existe una rama llamada **challenge-jenkins-flutter**, el cual es un intento de levantar un ambiente Jenkins con Flutter, pero debido a que se encontró que se requiere de 4GB para la instalación, es que se dejó de lado.
 
-# Desafio Java Concrete
+# Scenario Analysis
+El primer análisis tiene que ver con el espectro de clientes que desea abarcar la aplicación. Por lo que se indica, el cliente requiere una aplicación dirigida a dispositivos de **bajo rendimiento** hasta dispositivos con **gran poder de procesamiento**. Según la documentación entregada por  [Google](https://developer.android.com/about/dashboards) recientemente, aprox. el 99% de los equipos con Android utilizan la versión de JellyBean (API 16) o superiores. Y según la documentación, ([Flutter](https://flutter.io/faq/#what-devices-and-os-versions-does-flutter-run-on) tiene compatibilidad desde esa versión en adelante.
+El segundo punto a analizar, tiene que ver con el backend propuesto por el cliente. Si bien cuenta con todo lo necesario para operar con la herramienta, tiene las siguientes desventajas:
 
-Desafio técnico para evaluar el conocimiento de los aspirantes a unirse al equipo de **Backend**.
+- El backend depende de tecnologías legadas, las cuales pueden ser inestables. Esto se puede apreciar con la API de Coupons, la cual tiene un tiempo de respuesta por sobre los 5 segundos (~10 seg). Según [un estudio](https://www.nngroup.com/articles/response-times-3-important-limits/), los tiempos de respuesta de navegación deberían estar por el segundo para que el usuario no pierda el interés.
 
-## Contenido
-- [El Desafio](#el-desafio)
-    - [Escenario](#escenario)
-    - [APIs](#apis)
-    - [Features](#features)
-    - [Puntos a Considerar](#puntos-a-considerar)
-- [¿Qué nos Gustaría Ver?](#qué-nos-gustaría-ver)
-    - [Deseables](#deseables)
-    - [Stack/Pool de Tecnologías](#stackpool-de-tecnologías)
-- [Forma de Entrega](#forma-de-entrega)
-- [Importante](#importante)
+![Tiempo de respuesta de Coupons](https://lh3.googleusercontent.com/L8qBuy3xLSy3BbNVjphnGnqQXx1-FvDza4PpEvPZZHPbrCQtlZynpIrtKYI_TLcMWXpTT5s8tsj1=s800 "Tiempo de respuesta de Coupons")
 
-## El Desafio
+- La estructura de algunos de los backends se encuentra con un modelo complejo de manejar. En este caso, el modelo de Categories se encuentra con 4 niveles de Subcategories, cada cual cuenta con atributos muy similares entre si, pero con algunas de ellas diferentes.
 
-### Escenario
-Recientemente te has unido a un equipo que esta desarrollando una aplicación mobile para una gran compañía de e-commerce.  
-Esta aplicación esta dirigida a dispositivos de **bajo rendimiento** hasta dispositivos con **gran poder de procesamiento**.  
-El cliente ya cuenta con un backend establecido que contiene todas las reglas e información de negocio, pero algunos sistemas dependen de **tecnologías legadas** que pueden ser **inestables**.    
-**Tu** eres responsable de construir la **API** que integrará con estos servicios y proveerá todas las informaciones que Mobile necesita.  
-Para las próximas iteraciones, el equipo va a trabajar en la **Pantalla de Início** y tu debes construir todo(s) los **endpoint(s)** que se requieran para integrar con los servicios y proveer la información para la pantalla.
+![Atributos diferenciadores para cada categoría](https://lh3.googleusercontent.com/tz81ljD3lgjJ3stG8kvk9jW-XIUm1vgswH4sV4oTFX3bCm1bZyEracdY9X4ai-t-D60KkL-QX9Oi=s800 "Atributos diferenciadores para cada categoría")
 
-### APIs
-Necesitarás consumir los siguientes servicios:
-- **Categorias**: [https://cs-hsa-api-categories.herokuapp.com/docs](https://cs-hsa-api-categories.herokuapp.com/docs)
-- **Cupones**: [https://cs-hsa-api-coupons.herokuapp.com/docs](https://cs-hsa-api-coupons.herokuapp.com/docs)
+# Proposal
 
-### Features
-El equipo Mobile necesita construir una pantalla de inicio que debe mostrar:
+Tomando en cuenta el análisis realizado, la propuesta es trabajar de la siguiente forma: 
 
-- Carrusel con **Top 5** categorias.
-- Carrusel con cupones que no han expirado.
-- Tabla (Grid) con las categorias **restantes**.
-- Mobile **no** necesita de todas las imagenes del modelo de subcategorías, solamente la **imagen más pequeña**. Tu podrías tener que filtrar la respuesta, si tu quieres.
+## Application & Patterns
 
-### Puntos a Considerar
-- La API de Cupones es **inestable** y a veces demora en responder. ¿Qué podemos hacer para que este problema no se replique en otras capas? ¿Habrá algún patrón que nos ayude?
-- La API de Categorias responde un modelo complejo de manejar. ¿Qué podríamos hacer para simplificar este modelo y que las integraciones con su aplicación sean más sencillas?
+Basado en el análisis, la mejor opción es abordar la solicitud de los requerimientos mediante ***Caching***. Sin embargo, esto puede causar problemas de memoria si se implementa para cada llamado. Debido a lo anterior, es que se abordó el respaldo mediante ***Memoización***. Este método se abordo tanto para los resultado entregados por *Coupons* como también para *Categories*.
 
-## ¿Qué nos Gustaría Ver? 
-Eres libre para implementar la solución de la forma que consideres mejor, 
-pero debes considerar el escenario, objetivo, implicaciones de performance y stack/pool de tecnología propuesta abajo.
-- Nos enfocamos mucho en la **calidad** de nuestros proyectos y nos gustaría ver alguna estrategia aplicada. Puedes usar, por ejemplo, **Pruebas Unitárias**.
-- No queremos que la experiencia de usuario se vea afectada por el rendimiento de los servicios;
-- **Usted tiene 1 semana para completar el desafio**. Si necesitas mas tiempo, no hay problema, puede hablar con nosotros y veremos que podemos hacer :)
-- Documentación de como configurar y ejecutar el proyecto. Puede sobrescribir el **README.md** para eso.
+## Model
 
-### Deseables
-- Podría ser bueno una documentación de API. Sugerencia: [Swagger](https://swagger.io/).
-- Ejecutando con [Docker](https://www.docker.com/).
+El modelo propuesto tendrá algunas mejoras con respecto a las Categories. Se implementarán todos los atributos, incluído las que sean diferentes para los demás, y para desplegar la data se revisará previamente si tiene data o no. En resumen, el proyecto quedará de la siguiente forma:
 
-### Stack/Pool de Tecnologías
-- **Java 8** o **superiores**.
-- Cualquier Framework Web. Sugerencia: [Spring Boot](https://spring.io/projects/spring-boot).
-- Cualquier API Client. Sugerencia: [Feign](https://github.com/OpenFeign/feign).
-- De preferencia [Gradle](https://gradle.org/) como sistema de compilación.
-- Tu eres libre para escoger librerias y frameworks de pruebas que mas te guste. Nuestra sugerencia es: [JUnit](https://junit.org/junit5/), [Mockito](https://site.mockito.org/).
+![Server Model](https://lh3.googleusercontent.com/xAe1dyla8MyW1oKDJs8rkYIQnNh8W4EJlEflYoacrOFHKQ1Vb9szaPs3iOfYwrGCpUt5GkMRJUmf=s800 "Server Model")
 
----
+## UI
 
-## Forma de Entrega
-Siga los pasos para implementar y enviar este desafio:
-- Haga un **Fork** a este repositorio. Mira esta guía para mayores informaciones: [Como hacer fork de un repositorio](https://help.github.com/en/articles/fork-a-repo).
-- Implemente el desafio.
-- Después de completar el desafio, realise un **Pull Request** a este repositorio, utilisando la interface de **Github**. [Creando un Pull Request](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork).
-- Si es posible, deja tu repositorio publico para hacer la revision de codigo mas sencilla.
+Para el Servidor API, se encuentra una interfaz desarrollada en Swagger para la documentación. Para el mobile, se generó una pantalla de carga inicial y una pantalla principal con los elementos solicitados.
 
-## Importante
-**No** intente hacer un PUSH directo a ESTE repositorio!
+## Tools
 
----
+- Flutter y Android Studio (última versión) para Mobile
+	> Tomando en cuenta los equipos de bajo rendimiento, se ocupó un emulador con la versión de **Jelly Bean (API 16)** para efectos de testing.
+- Java 8 con Spring Boot y Gradle para Servidor de API. Documentación con Swagger.
+	> Se desarrollaron pruebas unitarias en JUnit.
+- Docker, Docker-Compose, Jenkins y Tomcat
+	> Docker se ocupa para levantar los ambientes de desarrollo. Jenkins se encuentra configurado para automatizar los procesos de compilación, pruebas unitarias y levantamiento del servidor de pruebas. Para ello, se creó un Dockerfile que ajusta Jenkins a lo necesario y un Docker-Compose que levanta Tomcat y Jenkins.
+
+# Installation Rules
+
+Dentro de cada proyecto se encuentran las reglas para levantar el ambiente.
+
+1) [Server API (Desarrollo)](https://github.com/pperez-accenture/java-recruiting-hsa/tree/challenge/java/challenge/)
+2) [Mobile (Desarrollo)](https://github.com/pperez-accenture/java-recruiting-hsa/tree/challenge/flutter/challenge)
+3) [Docker](https://github.com/pperez-accenture/java-recruiting-hsa/tree/challenge/docker)
+
+# Special
+
+Para efectos de pruebas, se encuentra levantado un ambiente con Jenkins y Tomcat para que puedan revisar y probar el Servidor API sin necesidad de levantar un ambiente de desarrollo. Este ambiente es temporal, y puede no estar disponible al momento de leer esta documentación. Las credenciales se encuentran en el siguiente enlace (Requiere cuenta de Organización): [Credentials](https://myoffice.accenture.com/:w:/g/personal/p_perez_bustos_accenture_com/ERSCKifF2IRCn622gsSo0D8BQMuYZLiNkrl8D4CPSnZI2A?e=3lr4Vp).

@@ -1,7 +1,6 @@
 <tomcat-users>
 
   <role rolename="admin-gui"/>
-  <user username="tomcat" password="s3cret!" roles="manager-gui"/>
-  <user username="deployer" password="deployer@" roles="manager-gui,manager-script,admin" />
+  <user username="deployer" password="deployer@" roles="manager-script,manager-gui,manager,manager-jmx" />
 
 </tomcat-users>
