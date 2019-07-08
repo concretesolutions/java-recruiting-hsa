@@ -8,7 +8,7 @@ void main() {
   var configuredApp = new AppConfig(
     appName: 'Java Concrete Challenge',
     titleName: 'Challenge - Testing',
-    apiBaseUrl: 'http://localhost:8080/', //Change the URL to the one where you have deployed the API.
+    apiBaseUrl: 'http://concrete-tomcat.snowcorp.cl/challenge/',
     child: new ChallengeApp(),
   );
 
