@@ -64,11 +64,11 @@ pero debes considerar el escenario, objetivo, implicaciones de performance y sta
 ---
 
 ## Forma de Entrega
-Siga los pasos para implementar y enviar este desafio:
-- Haga un **Fork** a este repositorio. Mira esta guía para mayores informaciones: [Como hacer fork de un repositorio](https://help.github.com/en/articles/fork-a-repo).
-- Implemente el desafio.
-- Después de completar el desafio, realise un **Pull Request** a este repositorio, utilisando la interface de **Github**. [Creando un Pull Request](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork).
-- Si es posible, deja tu repositorio publico para hacer la revision de codigo mas sencilla.
+Siga los siguientes pasos para implementar y enviar este desafío:
+- Haga un **Fork** a este repositorio. Puedes mirar esta guía para mayores informaciones: [Como hacer fork de un repositorio](https://help.github.com/en/articles/fork-a-repo).
+- Implemente el desafío.
+- Después de completar el desafío, realice un **Pull Request** a este repositorio, utilizando la interface de **Github**. [Creando un Pull Request](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork).
+- Si es posible, deja tu repositorio publico para hacer la revisión de código más sencilla.
 
 ## Importante
 **No** intente hacer un PUSH directo a ESTE repositorio!
