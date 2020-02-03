@@ -47,3 +47,7 @@ El microservicio posee 3 metodos:
 - getRemainingCategories  -> Path: "/backend/api/categories/remaining"  -> METHOD: GET
 
 ** No poseen parametros de entrada
+
+### swagger
+
+La documentacion swagger se encuentra en la ruta "${servidor}/swagger-ui.html"
