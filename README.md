@@ -19,14 +19,13 @@ El servicio necesita configuraciones propias de la aplicación. Por lo cual, se 
 
 ##### Configuracion de Ambiente
 
-| Variable                                  | Descripcion                                                                                               | Por Defecto        							|
-| ----------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------- |  
-| URL_COUPONS                               | 							 																				| https://cs-hsa-api-coupons.herokuapp.com		|
-| NAME_COUPONS                         		| 							                                         										| COUPONS										|
-| NAME_CATEGORIES                      		| 										                                         							| CATEGORIES          	  						|
-| URL_CATEGORY								|																											| https://cs-hsa-api-categories.herokuapp.com 	|
-
-La configuracion se encuentra en el archivo "application.properties"
+| Variable                                  | Descripcion                           | Por Defecto        							|
+| ----------------------------------------- | ------------------------------------- | --------------------------------------------- |  
+| URL_COUPONS                               | url de la api cupones		 			| https://cs-hsa-api-coupons.herokuapp.com		|
+| NAME_COUPONS                         		| nombre de api cupones		            | COUPONS										|
+| URL_CATEGORY								| url de la api categoria				| https://cs-hsa-api-categories.herokuapp.com 	|
+																				  
+La configuracion se encuentra en el archivo "application.properties"              
 
 Compilacion
 Ejecutar el siguiente comando:
@@ -43,9 +42,12 @@ Metodos disponibles
 
 El microservicio posee 3 metodos:
 
-getCarruselCategories -> Path: "/api/mobile/categories/carrusel" -> METHOD: GET
-getRemainingCategories -> Path: "/api/mobile/categories/remaining" -> METHOD: GET
-getCouponsNotExpired -> Path: "/api/mobile/coupons/not_expired" -> METHOD: GET
+| Metodo                  | Path                              | METHOD	|
+| ----------------------- |---------------------------------  |-------- |  
+| getCarruselCategories   | /api/mobile/categories/carrusel   | GET     |
+| getRemainingCategories  | /api/mobile/categories/remaining  | GET     |
+| getCouponsNotExpired    | /api/mobile/coupons/not_expired   | GET     |
+
 ** No poseen parametros de entrada
 
 swagger
