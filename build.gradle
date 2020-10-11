@@ -1,10 +1,9 @@
+
 plugins {
     id 'org.springframework.boot' version '2.3.4.RELEASE'
     id 'io.spring.dependency-management' version '1.0.10.RELEASE'
-    id 'org.asciidoctor.convert' version '1.5.8'
     id 'java'
 }
-
 group = 'com.desafio.java.concrete'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
