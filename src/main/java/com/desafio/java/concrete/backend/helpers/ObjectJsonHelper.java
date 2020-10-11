@@ -1,7 +1,6 @@
 package com.desafio.java.concrete.backend.helpers;
 
 import com.desafio.java.concrete.backend.domains.Coupons;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -36,19 +35,11 @@ public class ObjectJsonHelper {
         return null;
     }
     public static <T> T fromJson(String jsonStr, Class<T> cls)
-            throws JsonParseException, JsonMappingException, IOException {
+            throws IOException {
         return new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false).readValue(jsonStr,
                 cls);
     }
 
-    public static String successMessage(String message) {
-        Map<String, Object> response = new HashMap<String, Object>();
-
-        response.put("success", Boolean.valueOf(true));
-        response.put("message", message);
-
-        return toJson(response);
-    }
     public static List<Coupons> getCouponsList(String jsonStr){
         Gson gson = new Gson();
         Type listaCupon = new TypeToken<List<Coupons>>(){}.getType();

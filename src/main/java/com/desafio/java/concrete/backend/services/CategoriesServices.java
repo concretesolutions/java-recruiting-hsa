@@ -9,7 +9,6 @@ import com.desafio.java.concrete.backend.helpers.constants.Constant;
 import com.desafio.java.concrete.backend.settings.ApiSettings;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -36,7 +35,7 @@ public class CategoriesServices {
                 topCategories = ObjectJsonHelper.toJson(getCatalog(catalog.getSubcategories().get(0).getSubcategories()));
             } else {
                 topCategories = String.format("%s%n%s%n%s", catalogo.getStatusCode(), catalogo.getStatusCodeValue(), catalogo.getBody());
-                log.error("Error: {}", String.format("%s%n%s%n%s", catalogo.getStatusCode(), catalogo.getStatusCodeValue(), catalogo.getBody()));
+                log.error("Error: {}",topCategories, catalogo.getBody());
             }
         } catch (IOException e) {
             log.error("Error: {}", e.getMessage());
@@ -106,7 +105,7 @@ public class CategoriesServices {
                 .sorted(Map.Entry.<Integer, Catalog>comparingByKey().reversed())
                 .skip(5)
                 .map(c -> {
-                    CatalogTable catalogTable = CatalogTable.builder()
+                    return CatalogTable.builder()
                             .id(c.getValue().getId())
                             .name(c.getValue().getName())
                             .relevance(c.getValue().getRelevance())
@@ -114,7 +113,7 @@ public class CategoriesServices {
                             .subcategories(c.getValue().getSubcategories())
                             .build();
 
-                    return catalogTable;
+
                 })
                 .collect(Collectors.toList());
     }

@@ -1,7 +1,6 @@
 package com.desafio.java.concrete.backend.services;
 
 import com.desafio.java.concrete.backend.domains.CarruselNotExpired;
-import com.desafio.java.concrete.backend.domains.Catalog;
 import com.desafio.java.concrete.backend.domains.Coupons;
 import com.desafio.java.concrete.backend.helpers.DateHelper;
 import com.desafio.java.concrete.backend.helpers.ObjectJsonHelper;
@@ -12,11 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
-import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 @Service
