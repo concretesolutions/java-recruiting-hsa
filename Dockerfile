@@ -1,4 +1,3 @@
-FROM openjdk:8-jdk-alpine
-ENV LANG C.UTF-8
-COPY ./build/libs/*.jar /api/app.jar
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+FROM openjdk:8-alpine
+ADD target/my-fat.jar /usr/share/app.jar
+ENTRYPOINT ["/usr/bin/java", "-jar", "/usr/share/app.jar"]
