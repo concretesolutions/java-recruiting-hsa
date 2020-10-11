@@ -1,3 +1,3 @@
 FROM openjdk:8-alpine
-ADD target/my-fat.jar /usr/share/app.jar
+ADD target/backend-0.0.1-SNAPSHOT.jar /usr/share/app.jar
 ENTRYPOINT ["/usr/bin/java", "-jar", "/usr/share/app.jar"]
