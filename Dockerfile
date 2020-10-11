@@ -1,4 +1,6 @@
-FROM demo/oracle-java:8
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} api.jar
-ENTRYPOINT ["java","-jar","/api.jar"]
+FROM openjdk:8-jdk-alpine
+VOLUME /tmp
+EXPOSE 8080
+ARG JAR_FILE=build/libs/backend-0.0.1-SNAPSHOT.jar
+ADD ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
