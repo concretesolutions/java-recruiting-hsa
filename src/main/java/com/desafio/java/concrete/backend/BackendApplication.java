@@ -34,10 +34,10 @@ public class BackendApplication {
 
     private ApiInfo apiInfo() {
         return new ApiInfo(
-                "REST API",
-                "REST API de ejemplo para código 200.",
+                "Desafio Java Concrete",
+                "",
                 "v1.0",
-                "Todos los derechos otorgados",
+                "",
                 new Contact("Verónica Escobar", "https://www.linkedin.com/in/veronica-escobar-b03b9695/", "veronica.escobarar@gmail.com"),
                 "Desafio Java Concrete", "https://github.com/veronicamaxi/java-recruiting-hsa", Collections.emptyList());
     }
