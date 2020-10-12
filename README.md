@@ -23,7 +23,10 @@ La Api fue construida con las siguientes Tecnologías.
 * [Mockito](https://site.mockito.org/) - Framework para pruebas unitarias en java
 * [Junit](https://junit.org/junit5/) - Testing
 ## Endpoints🚀️
-
+Documentación👇
+```
+🚀http://localhost:8080/backend/swagger-ui.html#/
+```
 Para el carrusel del top 5 categorias 👇
 ```
 🚀http://localhost:8080/backend/top-categories/
