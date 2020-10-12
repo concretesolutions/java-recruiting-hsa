@@ -22,8 +22,24 @@ La Api fue construida con las siguientes Tecnologías.
 * [Swagger](https://swagger.io/) - Documentador de API
 * [Mockito](https://site.mockito.org/) - Framework para pruebas unitarias en java
 * [Junit](https://junit.org/junit5/) - Testing
+## Endpoints🚀️
 
-## Autor🚀️
+Para el carrusel del top 5 categorias 👇
+```
+🚀http://localhost:8080/backend/top-categories/
+```
+Para ver todas las categorias que no entran en el top 👇
+```
+🚀http://127.0.0.1:8080/backend/getCategories
+```
+Para el carrusel de los cupones aun vigentes👇
+```
+🚀http://127.0.0.1:8080/backend/carrusel-cupon
+```
+Los endpoint no cuentan con parametros, por lo cual, 
+al pinchar la api traera toda la info solicitada. 
+
+## Autor💃
 
 Verónica Escobar Armijo
 
