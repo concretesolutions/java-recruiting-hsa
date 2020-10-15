@@ -13,8 +13,12 @@ import cl.concretesolutions.mobileapp.api.coupon.CouponDto;
 @Service
 public class CouponService {
 
-	@Autowired
 	private CouponClient client;
+	
+	@Autowired
+	public CouponService(CouponClient client) {
+		this.client = client;
+	}
 	
 	/**
 	 * @return list all valid coupons 

@@ -14,8 +14,12 @@ import cl.concretesolutions.mobileapp.api.category.CategoryTree;
 @Service
 public class CategoryService {
 	
-	@Autowired
 	private CategoryClient client;
+	
+	@Autowired
+	public CategoryService(CategoryClient client) {
+		this.client = client;
+	}
 	
 	/**
 	 * @return the list of all categories
