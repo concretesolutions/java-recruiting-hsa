@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+    <!-- Carga de Recursos -->
+    <import resource="classpath*:ws-proxy-context.xml" />
+    <import resource="classpath:spring/cliente-ws-context.xml" />
+
+    <!-- Component-Scan -->
+    <context:component-scan base-package="cl.desafio"/>
+
+    <!-- Configuracion descargables
+    <bean id="freemarkerConfiguration" class="org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean">
+        <property name="preferFileSystemAccess" value="false"/>
+        <property name="templateLoaderPath" value="classpath:templates/"/>
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="locale">es_CL</prop>
+            </props>
+        </property>
+    </bean>
+-->
+    <context:annotation-config/>
+
+</beans>

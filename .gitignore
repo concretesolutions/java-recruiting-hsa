@@ -1,0 +1,15 @@
+/sonar-project.properties
+.idea
+target
+.settings
+.classpath
+.project
+bin
+.sonar
+keystore.jks
+.sonar_lock
+.scannerwork
+/coverage-error.log
+/desafio.iml
+desafio.iml
+.iml
