@@ -1,5 +1,7 @@
 package com.accenture.service.impl;
 
+import static java.util.Objects.isNull;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -36,14 +38,11 @@ public class CategoryServiceImpl implements CategoryService {
 	@Override
 	public List<CategoryDTO> getTopFiveCategories() throws ServiceException, GenericNotFoundException {
 		log.debug("getTopFiveCategories");
-
+		this.list = new ArrayList<>();
 		CategoryDTO resp = this.clientCategory.call();
-
-		resp.getSubcategories().stream().forEach(x -> {
-			this.list = x.getSubcategories().stream()
-					.filter(subCat -> subCat.getRelevance() <= 5 && subCat.getRelevance() > 0)
-					.collect(Collectors.toList());
-		});
+		this.list = getCategories(resp);
+		this.list = this.list.stream().filter(subCat -> subCat.getRelevance() <= 5 && subCat.getRelevance() > 0)
+				.collect(Collectors.toList());
 		this.list.sort(Comparator.comparingInt(CategoryDTO::getRelevance));
 		return this.list;
 	}
@@ -54,12 +53,32 @@ public class CategoryServiceImpl implements CategoryService {
 	@Override
 	public List<CategoryDTO> getRestOfCategories() throws ServiceException, GenericNotFoundException {
 		log.debug("getRestOfCategories");
+		this.list = new ArrayList<>();
 		CategoryDTO resp = this.clientCategory.call();
+		this.list = getCategories(resp);
+		return this.list.stream().filter(subCat -> subCat.getRelevance() > 5 || subCat.getRelevance() == 0)
+				.collect(Collectors.toList());
+	}
 
-		resp.getSubcategories().stream().forEach(x -> {
-			this.list = x.getSubcategories().stream()
-					.filter(subCat -> !(subCat.getRelevance() <= 5 && subCat.getRelevance() > 0))
-					.collect(Collectors.toList());
+	private List<CategoryDTO> getCategories(CategoryDTO cat) throws ServiceException, GenericNotFoundException {
+		log.debug("getCategories");
+		
+		cat.getSubcategories().stream().forEach(c-> {
+			if (!isNull(c)) {
+				CategoryDTO catNew = new CategoryDTO();
+				catNew.setId(c.getId());
+				catNew.setName(c.getName());
+				catNew.setRelevance(c.getRelevance());
+				catNew.setSmallImageUrl(c.getSmallImageUrl());
+				this.list.add(catNew);
+				if (!(c.getSubcategories() == null)) {
+					try {
+						getCategories(c);
+					} catch (Exception e) {
+						log.error(e.getMessage());
+					}
+				}
+			}
 		});
 		return this.list;
 	}

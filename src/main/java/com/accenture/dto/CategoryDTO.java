@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import lombok.Data;
 
-@JsonPropertyOrder({ "id", "name", "relevance", "iconImageUrl", "smallImageUrl", "subcategories" })
+@JsonPropertyOrder({ "id", "name", "relevance", "smallImageUrl", "subcategories" })
 @JsonInclude(value = Include.NON_DEFAULT, content = Include.NON_EMPTY)
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
 @Data
@@ -23,7 +23,6 @@ public class CategoryDTO implements Serializable {
 	private String id;
 	private String name;
 	private int relevance;
-	private String iconImageUrl;
 	private String smallImageUrl;
 	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	private List<CategoryDTO> subcategories;

@@ -50,144 +50,117 @@ public class ControllerTest {
 	    mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
 		MockitoAnnotations.initMocks(this);
 		
-		List<CategoryDTO> subTwoL = new ArrayList<>();
-		CategoryDTO subTwo = new CategoryDTO();
-		subTwo.setId("sports");
-		subTwo.setName("Sports");
-		subTwo.setRelevance(1);
-		subTwo.setIconImageUrl("https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg");
-		subTwoL.add(subTwo);
+		CategoryDTO uno = new CategoryDTO();
+		uno.setId("sports");
+		uno.setName("Sports");
+		uno.setRelevance(1);
 		
-		CategoryDTO subTwo2 = new CategoryDTO();
-		subTwo2.setId("books");
-		subTwo2.setName("Books");
-		subTwo2.setRelevance(2);
-		subTwo2.setIconImageUrl("https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg");
+		CategoryDTO dos = new CategoryDTO();
+		dos.setId("books");
+		dos.setName("Books");
+		dos.setRelevance(2);
 		
-		subTwoL.add(subTwo2);
+		CategoryDTO tres = new CategoryDTO();
+		tres.setId("outdoor");
+		tres.setName("Outdoor");
+		tres.setRelevance(3);
 		
-		CategoryDTO subTwo3 = new CategoryDTO();
-		subTwo3.setId("outdoor");
-		subTwo3.setName("Outdoor");
-		subTwo3.setRelevance(3);
-		subTwo3.setIconImageUrl("https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg");
+		CategoryDTO cuatro = new CategoryDTO();
+		cuatro.setId("food");
+		cuatro.setName("Food");
+		cuatro.setRelevance(4);
 		
-		subTwoL.add(subTwo3);
+		CategoryDTO cinco = new CategoryDTO();
+		cinco.setId("travel");
+		cinco.setName("Travel");
+		cinco.setRelevance(5);
 		
-		CategoryDTO subTwo4 = new CategoryDTO();
-		subTwo4.setId("food");
-		subTwo4.setName("Food");
-		subTwo4.setRelevance(4);
-		subTwo4.setIconImageUrl("https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg");
 		
-		List<CategoryDTO> subTwo4List = new ArrayList<>();
-		CategoryDTO subTwo4One = new CategoryDTO();
-		subTwo4One.setId("hamburger");
-		subTwo4One.setName("Hamburger");
-		subTwo4One.setRelevance(350);
-		subTwo4One.setSmallImageUrl("https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg");
-		subTwo4List.add(subTwo4One);
-		subTwo4.setSubcategories(subTwo4List);
+		this.fullTopFive.add(uno);
+		this.fullTopFive.add(dos);
+		this.fullTopFive.add(tres);
+		this.fullTopFive.add(cuatro);
+		this.fullTopFive.add(cinco);
 		
-		CategoryDTO subTwo5 = new CategoryDTO();
-		subTwo5.setId("travel");
-		subTwo5.setName("Travel");
-		subTwo5.setRelevance(5);
-		subTwo5.setIconImageUrl("https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg");
-		
-		List<CategoryDTO> subThreeL = new ArrayList<>();
-		CategoryDTO subThree = new CategoryDTO();
-		subThree.setId("bike");
-		subThree.setName("Bike");
-		subThree.setRelevance(350);
-		subThree.setSmallImageUrl("https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg");
-		subThreeL.add(subThree);
-		
-		subTwo.setSubcategories(subThreeL);
-		
-		this.fullTopFive.add(subTwo);
-		this.fullTopFive.add(subTwo2);
-		this.fullTopFive.add(subTwo3);
-		this.fullTopFive.add(subTwo4);
-		this.fullTopFive.add(subTwo5);
 		
 		// resto categorías
+		
+		CategoryDTO rest = new CategoryDTO();
+		rest.setId("MOB");
+		rest.setName("MOBILE_MARKET");
+		
 		CategoryDTO restOne = new CategoryDTO();
 		restOne.setId("video-games");
 		restOne.setName("Video Games");
 		restOne.setRelevance(150);
-		restOne.setIconImageUrl("https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg");
-		
-		
-		List<CategoryDTO> restOneL = new ArrayList<>();
-		CategoryDTO restOneS = new CategoryDTO();
-		restOneS.setId("nintendo");
-		restOneS.setName("Nintendo");
-		restOneS.setSmallImageUrl("https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg");
-		restOneL.add(restOneS);
-		
-		List<CategoryDTO> restOneLSub = new ArrayList<>();
-		CategoryDTO restOneSS = new CategoryDTO();
-		restOneSS.setId("switch");
-		restOneSS.setName("Switch");
-		restOneSS.setRelevance(422);
-		restOneLSub.add(restOneSS);
 		
 		CategoryDTO restTwo = new CategoryDTO();
-		restTwo.setId("electronics");
-		restTwo.setName("Electronics");
-		restTwo.setIconImageUrl("https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg");
-		
-		
-		List<CategoryDTO> restTwoL = new ArrayList<>();
-		CategoryDTO restTwoS = new CategoryDTO();
-		restTwoS.setId("tv");
-		restTwoS.setName("TV");
-		restTwoS.setSmallImageUrl("https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg");
-		restTwoL.add(restTwoS);
-		
-		List<CategoryDTO> restTwoLSub = new ArrayList<>();
-		CategoryDTO restTwoSS = new CategoryDTO();
-		restTwoSS.setId("4k");
-		restTwoSS.setName("4K");
-		restTwoSS.setRelevance(700);
-		restTwoLSub.add(restTwoSS);
+		restTwo.setId("nintendo");
+		restTwo.setName("Nintendo");
+		restTwo.setSmallImageUrl("https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg");
 		
 		CategoryDTO restThree = new CategoryDTO();
-		restThree.setId("health");
-		restThree.setName("Health");
-		restThree.setRelevance(6);
-		restThree.setIconImageUrl("https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg");
-		
+		restThree.setId("switch");
+		restThree.setName("Switch");
+		restThree.setRelevance(422);
 		
 		CategoryDTO restFour = new CategoryDTO();
-		restFour.setId("toys");
-		restFour.setName("Toys");
-		restFour.setRelevance(99);
-		restFour.setIconImageUrl("https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg");
+		restFour.setId("bike");
+		restFour.setName("Bike");
+		restFour.setRelevance(350);
+		restFour.setSmallImageUrl("https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg");
 		
 		
-		List<CategoryDTO> restFourL = new ArrayList<>();
-		CategoryDTO restFourS = new CategoryDTO();
-		restFourS.setId("puzzles");
-		restFourS.setName("Puzzles");
-		restFourS.setRelevance(100);
-		restFourS.setSmallImageUrl("https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg");
-		restFourL.add(restFourS);
+		CategoryDTO restFive = new CategoryDTO();
+		restFive.setId("electronics");
+		restFive.setName("Electronics");
 		
 		
-		restFour.setSubcategories(restFourL);
+		CategoryDTO restSix = new CategoryDTO();
+		restSix.setId("tv");
+		restSix.setName("TV");
+		restSix.setSmallImageUrl("https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg");
 		
-		restTwoS.setSubcategories(restTwoLSub);
-		restTwo.setSubcategories(restTwoL);
+		CategoryDTO restSeven = new CategoryDTO();
+		restSeven.setId("4k");
+		restSeven.setName("4K");
+		restSeven.setRelevance(700);
 		
-		restOneS.setSubcategories(restOneLSub);
-		restOne.setSubcategories(restOneL);
+		CategoryDTO restEight= new CategoryDTO();
+		restEight.setId("hamburger");
+		restEight.setName("Hamburger");
+		restEight.setRelevance(350);
+		restEight.setSmallImageUrl("https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg");
 		
+		CategoryDTO restNine= new CategoryDTO();
+		restNine.setId("health");
+		restNine.setName("Health");
+		restNine.setRelevance(6);
+		
+		
+		CategoryDTO restTen = new CategoryDTO();
+		restTen.setId("toys");
+		restTen.setName("Toys");
+		restTen.setRelevance(99);
+		
+		CategoryDTO restEleven = new CategoryDTO();
+		restEleven.setId("puzzles");
+		restEleven.setName("Puzzles");
+		restEleven.setRelevance(100);
+		restEleven.setSmallImageUrl("https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg");
+		
+		this.fullRest.add(rest);
 		this.fullRest.add(restOne);
 		this.fullRest.add(restTwo);
 		this.fullRest.add(restThree);
 		this.fullRest.add(restFour);
+		this.fullRest.add(restFive);
+		this.fullRest.add(restSix);
+		this.fullRest.add(restSeven);
+		this.fullRest.add(restEight);
+		this.fullRest.add(restNine);
+		this.fullRest.add(restTen);
+		this.fullRest.add(restEleven);
 		
 	}
 
