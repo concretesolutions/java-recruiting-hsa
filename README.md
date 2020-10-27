@@ -10,15 +10,15 @@ Desafio técnico para evaluar el conocimiento de los aspirantes a unirse al equi
 - Gradle.
 
 ### Swagger:
-> http://localhost:8091/java-recruiting-hsa/v1/swagger-ui.html
+> http://localhost:8080/java-recruiting-hsa/v1/swagger-ui.html
 
 ### Métodos de consulta:
 - getCategoriesTopFive: 
-> http://localhost:8091/java-recruiting-hsa/v1/categories/topFive
+> http://localhost:8080/java-recruiting-hsa/v1/categories/topFive
 - getRestOfCategories: 
-> http://localhost:8091/java-recruiting-hsa/v1/categories/rest
+> http://localhost:8080/java-recruiting-hsa/v1/categories/rest
 - getNotExpiredCoupons:
-> http://localhost:8091/java-recruiting-hsa/v1/coupons
+> http://localhost:8080/java-recruiting-hsa/v1/coupons
 
 ### Ejecución:
 Abrir consola de comandos y ejecutar en el siguiente orden para generar el .jar:
@@ -32,4 +32,4 @@ Abrir consola de comandos y ejecutar en el siguiente orden para generar el .jar:
 >docker images
 
 ### Iniciar el contenedor docker:
->docker run -d -p 8080:8091 java-recruiting-hsa
+>docker run -d -p 8080:8080 java-recruiting-hsa
