@@ -1,12 +1,9 @@
 package com.accenture.controller;
 
-import static java.util.Objects.isNull;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -192,33 +189,6 @@ public class ControllerTest {
 		this.fullRest.add(restThree);
 		this.fullRest.add(restFour);
 		
-		
-		
-		
-		CouponDTO one = new CouponDTO();
-		one.setId("COUPON_1");
-		one.setImage("https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg");
-		one.setDescription("50% Discount");
-		one.setSeller("Crazy Seller");
-		one.setExpiresAt(stringToLocalDate("2045-12-01"));
-		
-		CouponDTO two = new CouponDTO();
-		two.setId("COUPON_2");
-		two.setImage("https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg");
-		two.setDescription("5% Discount");
-		two.setSeller("The Seller");
-		two.setExpiresAt(stringToLocalDate("2042-12-25"));
-		
-		CouponDTO three = new CouponDTO();
-		three.setId("COUPON_4");
-		three.setImage("https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg");
-		three.setDescription("1% Discount");
-		three.setSeller("Mega Discount");
-		three.setExpiresAt(stringToLocalDate("2055-10-01"));
-		
-		this.cList.add(one);
-		this.cList.add(two);
-		this.cList.add(three);
 	}
 
 	@Test
@@ -245,24 +215,4 @@ public class ControllerTest {
 				.andExpect(status().isOk()).andExpect(content().string(equalTo(rs)));
 	}
 	
-	@Test
-	public void getNotExpiredCouponsTest() throws Exception {
-
-		Mockito.when(cupService.getNotExpiredCoupons()).thenReturn(this.cList);
-		
-		ObjectMapper mapper = new ObjectMapper();
-    	String rs = mapper.writeValueAsString(this.cList);
-		String uri = "/coupons/notExpired";
-		mockMvc.perform(MockMvcRequestBuilders.get(uri).accept(MediaType.APPLICATION_JSON_VALUE))
-				.andExpect(status().isOk()).andExpect(content().string(equalTo(rs)));
-	}
-	
-	private static LocalDate stringToLocalDate(String date) {
-		if (!isNull(date)) {
-			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-			return LocalDate.parse(date, formatter);
-		}
-		return null;
-	}
-
 }

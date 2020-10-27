@@ -30,6 +30,9 @@ public class CategoryServiceImpl implements CategoryService {
 
 	List<CategoryDTO> list = new ArrayList<>();
 
+	/**
+	 * consulta servicio y filtra categorias
+	 */
 	@Override
 	public List<CategoryDTO> getTopFiveCategories() throws ServiceException, GenericNotFoundException {
 		log.debug("getTopFiveCategories");
@@ -45,6 +48,9 @@ public class CategoryServiceImpl implements CategoryService {
 		return this.list;
 	}
 
+	/**
+	 * consulta servicio y filtra categorias
+	 */
 	@Override
 	public List<CategoryDTO> getRestOfCategories() throws ServiceException, GenericNotFoundException {
 		log.debug("getRestOfCategories");

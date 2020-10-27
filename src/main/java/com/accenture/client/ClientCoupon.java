@@ -31,6 +31,13 @@ public class ClientCoupon {
 	@Autowired
 	private RestTemplate restTemplate;
 
+	/**
+	 * consulta servicio cupones
+	 * 
+	 * @return
+	 * @throws ServiceException
+	 * @throws GenericNotFoundException
+	 */
 	public List<CouponDTO> call() throws ServiceException, GenericNotFoundException {
 		log.debug("call");
 		CouponDTO[] resp = null;

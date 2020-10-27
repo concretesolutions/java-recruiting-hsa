@@ -28,6 +28,13 @@ public class ClientCategory {
 	@Autowired
 	private RestTemplate restTemplate;
 
+	/**
+	 * consulta servicio categorias
+	 * 
+	 * @return
+	 * @throws ServiceException
+	 * @throws GenericNotFoundException
+	 */
 	public CategoryDTO call() throws ServiceException, GenericNotFoundException {
 		log.debug("call");
 		CategoryDTO resp = null;

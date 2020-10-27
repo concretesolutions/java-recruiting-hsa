@@ -27,6 +27,9 @@ public class CouponServiceImpl implements CouponService {
 	@Autowired
 	private ClientCoupon clientCoupon;
 
+	/**
+	 * filtra cupones no expirados
+	 */
 	@Override
 	public List<CouponDTO> getNotExpiredCoupons() throws ServiceException, GenericNotFoundException {
 		log.debug("getNotExpiredCoupons");
