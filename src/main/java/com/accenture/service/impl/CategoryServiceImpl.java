@@ -70,7 +70,9 @@ public class CategoryServiceImpl implements CategoryService {
 				catNew.setName(c.getName());
 				catNew.setRelevance(c.getRelevance());
 				catNew.setSmallImageUrl(c.getSmallImageUrl());
+				this.list.add(catNew);
 				if (!(c.getSubcategories() == null)) {
+					this.list.remove(list.size() - 1);
 					c.getSubcategories().forEach(x -> {
 						if (isNull(catNew.getSmallImageUrl())) {
 							catNew.setSmallImageUrl(x.getSmallImageUrl());

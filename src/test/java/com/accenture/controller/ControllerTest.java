@@ -54,6 +54,7 @@ public class ControllerTest {
 		uno.setId("sports");
 		uno.setName("Sports");
 		uno.setRelevance(1);
+		uno.setSmallImageUrl("https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg");
 		
 		CategoryDTO dos = new CategoryDTO();
 		dos.setId("books");
@@ -69,6 +70,7 @@ public class ControllerTest {
 		cuatro.setId("food");
 		cuatro.setName("Food");
 		cuatro.setRelevance(4);
+		cuatro.setSmallImageUrl("https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg");
 		
 		CategoryDTO cinco = new CategoryDTO();
 		cinco.setId("travel");
@@ -93,6 +95,7 @@ public class ControllerTest {
 		restOne.setId("video-games");
 		restOne.setName("Video Games");
 		restOne.setRelevance(150);
+		restOne.setSmallImageUrl("https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg");
 		
 		CategoryDTO restTwo = new CategoryDTO();
 		restTwo.setId("nintendo");
@@ -114,7 +117,7 @@ public class ControllerTest {
 		CategoryDTO restFive = new CategoryDTO();
 		restFive.setId("electronics");
 		restFive.setName("Electronics");
-		
+		restFive.setSmallImageUrl("https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg");
 		
 		CategoryDTO restSix = new CategoryDTO();
 		restSix.setId("tv");
@@ -137,11 +140,11 @@ public class ControllerTest {
 		restNine.setName("Health");
 		restNine.setRelevance(6);
 		
-		
 		CategoryDTO restTen = new CategoryDTO();
 		restTen.setId("toys");
 		restTen.setName("Toys");
 		restTen.setRelevance(99);
+		restTen.setSmallImageUrl("https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg");
 		
 		CategoryDTO restEleven = new CategoryDTO();
 		restEleven.setId("puzzles");
