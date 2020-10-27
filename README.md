@@ -4,15 +4,15 @@
 
 Desafio técnico para evaluar el conocimiento de los aspirantes a unirse al equipo de **Backend**.
 
-###Realizado con:
+### Realizado con:
 - Java 11.
 - Springboot.
 - Gradle.
 
-###Swagger:
+### Swagger:
 > http://localhost:8091/java-recruiting-hsa/v1/swagger-ui.html
 
-###Métodos de consulta:
+### Métodos de consulta:
 getCategoriesTopFive: 
 > http://localhost:8091/java-recruiting-hsa/v1/categories/topFive
 getRestOfCategories: 
@@ -20,16 +20,16 @@ getRestOfCategories:
 getNotExpiredCoupons:
 > http://localhost:8091/java-recruiting-hsa/v1/coupons
 
-###Ejecución:
+### Ejecución:
 Abrir consola de comandos y ejecutar en el siguiente orden para generar el .jar:
 >gradle bootRun
 >build gradle
 
-###Ejecutar siguiente comando con docker:
+### Ejecutar siguiente comando con docker:
 >docker build -t java-recruiting-hsa-0.0.1.jar .
 
-###Validar si se encuentra generada imagen en docker con el siguiente comando:
+### Validar si se encuentra generada imagen en docker con el siguiente comando:
 >docker images
 
-###Iniciar el contenedor docker:
+### Iniciar el contenedor docker:
 >docker run java-recruiting-hsa
