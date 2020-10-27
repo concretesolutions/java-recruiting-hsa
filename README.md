@@ -2,7 +2,7 @@
 
 # Desafio Java Concrete
 
-Desafio técnico para evaluar el conocimiento de los aspirantes a unirse al equipo de **Backend**.
+Desafio tÃ©cnico para evaluar el conocimiento de los aspirantes a unirse al equipo de **Backend**.
 
 ### Realizado con:
 - Java 11.
@@ -12,15 +12,15 @@ Desafio técnico para evaluar el conocimiento de los aspirantes a unirse al equip
 ### Swagger:
 > http://localhost:8091/java-recruiting-hsa/v1/swagger-ui.html
 
-### Métodos de consulta:
-getCategoriesTopFive: 
+### MÃ©todos de consulta:
+- getCategoriesTopFive: 
 > http://localhost:8091/java-recruiting-hsa/v1/categories/topFive
-getRestOfCategories: 
+- getRestOfCategories: 
 > http://localhost:8091/java-recruiting-hsa/v1/categories/rest
-getNotExpiredCoupons:
+- getNotExpiredCoupons:
 > http://localhost:8091/java-recruiting-hsa/v1/coupons
 
-### Ejecución:
+### EjecuciÃ³n:
 Abrir consola de comandos y ejecutar en el siguiente orden para generar el .jar:
 >gradle bootRun
 >build gradle
@@ -32,4 +32,4 @@ Abrir consola de comandos y ejecutar en el siguiente orden para generar el .jar:
 >docker images
 
 ### Iniciar el contenedor docker:
->docker run java-recruiting-hsa
+>docker run -d -p 8080:8091 java-recruiting-hsa
