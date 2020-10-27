@@ -62,16 +62,21 @@ public class CategoryServiceImpl implements CategoryService {
 
 	private List<CategoryDTO> getCategories(CategoryDTO cat) throws ServiceException, GenericNotFoundException {
 		log.debug("getCategories");
-		
-		cat.getSubcategories().stream().forEach(c-> {
+
+		cat.getSubcategories().stream().forEach(c -> {
 			if (!isNull(c)) {
 				CategoryDTO catNew = new CategoryDTO();
 				catNew.setId(c.getId());
 				catNew.setName(c.getName());
 				catNew.setRelevance(c.getRelevance());
 				catNew.setSmallImageUrl(c.getSmallImageUrl());
-				this.list.add(catNew);
 				if (!(c.getSubcategories() == null)) {
+					c.getSubcategories().forEach(x -> {
+						if (isNull(catNew.getSmallImageUrl())) {
+							catNew.setSmallImageUrl(x.getSmallImageUrl());
+						}
+					});
+					this.list.add(catNew);
 					try {
 						getCategories(c);
 					} catch (Exception e) {
