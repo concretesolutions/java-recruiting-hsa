@@ -18,4 +18,4 @@ Ejecutar APP con Docker
 
 5) Revisar la documentación de la API ejecutando la siguiente URL en el navegador:
 
-		http://localhost:8080/swagger-ui.html
+		http://<docker_machine_ip>:8080/swagger-ui.html
