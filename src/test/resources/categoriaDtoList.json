@@ -1,0 +1,65 @@
+[
+  {
+    "categoria": "Video Games",
+    "subcategoria": "Nintendo",
+    "nombre": "Switch",
+    "relevancia": 422,
+    "imageUrl": "https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg"
+  },
+  {
+    "categoria": "Sports",
+    "subcategoria": "Bike",
+    "nombre": "Bike",
+    "relevancia": 350,
+    "imageUrl": "https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg"
+  },
+  {
+    "categoria": "Electronics",
+    "subcategoria": "TV",
+    "nombre": "4K",
+    "relevancia": 700,
+    "imageUrl": "https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg"
+  },
+  {
+    "categoria": "Outdoor",
+    "subcategoria": "Outdoor",
+    "nombre": "Outdoor",
+    "relevancia": 3,
+    "imageUrl": "https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg"
+  },
+  {
+    "categoria": "Food",
+    "subcategoria": "Hamburger",
+    "nombre": "Hamburger",
+    "relevancia": 350,
+    "imageUrl": "https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg"
+  },
+  {
+    "categoria": "Books",
+    "subcategoria": "Books",
+    "nombre": "Books",
+    "relevancia": 2,
+    "imageUrl": "https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg"
+  },
+  {
+    "categoria": "Travel",
+    "subcategoria": "Travel",
+    "nombre": "Travel",
+    "relevancia": 5,
+    "imageUrl": "https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg"
+  },
+  {
+    "categoria": "Health",
+    "subcategoria": "Health",
+    "nombre": "Health",
+    "relevancia": 6,
+    "imageUrl": "https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg"
+  },
+  {
+    "categoria": "Toys",
+    "subcategoria": "Puzzles",
+    "nombre": "Puzzles",
+    "relevancia": 100,
+    "imageUrl": "https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg"
+  }
+]

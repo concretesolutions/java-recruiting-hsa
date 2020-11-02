@@ -1,0 +1,29 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.5.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+
+	compile("io.springfox:springfox-boot-starter:3.0.0")
+	compile("io.springfox:springfox-swagger-ui:3.0.0")
+	compile("org.springframework.boot:spring-boot-starter-web")
+	implementation 'org.springframework.boot:spring-boot-starter'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	testImplementation('junit:junit:4.13')
+}
+
+test {
+	useJUnitPlatform()
+}
