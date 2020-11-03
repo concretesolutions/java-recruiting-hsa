@@ -26,6 +26,8 @@
 
 ## Building the project
 
+It is important to build the project first, this operation has the additional task of copying the created *jar* file and leaving it in the *docker/* folder for later execution with docker.
+
 ```Run    
 gradle clean build
 ```
@@ -36,7 +38,27 @@ Or
 ./gradlew clean build
 ```
 
-## Running the project
+## Docker Running the project
+
+With the command **cd docker** we position ourselves in the *docker/* folder to build the image and run the container.
+
+```
+cd docker
+```
+
+```
+docker build -t bff-init-page-docker .
+```
+
+The image brings by default port 8007 but in our local environment we will display it on port 8080
+
+```
+docker run -it -p 8080:8007 bff-init-page-docker
+```
+
+## Gradle Running the project
+
+If you do not have Docker installed in your operating system (*in Windows it is usually difficult to install and configure docker*) you can run the application with gradle.
 
 ```Run    
 gradle bootRun
@@ -53,6 +75,29 @@ Also try testing the project with the following command
 ```Run    
 ./gradlew test
 ```
+
+## Exposed endpoints
+
+These are the curls with which you can test the controllers at runtime.
+
+```  
+curl --location --request GET 'http://localhost:8080/bff/v1/categories/top-five'
+```
+
+```  
+curl --location --request GET 'http://localhost:8080/bff/v1/categories/remaining'
+```
+
+```  
+curl --location --request GET 'http://localhost:8080/bff/v1/coupons'
+```
+
+```  
+curl --location --request POST 'http://localhost:8080/bff/v1/categories?topCategories=2' \
+--header 'accept: application/json'
+```
+
+**Imporant:** The documentation for the endpoints and entities is in the *openapi.yaml* file.
 
 ## Authors
 
