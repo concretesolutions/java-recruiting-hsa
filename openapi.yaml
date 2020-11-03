@@ -1,0 +1,177 @@
+swagger: '2.0'
+info:
+  description: "OpenAPI definition for BFF-InitPage"
+  version: '0.0.1'
+  title: "BFF-InitPage"
+host: "REPOSITORY_NAME.endpoints.PROJECT_ID.cloud.goog"
+x-google-endpoints:
+  - name: "REPOSITORY_NAME.endpoints.PROJECT_ID.cloud.goog"
+    allow_cors: "true"
+consumes:
+  - 'application/json'
+produces:
+  - 'application/json'
+schemes:
+  - 'https'
+tags:
+  - name: BFF-InitPage
+    description: This project is developed to solve the provision of categories and coupons for the mobile application of e-commerce
+paths:
+  '/bff/v1/categories/top-five':
+    get:
+      description: 'Endpoint that returns Top 5 categories.'
+      operationId: 'categories-top-five'
+      responses:
+        200:
+          $ref: '#/responses/FilteredCategories'
+        500:
+          $ref: '#/responses/InternalServerError'
+  '/bff/v1/categories/remaining':
+    get:
+      description: 'Endpoint that returns Remaining categories.'
+      operationId: 'categories-remaining'
+      responses:
+        200:
+          $ref: '#/responses/FilteredCategories'
+        500:
+          $ref: '#/responses/InternalServerError'
+  '/bff/v1/categories':
+    post:
+      description: 'Optional endpoint that returns all categories parametized by topCategories.'
+      operationId: 'all-categories'
+      consumes:
+        - "multipart/form-data"
+      parameters:
+        - name: "topCategories"
+          in: "formData"
+          description: "Customizable maximum of tops (5 by default)"
+          required: false
+          type: integer
+          format: "int64"
+      responses:
+        200:
+          $ref: '#/responses/AllCategories'
+        500:
+          $ref: '#/responses/InternalServerError'
+  '/bff/v1/coupons':
+    get:
+      description: 'Endpoint that returns all coupons not expired.'
+      operationId: 'get-coupons'
+      responses:
+        200:
+          $ref: '#/responses/CouponRS'
+        500:
+          $ref: '#/responses/InternalServerError'
+responses:
+  FilteredCategories:
+    description: 'Successful Operation'
+    headers:
+      Accept-Encoding:
+        type: "string"
+        default:  "gzip"
+        description: "The Accept-Encoding request HTTP header advertises which content encoding, usually a compression algorithm, the client is able to understand"
+    schema:
+      type: array
+      items:
+        $ref: '#/definitions/Category'
+  AllCategories:
+    description: 'Successful Operation'
+    headers:
+      Accept-Encoding:
+        type: "string"
+        default:  "gzip"
+        description: "The Accept-Encoding request HTTP header advertises which content encoding, usually a compression algorithm, the client is able to understand"
+    schema:
+      $ref: '#/definitions/CategoryRS'
+  CouponRS:
+    description: 'Successful Operation'
+    headers:
+      Accept-Encoding:
+        type: "string"
+        default:  "gzip"
+        description: "The Accept-Encoding request HTTP header advertises which content encoding, usually a compression algorithm, the client is able to understand"
+    schema:
+      type: array
+      items:
+        $ref: '#/definitions/Coupon'
+  InternalServerError:
+    description: 'The server has found a situation that does not know how to handle it.'
+    schema:
+      $ref: '#/definitions/Error'
+definitions:
+  Coupon:
+    type: object
+    properties:
+      id:
+        type: string
+      description:
+        type: string
+      seller:
+        type: string
+      image:
+        type: string
+      expiresAt:
+        type: string
+  CategoryRS:
+    type: object
+    properties:
+      topCategories:
+        type: array
+        items:
+          $ref: '#/definitions/Category'
+      remainingCategories:
+        type: array
+        items:
+          $ref: '#/definitions/Category'
+  Category:
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      subcategories:
+        type: array
+        items:
+          $ref: '#/definitions/SubCategory'
+      relevance:
+        type: integer
+      iconImageUrl:
+        type: string
+  SubCategory:
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      subcategories:
+        type: array
+        items:
+          $ref: '#/definitions/SubCategories'
+      relevance:
+        type: integer
+      smallImageUrl:
+        type: string
+  SubCategories:
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      relevance:
+        type: integer
+      smallImageUrl:
+        type: string
+  # Schema for error response body
+  Error:
+    type: object
+    properties:
+      code:
+        type: string
+      message:
+        type: string
+    required:
+      - code
+      - message
