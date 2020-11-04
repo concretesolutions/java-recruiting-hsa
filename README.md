@@ -33,6 +33,15 @@ Ahora ya puedes probar directamente la api en la siguiente dirección:
 http://localhost:8090/swagger-ui/
 
 
+# ¿Cómo ejecutar pruebas?
+
+Para ejecutar test unitarios de esta api debe utilizar gradle indicando el siguiente comando:
+
+`
+gradle test
+`
+
+
 # Consideraciones de negocio
 - El criterio utilizado para ordenar categorias fue "relevancia" entendiendo que entre mayor es el número es mayor su prioridad.
 - Para la integración de cupones se implementó Caché para mejorar los tiempos de respuestas.
