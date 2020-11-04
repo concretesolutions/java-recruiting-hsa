@@ -29,13 +29,13 @@
 It is important to build the project first, this operation has the additional task of copying the created *jar* file and leaving it in the *docker/* folder for later execution with docker.
 
 ```Run    
-gradle clean build
+gradle build
 ```
 
 Or
 
 ```Run    
-./gradlew clean build
+./gradlew build
 ```
 
 ## Docker Running the project
