@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Subcategory {
+public class Subcategory2 {
     public String id;
     public String name;
     public Integer relevance;
