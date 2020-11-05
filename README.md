@@ -18,13 +18,19 @@ Proyecto cuya finalidad es consumir 2 APIRest de los siguientes endpoint:
 * JUnit with Mockito (**Jupiter**)
 
 
-## APIs expuestas por el proyecto
+## APIs expuestas por el microservicios 
 
 | Type Method   | Method        | URL  |
 | ------------- | ------------- | ---- |
 | GET           | getCouponsNotExpired()| localhost:8080/coupons/getCouponsNotExpired|
 | GET           | getTopFive()  | localhost:8080/categories/getTopFive  |
 | GET           | getRemainingCategories()  | localhost:8080/categories/getRemainingCategories|
+
+## Despliegue del microservicios
+
+Para compilar el proyecto de debe escribir el siguiente comando gradle:
+
+| grandlew clean build |
 
 
 
