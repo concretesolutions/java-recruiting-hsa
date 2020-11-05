@@ -26,11 +26,9 @@ Proyecto cuya finalidad es consumir 2 APIRest de los siguientes endpoint:
 | GET           | getTopFive()  | localhost:8080/categories/getTopFive  |
 | GET           | getRemainingCategories()  | localhost:8080/categories/getRemainingCategories|
 
-## Despliegue del microservicios
+## Compilacion y despliegue del microservicio
 
-Para compilar el proyecto de debe escribir el siguiente comando gradle:
-
-| grandlew clean build |
+· Para compilar el proyecto de debe escribir el siguiente comando gradle `grandlew clean build` , el compilado se genera en la ruta `{base_proyect}/build/libs/test-0.0.1-SNAPSHOT.jar`
 
 
 
