@@ -2,10 +2,27 @@
 
 Proyecto cuya finalidad es consumir 2 APIRest de los siguientes endpoint:
 
-- https://cs-hsa-api-categories.herokuapp.com (#categories)
-- https://cs-hsa-api-coupons.herokuapp.com (#coupons)
+- https://cs-hsa-api-categories.herokuapp.com (**categories**)
+- https://cs-hsa-api-coupons.herokuapp.com (**coupons**)
 
 
+## Tecnologías ocupadas en el desarrollo:
+
+* Spring Framework 
+* OpenFeign (**client**)
+* Swagger
+* Spring WEB
+* Lombok
+* Gradle
+* Java 8
+* JUnit with Mockito (**Jupiter**)
+
+| Type Method   | Method        | URL  |
+| ------------- | ------------- | ---- |
+| GET           | Content Cell  |      |
+| GET           | Content Cell  |      |
+| GET           | Content Cell  |      |
+| GET           | Content Cell  |      |
 
 
 
