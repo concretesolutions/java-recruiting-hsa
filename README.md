@@ -34,9 +34,9 @@ Proyecto cuya finalidad es consumir 2 APIRest de los siguientes endpoint:
 
 * Para correr el proyecto ya **compilado** escribir el siguiente comando `gradle bootRun`
 
-* Para construir una imagen docker escribir el siguiente comando `docker build -t test-0.0.1-SNAPSHOT.jar . `
+* Para construir una imagen docker escribir el siguiente comando `docker build -t test-docker .`
 
-* Para levantar o correr el contenedor con la imagen creada `docker run -p 8080:8080 test-0.0.1-SNAPSHOT.jar`
+* Para levantar o correr el contenedor con la imagen creada `docker run --name test-docker -p 8080:8080 test-docker:latest`
 
 
 ## Swagger
