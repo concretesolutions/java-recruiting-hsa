@@ -1,0 +1,18 @@
+---
+spring:
+    application:
+        name : "test accenture"
+    server:
+        port: 8080
+apis:
+    service:
+        categories: "https://cs-hsa-api-categories.herokuapp.com"
+        coupons: "https://cs-hsa-api-coupons.herokuapp.com"
+        nameCoupons: "coupons"
+        nameCategories: "categories"
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
