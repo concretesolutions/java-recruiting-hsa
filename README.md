@@ -17,12 +17,14 @@ Proyecto cuya finalidad es consumir 2 APIRest de los siguientes endpoint:
 * Java 8
 * JUnit with Mockito (**Jupiter**)
 
+
+## APIs expuestas por el proyecto
+
 | Type Method   | Method        | URL  |
 | ------------- | ------------- | ---- |
-| GET           | Content Cell  |      |
-| GET           | Content Cell  |      |
-| GET           | Content Cell  |      |
-| GET           | Content Cell  |      |
+| GET           | getCouponsNotExpired()| localhost:8080/coupons/getCouponsNotExpired|
+| GET           | getTopFive()  | localhost:8080/categories/getTopFive  |
+| GET           | getRemainingCategories()  | localhost:8080/categories/getRemainingCategories|
 
 
 
