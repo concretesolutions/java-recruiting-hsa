@@ -1,3 +1,23 @@
+# Test Accenture
+
+Proyecto cuya finalidad es consumir 2 APIRest de los siguientes endpoint:
+
+- https://cs-hsa-api-categories.herokuapp.com (#categories)
+- https://cs-hsa-api-coupons.herokuapp.com (#coupons)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <a href="https://concrete.com.br/"><img src=".github/concrete_symbol.png" width="180px" align="right" /></a>
 
 # Desafio Java Concrete
