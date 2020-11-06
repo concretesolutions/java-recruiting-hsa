@@ -6,8 +6,6 @@ import com.accenture.test.matias.model.Coupon;
 
 public interface CouponService {
 
-	List<Coupon> getTopCoupons(int limit);
-
-	List<Coupon> getNotTopCoupons(int limit);
+	List<Coupon> getCoupons();
 
 }

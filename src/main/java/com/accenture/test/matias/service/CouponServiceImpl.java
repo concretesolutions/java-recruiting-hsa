@@ -2,24 +2,22 @@ package com.accenture.test.matias.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.accenture.test.matias.client.CouponClient;
 import com.accenture.test.matias.model.Coupon;
 
 @Service
 public class CouponServiceImpl implements CouponService {
 
-	@Override
-	public List<Coupon> getTopCoupons(int limit) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	@Autowired
+	private CouponClient couponClient;
 
 	@Override
-	public List<Coupon> getNotTopCoupons(int limit) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Coupon> getCoupons() {
+		List<Coupon> topCoupons = couponClient.getTopCoupons().getBody();
+		return topCoupons;
 	}
 
-	
 }
