@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.accenture.test.matias.configuration.FeignConfiguration;
 import com.accenture.test.matias.model.Category;
 
-@FeignClient(name = "category-service", url = "https://cs-hsa-api-categories.herokuapp.com/categories", fallback = CategoryClientFallback.class, configuration = FeignConfiguration.class)
+@FeignClient(name = "category-service", url = "https://cs-hsa-api-categories.herokuapp.com", fallback = CategoryClientFallback.class, configuration = FeignConfiguration.class)
 public interface CategoryClient {
 
-	@GetMapping("")
+	@GetMapping("/categories")
 	public ResponseEntity<Category> getCategories();
 	
 }

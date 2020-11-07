@@ -1,11 +1,21 @@
 package com.accenture.test.matias.service;
 
-import java.util.List;
+import com.accenture.test.matias.dto.CategoriesDTO;
 
-import com.accenture.test.matias.model.Category;
-
+/**
+ * Service that manage the categories.
+ * 
+ * @author Matias Gomez Arancibia.
+ *
+ */
 public interface CategoryService {
-	
-	public List<Category> getTopCategories(int quantity);
+
+    /**
+     * Method that gets the categories separated in top and notop.
+     * 
+     * @param quantity Quantity of top categories.
+     * @return Categories in a DTO model.
+     */
+    public CategoriesDTO getCategories(int quantity);
 
 }
