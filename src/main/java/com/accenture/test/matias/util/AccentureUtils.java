@@ -1,5 +1,11 @@
 package com.accenture.test.matias.util;
 
+/**
+ * Util class to do recurring validations.
+ * 
+ * @author Matias Gomez Arancibia.
+ *
+ */
 public class AccentureUtils {
 
     /**

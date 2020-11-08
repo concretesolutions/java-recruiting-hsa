@@ -12,6 +12,7 @@ import com.accenture.test.matias.model.Coupon;
 import com.accenture.test.matias.util.AccentureUtils;
 import com.accenture.test.matias.util.CouponDateStatus;
 import com.accenture.test.matias.util.DateUtils;
+import com.accenture.test.matias.util.DateTime;
 
 /**
  * Service that manage the coupons.
@@ -22,6 +23,9 @@ import com.accenture.test.matias.util.DateUtils;
 @Service
 public class CouponServiceImpl implements CouponService {
 
+    @Autowired
+    public DateTime dateTime;
+    
     /**
      * DateFormat for the expired date of coupons.
      */
@@ -32,14 +36,18 @@ public class CouponServiceImpl implements CouponService {
      */
     @Autowired
     private CouponClient couponClient;
+    
+    public CouponServiceImpl(final DateTime dateTime) {
+        this.dateTime = dateTime;
+    }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public List<Coupon> getCoupons() {
+    public List<Coupon> getNotExpiredCoupons() {
 
-        List<Coupon> response = couponClient.getTopCoupons().getBody();
+        List<Coupon> response = couponClient.getCoupons().getBody();
         if (response != null && !response.isEmpty()) {
             response = filterByNotExpired(response);
         }
@@ -55,7 +63,7 @@ public class CouponServiceImpl implements CouponService {
     private List<Coupon> filterByNotExpired(List<Coupon> coupons) {
 
         List<Coupon> response = coupons;
-        Date today = DateUtils.truncateDateAtDay(new Date());
+        Date today = DateUtils.truncateDateAtDay(dateTime.getDate());
         Predicate<Coupon> isCouponExpired = c -> {
             CouponDateStatus couponDateStatus = getCouponDateStatus(c, today);
             return couponDateStatus == CouponDateStatus.UNDEFINED_DATE || couponDateStatus == CouponDateStatus.EXPIRED;
@@ -91,5 +99,4 @@ public class CouponServiceImpl implements CouponService {
         }
         return status;
     }
-
 }

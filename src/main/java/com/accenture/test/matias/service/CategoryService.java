@@ -16,6 +16,6 @@ public interface CategoryService {
      * @param quantity Quantity of top categories.
      * @return Categories in a DTO model.
      */
-    public CategoriesDTO getCategories(int quantity);
+    public CategoriesDTO getTopRelevanceCategories(int quantity);
 
 }

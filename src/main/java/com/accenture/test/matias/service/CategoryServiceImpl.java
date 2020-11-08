@@ -11,6 +11,7 @@ import com.accenture.test.matias.client.CategoryClient;
 import com.accenture.test.matias.dto.CategoriesDTO;
 import com.accenture.test.matias.exception.ServiceUnavailableException;
 import com.accenture.test.matias.model.Category;
+import com.accenture.test.matias.util.Constants;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -36,9 +37,9 @@ public class CategoryServiceImpl implements CategoryService {
      * {@inheritDoc}
      */
     @Override
-    public CategoriesDTO getCategories(int quantity) {
+    public CategoriesDTO getTopRelevanceCategories(int quantity) {
 
-        log.trace("[CategoryService][getTopCategories][{}] Inicio.", quantity);
+        log.trace("[CategoryService][getTopRelevanceCategories][{}] Inicio.", quantity);
 
         List<Category> categories = null;
         List<Category> topCategories = null;
@@ -53,7 +54,7 @@ public class CategoryServiceImpl implements CategoryService {
 
         CategoriesDTO result = makeResponseResult(topCategories, noTopCategories);
 
-        log.trace("[CategoryService][getTopCategories][{}] Fin.", quantity);
+        log.trace("[CategoryService][getTopRelevanceCategories][{}] Fin.", quantity);
 
         return result;
     }
@@ -174,7 +175,7 @@ public class CategoryServiceImpl implements CategoryService {
         } catch (JsonProcessingException e) {
             log.error("Error al copiar un objeto Category con ObjectMapper.", e);
             throw new ServiceUnavailableException("Error al convertir un objeto con ObjectMapper",
-                    "Contáctese con un administrador.", "[addCategoryAndInsepct]");
+                    Constants.GENERIC_SOLUTION, "[addCategoryAndInsepct]");
         }
         return deepCopy;
     }

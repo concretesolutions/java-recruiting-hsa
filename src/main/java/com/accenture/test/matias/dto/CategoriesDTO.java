@@ -6,10 +6,23 @@ import com.accenture.test.matias.model.Category;
 
 import lombok.Data;
 
+/**
+ * Data transfer Object for the Categories separated by top-relevance input.
+ * 
+ * @author Matias Gomez Arancibia
+ *
+ */
 @Data
 public class CategoriesDTO {
 
-    List<Category> topCategories;
-    List<Category> notopCategories;
+    /**
+     * Top categories.
+     */
+    private List<Category> topCategories;
+
+    /**
+     * The rest of categories that are not in top.
+     */
+    private List<Category> notopCategories;
 
 }

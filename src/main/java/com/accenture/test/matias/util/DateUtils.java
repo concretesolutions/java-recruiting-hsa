@@ -7,6 +7,12 @@ import java.util.Date;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * Utils for dates.
+ * 
+ * @author Matias Gomez Arancibia
+ *
+ */
 @Slf4j
 public class DateUtils {
 
@@ -41,6 +47,7 @@ public class DateUtils {
      * @return date truncated at day.
      */
     public static Date truncateDateAtDay(Date date) {
+
         return org.apache.commons.lang3.time.DateUtils.truncate(date, Calendar.DAY_OF_MONTH);
     }
 
@@ -54,7 +61,7 @@ public class DateUtils {
      */
     public static boolean isFirstDateAfterSecond(Date date1, Date date2) {
 
-        return date1.compareTo(date2) <= 0;
+        return date1.compareTo(date2) < 0;
     }
 
 }

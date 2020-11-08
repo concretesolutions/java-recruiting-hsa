@@ -13,11 +13,20 @@ import com.accenture.test.matias.service.CategoryService;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * Controller for Categories.
+ * 
+ * @author Matias Gomez Arancibia.
+ *
+ */
 @Slf4j
 @RestController
 @RequestMapping("/categories")
 public class CategoryController {
 
+    /**
+     * Service that manage the categories.
+     */
     @Autowired
     private CategoryService categoryService;
 
@@ -25,17 +34,16 @@ public class CategoryController {
      * Method that expose a REST service that gets the categories separated by
      * top and no-top categories.
      * 
-     * @param quantity Quantity to separate beetween top and no-top
-     *        categories.
+     * @param quantity Quantity to separate between top and no-top categories.
      * @return DTO with two categories list. First one with the top {quantity}
      *         categories ordered by his relevance.
      */
     @GetMapping("/top-relevance/{quantity}")
-    public ResponseEntity<CategoriesDTO> getTopCategories(@PathVariable("quantity") int quantity) {
+    public ResponseEntity<CategoriesDTO> getTopRelevanceCategories(@PathVariable("quantity") int quantity) {
 
-        log.info("[CategoryController][getTopCategories] Inicio.");
-        CategoriesDTO resp = categoryService.getCategories(quantity);
-        log.info("[CategoryController][getTopCategories] Fin.");
+        log.info("[CategoryController][getTopRelevanceCategories] Inicio.");
+        CategoriesDTO resp = categoryService.getTopRelevanceCategories(quantity);
+        log.info("[CategoryController][getTopRelevanceCategories] Fin.");
 
         return new ResponseEntity<CategoriesDTO>(resp, HttpStatus.OK);
     }

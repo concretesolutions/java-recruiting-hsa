@@ -14,24 +14,35 @@ import com.accenture.test.matias.service.CouponService;
 
 import lombok.extern.log4j.Log4j2;
 
+/**
+ * Controller for Coupons.
+ * 
+ * @author Matias Gomez Arancibia.
+ *
+ */
 @Log4j2
 @RestController
 @RequestMapping("/coupons")
 public class CouponController {
 
-	/**
-	 * Service that handle the coupons.
-	 */
-	@Autowired
-	private CouponService couponService;
+    /**
+     * Service that handle the coupons.
+     */
+    @Autowired
+    private CouponService couponService;
 
-	@GetMapping("/not-expired")
-	public ResponseEntity<List<Coupon>> getCoupons() {
+    /**
+     * Method that returns the coupons not expired.
+     * 
+     * @return Coupons not expired.
+     */
+    @GetMapping("/not-expired")
+    public ResponseEntity<List<Coupon>> getCoupons() {
 
-		log.info("[CouponController][getTopCoupons] Inicio.");
-		List<Coupon> response = couponService.getCoupons();
-		log.info("[CouponController][getTopCoupons][{}] Fin.", response);
+        log.info("[CouponController][getCoupons] Inicio.");
+        List<Coupon> response = couponService.getNotExpiredCoupons();
+        log.info("[CouponController][getCoupons][{}] Fin.", response);
 
-		return new ResponseEntity<List<Coupon>>(response, HttpStatus.OK);
-	}
+        return new ResponseEntity<List<Coupon>>(response, HttpStatus.OK);
+    }
 }
