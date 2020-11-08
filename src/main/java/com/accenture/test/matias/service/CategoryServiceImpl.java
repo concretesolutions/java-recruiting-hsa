@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.accenture.test.matias.client.CategoryClient;
 import com.accenture.test.matias.dto.CategoriesDTO;
+import com.accenture.test.matias.exception.BadRequestException;
 import com.accenture.test.matias.exception.ServiceUnavailableException;
 import com.accenture.test.matias.model.Category;
 import com.accenture.test.matias.util.Constants;
@@ -39,7 +40,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public CategoriesDTO getTopRelevanceCategories(int quantity) {
 
-        log.trace("[CategoryService][getTopRelevanceCategories][{}] Inicio.", quantity);
+        log.trace("[CategoryServiceImpl][getTopRelevanceCategories][{}] Inicio.", quantity);
 
         List<Category> categories = null;
         List<Category> topCategories = null;
@@ -54,7 +55,7 @@ public class CategoryServiceImpl implements CategoryService {
 
         CategoriesDTO result = makeResponseResult(topCategories, noTopCategories);
 
-        log.trace("[CategoryService][getTopRelevanceCategories][{}] Fin.", quantity);
+        log.trace("[CategoryServiceImpl][getTopRelevanceCategories][{}] Fin.", quantity);
 
         return result;
     }
@@ -68,8 +69,13 @@ public class CategoryServiceImpl implements CategoryService {
      */
     private List<Category> getCategoriesOrderedByRelevance(Category category) {
 
+        log.trace("[CategoryServiceImpl][getCategoriesOrderedByRelevance][{}] Inicio.", category);
+
         List<Category> completeList = new ArrayList<Category>();
         addCategoryAndInsepct(category, completeList);
+
+        log.trace("[CategoryServiceImpl][getCategoriesOrderedByRelevance] Fin.");
+
         return bubbleSortCategories(completeList);
     }
 
@@ -82,10 +88,14 @@ public class CategoryServiceImpl implements CategoryService {
      */
     private List<Category> doCustomCategoriesOperation(List<Category> categories) {
 
+        log.trace("[CategoryServiceImpl][doCustomCategoriesOperation][{}] Inicio.", categories);
+
         categories.forEach(cat -> {
             cat.setLargeImageUrl(null);
             cat.setMediumImageUrl(null);
         });
+
+        log.trace("[CategoryServiceImpl][doCustomCategoriesOperation][{}] Fin.", categories);
 
         return categories;
     }
@@ -174,7 +184,7 @@ public class CategoryServiceImpl implements CategoryService {
             deepCopy = objectMapper.readValue(objectMapper.writeValueAsString(input), Category.class);
         } catch (JsonProcessingException e) {
             log.error("Error al copiar un objeto Category con ObjectMapper.", e);
-            throw new ServiceUnavailableException("Error al convertir un objeto con ObjectMapper",
+            throw new ServiceUnavailableException(Constants.MSG_ERROR_CONVERT_OBJECTMAPPER,
                     Constants.GENERIC_SOLUTION, "[addCategoryAndInsepct]");
         }
         return deepCopy;
@@ -194,6 +204,19 @@ public class CategoryServiceImpl implements CategoryService {
         response.setTopCategories(topCategories);
         response.setNotopCategories(notopCategories);
         return response;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void doRequestValidations(int quantity) {
+
+        if (quantity < 0) {
+            log.error("Se ha enviado un quantity menor a 0. quantity {}", quantity);
+            throw new BadRequestException(Constants.MSG_INVALID_CATEGORIES_QUANTITY, Constants.GENERIC_SOLUTION,
+                    Constants.SERVICE_CODE_CATEGORY);
+        }
     }
 
 }

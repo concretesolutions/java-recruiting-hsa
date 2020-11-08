@@ -42,6 +42,7 @@ public class CategoryController {
     public ResponseEntity<CategoriesDTO> getTopRelevanceCategories(@PathVariable("quantity") int quantity) {
 
         log.info("[CategoryController][getTopRelevanceCategories] Inicio.");
+        categoryService.doRequestValidations(quantity);
         CategoriesDTO resp = categoryService.getTopRelevanceCategories(quantity);
         log.info("[CategoryController][getTopRelevanceCategories] Fin.");
 

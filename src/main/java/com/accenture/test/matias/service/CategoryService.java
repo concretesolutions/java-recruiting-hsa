@@ -18,4 +18,11 @@ public interface CategoryService {
      */
     public CategoriesDTO getTopRelevanceCategories(int quantity);
 
+    /**
+     * Method that do validations for the method getTopRelevanceCategories.
+     * 
+     * @param quantity Quantity to filter between top and no-top categories.
+     */
+    public void doRequestValidations(int quantity);
+
 }

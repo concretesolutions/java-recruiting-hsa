@@ -11,8 +11,10 @@ import com.accenture.test.matias.client.CouponClient;
 import com.accenture.test.matias.model.Coupon;
 import com.accenture.test.matias.util.AccentureUtils;
 import com.accenture.test.matias.util.CouponDateStatus;
-import com.accenture.test.matias.util.DateUtils;
 import com.accenture.test.matias.util.DateTime;
+import com.accenture.test.matias.util.DateUtils;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Service that manage the coupons.
@@ -20,12 +22,13 @@ import com.accenture.test.matias.util.DateTime;
  * @author Matias Gomez Arancibia.
  *
  */
+@Slf4j
 @Service
 public class CouponServiceImpl implements CouponService {
 
     @Autowired
     public DateTime dateTime;
-    
+
     /**
      * DateFormat for the expired date of coupons.
      */
@@ -36,10 +39,6 @@ public class CouponServiceImpl implements CouponService {
      */
     @Autowired
     private CouponClient couponClient;
-    
-    public CouponServiceImpl(final DateTime dateTime) {
-        this.dateTime = dateTime;
-    }
 
     /**
      * {@inheritDoc}
@@ -47,10 +46,14 @@ public class CouponServiceImpl implements CouponService {
     @Override
     public List<Coupon> getNotExpiredCoupons() {
 
+        log.trace("[CouponServiceImpl][getNotExpiredCoupons] Inicio.");
+
         List<Coupon> response = couponClient.getCoupons().getBody();
         if (response != null && !response.isEmpty()) {
             response = filterByNotExpired(response);
         }
+
+        log.trace("[CouponServiceImpl][getNotExpiredCoupons] Fin.");
         return response;
     }
 
@@ -62,6 +65,7 @@ public class CouponServiceImpl implements CouponService {
      */
     private List<Coupon> filterByNotExpired(List<Coupon> coupons) {
 
+        log.trace("[CouponServiceImpl][filterByNotExpired][{}] Inicio.", coupons);
         List<Coupon> response = coupons;
         Date today = DateUtils.truncateDateAtDay(dateTime.getDate());
         Predicate<Coupon> isCouponExpired = c -> {
@@ -70,6 +74,7 @@ public class CouponServiceImpl implements CouponService {
         };
 
         response.removeIf(isCouponExpired);
+        log.trace("[CouponServiceImpl][filterByNotExpired][{}] Fin.", response);
 
         return response;
     }

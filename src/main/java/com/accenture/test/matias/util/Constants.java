@@ -32,4 +32,16 @@ public class Constants {
      * Generic service code for the coupon throws.
      */
     public static final String SERVICE_CODE_COUPON = "[accenture-matias-test-coupon-api]";
+
+    /**
+     * Message for an invalid input for the endpoint
+     * getTopRelevanceCategories.
+     */
+    public static final String MSG_INVALID_CATEGORIES_QUANTITY = "Cantidad de categorias top inválida.";
+
+    /**
+     * Error message when ObjectMapper is trying to convert an object and
+     * fails.
+     */
+    public static final String MSG_ERROR_CONVERT_OBJECTMAPPER = "Error al convertir un objeto con ObjectMapper";
 }
