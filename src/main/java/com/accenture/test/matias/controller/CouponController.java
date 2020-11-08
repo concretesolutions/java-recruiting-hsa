@@ -25,7 +25,7 @@ public class CouponController {
 	@Autowired
 	private CouponService couponService;
 
-	@GetMapping("")
+	@GetMapping("/not-expired")
 	public ResponseEntity<List<Coupon>> getCoupons() {
 
 		log.info("[CouponController][getTopCoupons] Inicio.");
