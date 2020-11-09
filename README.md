@@ -1,4 +1,5 @@
 
+
 <a href="https://concrete.com.br/"><img src=".github/concrete_symbol.png" width="180px" align="right" /></a>
 
 # Desafio Java Concrete - Matías Gómez Arancibia
@@ -70,8 +71,9 @@ Se ha decidido utilizar un solo endpoint, ya que son requerimientos complementar
 - Se ha realizado una solución en donde, al fallar la llamada de servicio final, se vuelve a intentar hacer el llamado del servicio REST.
 -- Se han configurado tiempos bajos de timeout para ver su funcionamiento.
 - Solo se han desarrollado pruebas unitarias críticas según mi criterio.
-
+- Para solventar la inestabilidad de la API de cupones, se utiliza retryer de feign.
 ## Pendiente
 
-Ha quedado pendiente los fallback para las llamadas a las api finales, ya que mi idea era arrojar una excepción de servicio no disponible, pero hystrix no lo permite.
+Han quedado pendiente los fallback para las llamadas a las api finales, ya que mi idea era arrojar una excepción de servicio no disponible, pero hystrix no lo permite.
+
 ---
