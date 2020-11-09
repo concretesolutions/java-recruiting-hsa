@@ -71,5 +71,6 @@ Se ha decidido utilizar un solo endpoint, ya que son requerimientos complementar
 -- Se han configurado tiempos bajos de timeout para ver su funcionamiento.
 - Solo se han desarrollado pruebas unitarias críticas según mi criterio.
 
-
+## Pendiente
+Ha quedado pendiente los fallback para las llamadas a las api finales, ya que mi idea era arrojar una excepción de servicio no disponible, pero hystrix no lo permite.
 ---
