@@ -41,7 +41,7 @@ public class CustomRetryer implements Retryer {
 
     @Override
     public Retryer clone() {
-        return new CustomRetryer(6, 2000L);
+        return new CustomRetryer(4, 5000L);
     }
 
 }
