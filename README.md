@@ -9,8 +9,7 @@ Desafio técnico para evaluar el conocimiento de los aspirantes a unirse al equi
 Se deben tener ciertas condiciones para que el proyecto funcione.
 
 #### Tener instalado:
-- Java 8
-- Gradle (deseable versión 6 en adelante)
+- JDK 8.
 
 
 ## ¿Cómo ejecutar el proyecto?
@@ -44,10 +43,15 @@ endpoint: http://127.0.0.1:8081/categories/top-relevance/5
 ```
 
 ## ¿Cómo ejecutar los test del proyecto?
-Para ejecutar los
+Para ejecutar los test realizados, en la raíz del proyecto abrir una terminal/consola y ejecutar:
 ```bash
 ./gradlew cleanTest test -i
 ```
+Luego de esto, es posible ver los resultados en el archivo:
+```
+java-recruiting-hsa-master/build/reports/tests/test/index.html
+```
+
 ## Documentación Swagger
 
 Para acceder a la documentación con Swagger, se debe correr la aplicación y acceder a la url:
