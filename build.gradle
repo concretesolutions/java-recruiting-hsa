@@ -1,0 +1,39 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.0'
+	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	compile 'org.junit.jupiter:junit-jupiter:5.6.3'
+	compile 'com.netflix.feign:feign-core:8.18.0'
+	compile 'com.netflix.feign:feign-gson:8.18.0'
+	compile 'com.netflix.feign:feign-okhttp:8.18.0'
+	compile 'com.netflix.feign:feign-httpclient:8.18.0'
+	compile 'com.netflix.feign:feign-sax:8.18.0'
+	compile 'com.netflix.feign:feign-ribbon:8.18.0'
+	compile 'com.netflix.feign:feign-slf4j:8.18.0'
+	compile 'com.netflix.feign:feign-jaxrs:8.18.0'
+	compile 'com.netflix.feign:feign-hystrix:8.18.0'
+	compile 'com.netflix.feign:feign-jaxb:8.18.0'
+	compile 'com.netflix.feign:feign-example-github:8.0.0-rc.1'
+	compile 'com.netflix.feign:feign-example-wikipedia:8.0.0-rc.1'
+	compile 'com.google.code.gson:gson:2.8.6'
+	compile 'com.google.code.gson:gson-parent:2.8.6'
+	compile 'com.google.inject:guice:5.0.0-BETA-1'
+	compile 'com.google.api-client:google-api-client:1.30.11'
+	compile 'com.google.api:api-compiler:0.0.8'
+}
+test {
+	useJUnitPlatform()
+}
