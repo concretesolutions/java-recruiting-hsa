@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: concrete-test
+  name: concrete-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: concrete-test
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: concrete-test
+    spec:
+      containers:
+      - image: gcr.io/psyched-age-295904/concrete-test:latest
+        name: concrete-test
+        resources: {}
+        
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: concrete-test
+  annotations:
+    cloud.google.com/neg: '{"ingress": true}'
+spec:
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 8090
+  selector:
+    app: concrete-test
+  type: LoadBalancer

@@ -1,0 +1,16 @@
+steps:
+- name: gradle:5.6.2-jdk8
+  entrypoint: gradle
+  args: ['assemble']
+  # build the container image
+- name: gcr.io/cloud-builders/docker
+  args: ['build', '-t', 'gcr.io/psyched-age-295904/concrete-test', '--build-arg=JAR_FILE=build/libs/concrete-0.0.1-SNAPSHOT.jar', '.']
+  # push container image
+- name: "gcr.io/cloud-builders/docker"
+  args: ["push", "gcr.io/psyched-age-295904/concrete-test:latest"]
+  # deploy container image to GKE
+- name: "gcr.io/cloud-builders/kubectl"
+  args: ["apply", "-f", "deployments/k8s/"]
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=southamerica-east1-b'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=concreta-1'
