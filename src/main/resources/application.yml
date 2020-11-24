@@ -3,4 +3,4 @@ api:
     uri: https://cs-hsa-api-categories.herokuapp.com/categories
   coupons:
     uri: https://cs-hsa-api-coupons.herokuapp.com/coupons
-    cache.maxMinutes: 5 #Maximo en minutos que es valida la respuesta en cache
+    cache.maxMinutes: 5
