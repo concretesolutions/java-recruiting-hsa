@@ -1,5 +1,6 @@
 package com.accenture.prueba.dto.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
@@ -52,16 +53,19 @@ public class CategoriesApiResponse {
         /**
          * URL de imagen icono
          */
+        @JsonIgnore
         private String iconImageUrl;
 
         /**
          * URL de imagen larga
          */
+        @JsonIgnore
         private String largeImageUrl;
 
         /**
          * URL de imagen mediana
          */
+        @JsonIgnore
         private String mediumImageUrl;
 
         /**

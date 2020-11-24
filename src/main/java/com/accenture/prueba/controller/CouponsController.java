@@ -2,6 +2,8 @@ package com.accenture.prueba.controller;
 
 import com.accenture.prueba.dto.CouponsResponseDto;
 import com.accenture.prueba.service.CouponsService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,8 +30,14 @@ public class CouponsController {
      *                       true = solo los no expirados
      * @return Objeto con lista de cupones
      */
+    @ApiOperation("Obtener los cupones")
+
     @GetMapping(value = "/coupons")
-    public CouponsResponseDto getCoupons(@RequestParam(required = false) boolean onlyNotExpired) {
+    public CouponsResponseDto getCoupons(@ApiParam(
+            name = "onlyNotExpired",
+            type = "boolean",
+            value = "parametro para retornar solo cupones no expirados")
+                                             @RequestParam(required = false) boolean onlyNotExpired) {
         log.info(String.format("Consultando %s", (onlyNotExpired ? "cupones no expirados" : "todos los cupones")));
         return couponsService.get(onlyNotExpired);
     }

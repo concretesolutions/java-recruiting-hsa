@@ -3,7 +3,7 @@ package com.accenture.prueba.dto;
 import lombok.Builder;
 import lombok.Data;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -48,7 +48,7 @@ public class CouponsResponseDto {
         /**
          * Fecha de expiración
          */
-        private Date fechaExpiracion;
+        private LocalDate fechaExpiracion;
     }
 
 }

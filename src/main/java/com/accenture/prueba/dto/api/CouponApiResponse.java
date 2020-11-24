@@ -2,7 +2,7 @@ package com.accenture.prueba.dto.api;
 
 import lombok.Data;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  * Objeto de respuesta de respuesta de API de cupones
@@ -33,6 +33,6 @@ public class CouponApiResponse {
     /**
      * Fecha de expiración
      */
-    private Date expiresAt;
+    private LocalDate expiresAt;
 
 }

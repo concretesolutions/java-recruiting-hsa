@@ -7,7 +7,7 @@ import com.accenture.prueba.service.CouponsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -30,7 +30,7 @@ public class CouponsServiceImpl implements CouponsService {
     public CouponsResponseDto get(boolean onlyNotExpired) {
         List<CouponsResponseDto.CouponDto> couponsList = couponsClient.getAll()
                 .stream()
-                .filter(coupon -> !onlyNotExpired || coupon.getExpiresAt().after(new Date()))
+                .filter(coupon -> !onlyNotExpired || coupon.getExpiresAt().isAfter(LocalDate.now()))
                 .map(this::mapper)
                 .collect(Collectors.toList());
 

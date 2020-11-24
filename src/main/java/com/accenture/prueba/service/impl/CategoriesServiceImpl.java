@@ -7,7 +7,6 @@ import com.accenture.prueba.service.CategoriesService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -74,20 +73,26 @@ public class CategoriesServiceImpl implements CategoriesService {
      * @param response Objeto de respuesta de API
      * @return Lista de categorias en objeto de dominio
      */
-    private static List<CategoriesResponseDto.Categorie> extractCategories(CategoriesApiResponse response) {
-        List<CategoriesResponseDto.Categorie> result = new ArrayList<>();
+    private List<CategoriesResponseDto.Categorie> extractCategories(CategoriesApiResponse response) {
+        return response.getSubcategories().get(0).getSubcategories()
+                .stream()
+                .map(this::mapper)
+                .collect(Collectors.toList());
+    }
 
-        response.getSubcategories().get(0).getSubcategories().forEach(categorie -> {
-            result.add(CategoriesResponseDto.Categorie.builder()
-                    .id(categorie.getId())
-                    .name(categorie.getName())
-                    .relevance(categorie.getRelevance())
-                    .iconImageUrl(categorie.getIconImageUrl())
-                    .subcategories(categorie.getSubcategories())
-                    .build());
-        });
-
-        return result;
+    /**
+     * Metodo mapper para mapear respuesta de API a objeto de dominio
+     * @param target Objeto de API
+     * @return Objeto de dominio
+     */
+    private CategoriesResponseDto.Categorie mapper(CategoriesApiResponse.SubCategorie target) {
+        return CategoriesResponseDto.Categorie.builder()
+                .id(target.getId())
+                .name(target.getName())
+                .relevance(target.getRelevance())
+                .iconImageUrl(target.getIconImageUrl())
+                .subcategories(target.getSubcategories())
+                .build();
     }
 
 }
