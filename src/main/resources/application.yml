@@ -1,0 +1,5 @@
+api:
+  categories:
+    uri: https://cs-hsa-api-categories.herokuapp.com/categories
+  coupons:
+    uri: https://cs-hsa-api-coupons.herokuapp.com/coupons
