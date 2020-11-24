@@ -7,7 +7,7 @@ Desafio técnico para evaluar el conocimiento de los aspirantes a unirse al equi
 ---
 # Solución
 
-###Desarrollado con
+### Desarrollado con
     - Java 8
     - Springboot
     - Lombok
@@ -16,7 +16,7 @@ Desafio técnico para evaluar el conocimiento de los aspirantes a unirse al equi
     - Swagger
     - Jmeter
 
-###Consideraciones
+### Consideraciones
     - Para el tema del API de cupones que aveces se demora en responder y no esta especificado la frecuencia en la
       que estos datos son actualizados genere una llave parametrizada en el application.yml api.coupons.cache.maxMinutes
       en la que se deben especificar en minutos cuanto sera la validez de los datos guardados en cache antes de consultar
