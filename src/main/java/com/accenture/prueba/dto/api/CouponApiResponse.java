@@ -1,5 +1,6 @@
 package com.accenture.prueba.dto.api;
 
+import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -8,6 +9,7 @@ import java.time.LocalDate;
  * Objeto de respuesta de respuesta de API de cupones
  */
 @Data
+@Builder
 public class CouponApiResponse {
 
     /**
