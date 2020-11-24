@@ -24,8 +24,8 @@ Desafio técnico para evaluar el conocimiento de los aspirantes a unirse al equi
       
     - Cree un plan de pruebas de carga con la herramienta Jmeter el cual realiza prueba de todos los endpoints del servicio.
 
-###Levantar servicio
-#####Levantar servicio vía jar compilado:
+### Levantar servicio
+#### Levantar servicio vía jar compilado:
     Debes abrir una terminal/cmd en el root del proyecto y ejecutar los siguientes comandos:
         
         Para compilar el proyecto:
@@ -37,7 +37,7 @@ Desafio técnico para evaluar el conocimiento de los aspirantes a unirse al equi
         Ejecutar jar compilado
         > java -jar desafio-0.0.1-SNAPSHOT.jar
 
-#####Levantar servicio vía docker:
+#### Levantar servicio vía docker:
     Debes abrir una terminal/cmd en el root del proyecto y ejecutar los siguientes comandos:
         
         Para compilar el proyecto:
