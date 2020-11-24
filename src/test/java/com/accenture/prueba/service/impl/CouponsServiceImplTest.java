@@ -2,24 +2,19 @@ package com.accenture.prueba.service.impl;
 
 import com.accenture.prueba.client.CouponsClient;
 import com.accenture.prueba.dto.CouponsResponseDto;
-import com.accenture.prueba.dto.api.CategoriesApiResponse;
 import com.accenture.prueba.dto.api.CouponApiResponse;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.springframework.core.ParameterizedTypeReference;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CouponsServiceImplTest {
 

@@ -50,10 +50,10 @@ public class CategoriesServiceImpl implements CategoriesService {
     }
 
     /**
-     * @see CategoriesService#getAnother()
+     * @see CategoriesService#getNoTop()
      */
     @Override
-    public CategoriesResponseDto getAnother() {
+    public CategoriesResponseDto getNoTop() {
         List<CategoriesResponseDto.Categorie> categoriesList = getAll().getCategories()
                 .stream()
                 .sorted((c1, c2) -> c2.getRelevance() - c1.getRelevance())

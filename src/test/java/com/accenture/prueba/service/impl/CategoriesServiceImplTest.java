@@ -47,7 +47,7 @@ class CategoriesServiceImplTest {
 
     @Test
     void getAnother() {
-        CategoriesResponseDto actual = categoriesServiceImplTest.getAnother();
+        CategoriesResponseDto actual = categoriesServiceImplTest.getNoTop();
         CategoriesResponseDto expected = CategoriesResponseDto.builder().categories(getAnotherExpected()).build();
         Assertions.assertEquals(expected, actual);
     }

@@ -9,10 +9,16 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+/**
+ * Configuración de Swagger
+ */
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
 
+    /**
+     * Bean de configuracion de Swagger para filtrar apis en base a Anotacion RestController.class
+     */
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)

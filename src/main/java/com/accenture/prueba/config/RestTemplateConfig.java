@@ -20,8 +20,6 @@ public class RestTemplateConfig {
 
     /**
      * Bean de restTemplate para peticiones HTTP
-     *
-     * @return RestTemplate Object
      */
     @Bean
     public RestTemplate restTemplate() {

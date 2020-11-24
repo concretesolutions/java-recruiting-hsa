@@ -23,6 +23,6 @@ public interface CategoriesService {
      * Obtener resto no top
      * @return Objeto mapeado con lista de categorias
      */
-    CategoriesResponseDto getAnother();
+    CategoriesResponseDto getNoTop();
 
 }

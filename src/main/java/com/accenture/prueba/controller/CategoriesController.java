@@ -47,9 +47,9 @@ public class CategoriesController {
      * @return Objeto con lista de categorias
      */
     @ApiOperation("Obtener las categorias que no estan dentro de las top 5")
-    @GetMapping(value = "/another")
-    public CategoriesResponseDto getAnotherCategories() {
-        return categoriesService.getAnother();
+    @GetMapping(value = "/no-top")
+    public CategoriesResponseDto getNoTopCategories() {
+        return categoriesService.getNoTop();
     }
 
 }

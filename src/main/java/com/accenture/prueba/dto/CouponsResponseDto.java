@@ -1,7 +1,10 @@
 package com.accenture.prueba.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -9,7 +12,10 @@ import java.util.List;
 /**
  * Objeto de respuesta de cupones
  */
-@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@EqualsAndHashCode
 @Builder
 public class CouponsResponseDto {
 
@@ -21,7 +27,11 @@ public class CouponsResponseDto {
     /**
      * Objeto de cupon
      */
-    @Data
+
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Getter
+    @EqualsAndHashCode
     @Builder
     public static class CouponDto {
 

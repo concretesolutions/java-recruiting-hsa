@@ -1,14 +1,20 @@
 package com.accenture.prueba.dto.api;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
 /**
  * Objeto de respuesta de respuesta de API de cupones
  */
-@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@EqualsAndHashCode
 @Builder
 public class CouponApiResponse {
 

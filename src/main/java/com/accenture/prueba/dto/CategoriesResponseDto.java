@@ -3,15 +3,21 @@ package com.accenture.prueba.dto;
 import com.accenture.prueba.dto.api.CategoriesApiResponse;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 /**
  * Objeto de respuesta de categorias
  */
-@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@EqualsAndHashCode
 @Builder
 public class CategoriesResponseDto {
 
@@ -23,9 +29,12 @@ public class CategoriesResponseDto {
     /**
      * Objeto de categoria
      */
-    @Data
-    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Getter
+    @EqualsAndHashCode
     @Builder
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     public static class Categorie {
 
         /**
