@@ -8,9 +8,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.accenture.pruebamanuel.exception.ServiceUnavailableException;
 import com.accenture.pruebamanuel.model.Cupon;
 import com.accenture.pruebamanuel.service.CouponService;
 
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import lombok.extern.log4j.Log4j2;
 
 /**
@@ -33,6 +35,7 @@ public class CatalogController {
 	 * 
 	 * @return List Cupon.
 	 */
+	@CircuitBreaker(name = "getCoupons", fallbackMethod = "fallbackGetListCoupon")
 	@GetMapping("/coupon/no-expired")
 	public ResponseEntity<List<Cupon>> getCoupons() {
 
@@ -41,5 +44,18 @@ public class CatalogController {
 		log.info("[getCoupons] Fin.");
 
 		return new ResponseEntity<List<Cupon>>(response, HttpStatus.OK);
+	}
+
+	/**
+	 * metodo fallback para cuando el servicio getCoupons esta indisponibilizado.
+	 * 
+	 * @return listado de cupon con estado de la solicitud.
+	 */
+	public ResponseEntity<List<Cupon>> fallbackGetListCoupon(ServiceUnavailableException e) {
+
+		log.warn("[fallbackGetListCoupon] Circuit breaker Activo error al obtener listado de cupones {}",
+				e.getMessage());
+		throw new ServiceUnavailableException("Circuit breaker para obtener el numero de la orden activo",
+				"Error al obtener el numero de la orden, favor intenta mas tarde", "fallbackGetListCoupon");
 	}
 }

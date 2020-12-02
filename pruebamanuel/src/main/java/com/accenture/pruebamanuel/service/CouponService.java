@@ -9,7 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.accenture.pruebamanuel.client.CouponsClient;
+import com.accenture.pruebamanuel.exception.BadRequestException;
+import com.accenture.pruebamanuel.exception.ConflictException;
+import com.accenture.pruebamanuel.exception.InternalServerErrorException;
+import com.accenture.pruebamanuel.exception.ServiceUnavailableException;
 import com.accenture.pruebamanuel.model.Cupon;
+import com.accenture.pruebamanuel.util.Constant;
 import com.accenture.pruebamanuel.util.PruebaUtil;
 
 import lombok.extern.log4j.Log4j2;
@@ -31,6 +36,8 @@ public class CouponService {
 
 	/**
 	 * Metodo que contiene la logica para la obtencion del listado de cupones
+	 * 
+	 * @return List<Cupon>
 	 */
 	public List<Cupon> getCoupon() {
 
@@ -39,13 +46,11 @@ public class CouponService {
 		List<Cupon> cupones = new ArrayList<>();
 		try {
 			cupones = couponClient.getCoupons().getBody();
+			validateResponse(cupones);
 		} catch (Exception e) {
-			// TODO: handle exception
-		}
-
-		if (cupones.isEmpty() || cupones == null) {
-			log.error("[getCoupon] Error, listado de cupones es null o vacio");
-			// TODO: falta agrega logica de excepciones
+			log.error("[getCoupon]Error ocurrio un error al ejecutar la api de cupones");
+			throw new ServiceUnavailableException(Constant.SERVICEUNAVAILABLE_MESSAGE,
+					Constant.SERVICEUNAVAILABLE_SOLUTION, Constant.SERVICEUNAVAILABLE_CODE);
 		}
 
 		log.debug("[getCoupon] Fin.");
@@ -53,15 +58,35 @@ public class CouponService {
 	}
 
 	/**
+	 * Metodo que valida la respuesta de la api de cupones.
+	 * 
+	 * @param List<Cupon>.
+	 */
+	private void validateResponse(List<Cupon> cupones) {
+		if (cupones == null || cupones.isEmpty()) {
+			log.error("[getCoupon] Error, listado de cupones es null o vacio");
+			throw new ConflictException("Error listado de cupones es null o vacio", Constant.CONFLICT_SOLUTION,
+					Constant.CONFLICT_CODE);
+		}
+	}
+
+	/**
 	 * Metodo que realiza filtro de los cupones expirados.
 	 * 
-	 * @param cupones
+	 * @param cupones.
 	 */
 	private List<Cupon> filterCoupon(List<Cupon> cupones) {
 
 		log.debug("[filterCoupon] Inicio");
 
 		Date fecha = PruebaUtil.getDate();
+
+		if (fecha == null) {
+			log.error("[getCoupon]Error ocurrio un error al ejecutar la api de cupones");
+			throw new BadRequestException("Fecha no puede ser nula o vacio", Constant.BADREQUEST_SOLUTION,
+					Constant.BADREQUEST_CODE);
+		}
+
 		cupones.removeIf(c -> removeExpired(c.getExpiresAt(), fecha));
 
 		log.debug("[filterCoupon] Fin");
@@ -88,8 +113,9 @@ public class CouponService {
 		try {
 			fechaExpiracion = PruebaUtil.stringToDate(expiresAt);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			log.error("[removeExpired]Error ocurrio un error al parcear la fecha");
+			throw new InternalServerErrorException(Constant.INTERNALSERVERERROR_MESSAGE,
+					Constant.INTERNALSERVERERROR_SOLUTION, Constant.INTERNALSERVERERROR_CODE);
 		}
 
 		if (PruebaUtil.compareDate(fechaExpiracion, fecha) == 0 || PruebaUtil.compareDate(fechaExpiracion, fecha) > 0) {
@@ -102,5 +128,4 @@ public class CouponService {
 			return true;
 		}
 	}
-
 }

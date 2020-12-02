@@ -30,7 +30,7 @@ public class PruebaUtil {
 	}
 
 	/**
-	 * realiza transformacion de string a localDate en formato yyyyMMdd.
+	 * realiza transformacion de string a Date en formato yyyyMMdd.
 	 * 
 	 * @return Fecha actual en el formato yyyyMMdd
 	 * @throws ParseException
@@ -39,7 +39,6 @@ public class PruebaUtil {
 
 		Date fechaDate = null;
 		fechaDate = DATE_FORMAT.parse(fecha);
-
 		return fechaDate;
 	}
 
