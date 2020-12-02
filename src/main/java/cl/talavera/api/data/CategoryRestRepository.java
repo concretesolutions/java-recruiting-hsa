@@ -7,7 +7,11 @@ import java.util.List;
 
 public class CategoryRestRepository {
 
+    private List<Category> categories = new ArrayList<>();
+
     public List<Category> get() {
-        return new ArrayList<>();
+        categories.add(Category.builder().name("categoria").build());
+
+        return categories;
     }
 }
