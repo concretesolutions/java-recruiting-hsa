@@ -57,12 +57,12 @@ Dado que el tiempo indicado fue de 3 dias y estar dentro de horario laboral a qu
 Solo como resumen y ayuda, ya que de igual forma de integra Swagger en el proyecto.
 - Endpoint para la obtención de cupones no expirados:
 ```
-http-method: GET
+GET
 endpoint: http://127.0.0.1:8081/accenture/test/rest/catalog/coupon/no-expired
 ```
 - Endpoint para la obtención de las top 5 categorías:
 ```
-http-method: GET
+GET
 endpoint: http://127.0.0.1:8081/accenture/test/rest/catalog/category
 ```
 
