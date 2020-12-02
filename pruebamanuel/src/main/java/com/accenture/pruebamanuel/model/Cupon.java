@@ -7,7 +7,6 @@ import lombok.Data;
  * 
  * @author Manuel Jimenez
  */
-
 @Data
 public class Cupon {
 

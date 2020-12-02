@@ -27,6 +27,9 @@ dependencies {
 	compile group: 'io.github.resilience4j', name: 'resilience4j-ratelimiter', version: '1.1.0'
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
 	compileOnly 'org.projectlombok:lombok'
+	testCompile 'junit:junit:4.12'
+    compile 'junit:junit:4.12'
+	testCompile group: 'org.mockito', name: 'mockito-core'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'	
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
