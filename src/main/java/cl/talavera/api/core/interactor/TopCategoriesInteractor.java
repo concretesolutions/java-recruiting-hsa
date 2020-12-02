@@ -19,6 +19,6 @@ public class TopCategoriesInteractor implements TopCategoriesInteractorPort {
     @Override
     public void run() {
         List<Category> categories = dao.getTopCategories();
-        presenter.view(categories);
+        presenter.present(categories);
     }
 }

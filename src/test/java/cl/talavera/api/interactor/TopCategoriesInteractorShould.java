@@ -26,7 +26,7 @@ public class TopCategoriesInteractorShould {
         when(dao.getTopCategories()).thenReturn(categories);
         interactor.run();
         verify(dao,times(1)).getTopCategories();
-        verify(presenter,times(1)).view(categories);
+        verify(presenter,times(1)).present(categories);
     }
 
     private List<Category> categories() {
