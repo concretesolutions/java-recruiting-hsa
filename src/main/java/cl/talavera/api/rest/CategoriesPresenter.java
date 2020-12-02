@@ -20,7 +20,10 @@ public class CategoriesPresenter implements CategoriesPresenterPort {
     }
     private List<CategoryView> from(List<Category> categories) {
         return categories.stream()
-                .map(c -> CategoryView.builder().name(c.getName()).build())
+                .map(c -> CategoryView.builder()
+                        .name(c.getName())
+                        .relevance(c.getRelevance())
+                        .build())
                 .collect(Collectors.toList());
     }
 }

@@ -7,4 +7,5 @@ import lombok.Data;
 @Builder
 public class Category {
     private String name;
+    private int relevance;
 }
