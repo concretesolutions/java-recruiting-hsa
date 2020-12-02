@@ -31,7 +31,7 @@ public class Swagger2Config {
 
 		return new Docket(DocumentationType.SWAGGER_2).select()
 				.apis(RequestHandlerSelectors.basePackage("com.accenture.pruebamanuel.controller"))
-				.paths(PathSelectors.regex("/.*")).build().apiInfo(apiEndPointsInfo());
+				.paths(PathSelectors.any()).build().apiInfo(apiEndPointsInfo());
 	}
 
 	/**

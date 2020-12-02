@@ -23,6 +23,7 @@ dependencies {
 	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign', version: '2.2.5.RELEASE'
 	compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
 	compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.3'
 	compile group: 'io.github.resilience4j', name: 'resilience4j-spring-boot2', version: '1.1.0'
 	compile group: 'io.github.resilience4j', name: 'resilience4j-ratelimiter', version: '1.1.0'
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
