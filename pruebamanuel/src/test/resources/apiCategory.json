@@ -1,0 +1,34 @@
+{
+  "id": "ROOT",
+  "name": "LEGACY_NAVIGATION",
+  "subcategories": [
+    {
+      "id": "MOB",
+      "name": "MOBILE_MARKET",
+      "subcategories": [
+        {
+          "id": "video-games",
+          "name": "Video Games",
+          "relevance": 150,
+          "subcategories": [
+            {
+              "id": "nintendo",
+              "name": "Nintendo",
+              "subcategories": [
+                {
+                  "id": "switch",
+                  "name": "Switch",
+                  "relevance": 422
+                }
+              ],
+              "largeImageUrl": "https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg",
+              "mediumImageUrl": "https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg",
+              "smallImageUrl": "https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg"
+            }
+          ],
+          "iconImageUrl": "https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg"
+        }
+      ]
+    }
+  ]
+}

@@ -1,8 +1,12 @@
 package com.accenture.pruebamanuel.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import lombok.Data;
 
@@ -12,8 +16,15 @@ import lombok.Data;
  * @author Manuel Jimenez.
  */
 @Data
-@JsonIgnoreProperties
-public class Categoria {
+@JsonPropertyOrder({ "id", "name", "relevance", "smallImageUrl", "subcategories" })
+@JsonInclude(value = Include.NON_DEFAULT, content = Include.NON_EMPTY)
+@JsonFormat(shape = JsonFormat.Shape.OBJECT)
+public class Categoria implements Serializable {
+
+	/**
+	 * Serial
+	 */
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * ID de la categoria.
@@ -28,36 +39,16 @@ public class Categoria {
 	/**
 	 * relevancia de la categoria.
 	 */
-	@JsonIgnoreProperties(ignoreUnknown = true)
 	private Integer relevance;
-
-	/**
-	 * imagen grande url la imagen.
-	 */
-	@JsonIgnoreProperties(ignoreUnknown = true)
-	private String largeImageUrl;
-
-	/**
-	 * imagen mediana url de la imagen.
-	 */
-	@JsonIgnoreProperties(ignoreUnknown = true)
-	private String mediumImageUrl;
 
 	/**
 	 * imagen pequena url de la imagen.
 	 */
-	@JsonIgnoreProperties(ignoreUnknown = true)
 	private String smallImageUrl;
 
 	/**
 	 * Subcategortias del modelo categoria.
 	 */
-	@JsonIgnoreProperties(ignoreUnknown = true)
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	private List<Categoria> subcategories;
-
-	/**
-	 * Icono de la imagen url de la imagen.
-	 */
-	@JsonIgnoreProperties(ignoreUnknown = true)
-	private String iconImageUrl;
 }
