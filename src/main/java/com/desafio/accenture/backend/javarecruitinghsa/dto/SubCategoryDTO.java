@@ -20,26 +20,6 @@ public class SubCategoryDTO {
     @JsonProperty("name")
     String name;
 
- /*   @JsonProperty("relevance")
-    @JsonInclude(Include.NON_NULL)
-    Integer relevance = 0;
-
-    @JsonProperty("largeImageUrl")
-    @JsonInclude(Include.NON_NULL)
-    String largeImageUrl;
-
-    @JsonProperty("mediumImageUrl")
-    @JsonInclude(Include.NON_NULL)
-    String mediumImageUrl;
-
-    @JsonProperty("smallImageUrl")
-    @JsonInclude(Include.NON_NULL)
-    String smallImageUrl;
-
-    @JsonProperty("iconImageUrl")
-    @JsonInclude(Include.NON_NULL)
-    String iconImageUrl;
-*/
     @JsonProperty("subcategories")
     List<ProductsSubCategoryDTO> subcategories;
 }
