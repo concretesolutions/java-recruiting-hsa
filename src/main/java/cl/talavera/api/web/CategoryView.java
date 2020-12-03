@@ -1,4 +1,4 @@
-package cl.talavera.api.rest;
+package cl.talavera.api.web;
 
 import lombok.Builder;
 import lombok.Data;

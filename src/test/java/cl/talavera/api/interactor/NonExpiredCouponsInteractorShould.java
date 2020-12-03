@@ -24,7 +24,7 @@ public class NonExpiredCouponsInteractorShould {
         List<Coupon> coupons = coupons();
         when(dao.getNonExpired()).thenReturn(coupons);
 
-        interactor.run();c
+        interactor.run();
         verify(dao,times(1)).getNonExpired();
         verify(presenter,times(1)).present(coupons);
 

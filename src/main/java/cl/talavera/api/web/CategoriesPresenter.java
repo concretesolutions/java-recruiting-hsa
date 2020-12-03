@@ -1,4 +1,4 @@
-package cl.talavera.api.rest;
+package cl.talavera.api.web;
 
 import cl.talavera.api.core.domain.Category;
 import cl.talavera.api.core.port.category.CategoriesPresenterPort;

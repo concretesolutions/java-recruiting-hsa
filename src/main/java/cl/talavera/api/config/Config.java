@@ -6,7 +6,7 @@ import cl.talavera.api.core.port.category.CategoryDaoPort;
 import cl.talavera.api.core.port.category.TopCategoriesInteractorPort;
 import cl.talavera.api.data.CategoryDao;
 import cl.talavera.api.data.CategoryRestRepository;
-import cl.talavera.api.rest.CategoriesPresenter;
+import cl.talavera.api.web.CategoriesPresenter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
