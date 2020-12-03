@@ -16,7 +16,6 @@ public class TopCategoriesEndpointShould {
     @Test
     void present() {
         TopCategoriesInteractorPort interactor = mock(TopCategoriesInteractorPort.class);
-
         CategoriesPresenterPort presenter = mock(CategoriesPresenterPort.class);
         TopCategoriesEndpoint endpoint = new TopCategoriesEndpoint(interactor,presenter);
 
