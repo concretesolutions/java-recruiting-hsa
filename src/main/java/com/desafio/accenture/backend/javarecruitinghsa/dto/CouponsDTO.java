@@ -11,7 +11,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class CouponsDTO  extends GenericResponse<CouponsDTO> {
+public class CouponsDTO  {
 
     @JsonProperty("id")
     String id;
@@ -28,20 +28,4 @@ public class CouponsDTO  extends GenericResponse<CouponsDTO> {
     @JsonProperty("expiresAt")
     String expiresAt;
 
-
-    public CouponsDTO() {
-        super(CouponsDTO.class);
-    }
-
-    @Override
-    public CouponsDTO buildSuccessResponse() {
-        return this;
-    }
-
-    @Override
-    public <X extends Exception> CouponsDTO buildErrorResponse(X e) {
-        CouponsDTO couponsDTO = new CouponsDTO();
-        couponsDTO.setCodResponse(Contansts.CODIGO_RESPUESTA_INCORRECTA);
-        couponsDTO.setMessage(e.getMessage());
-        return this;    }
 }

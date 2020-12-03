@@ -1,7 +1,9 @@
 package com.desafio.accenture.backend.javarecruitinghsa.controller;
 
 
+import com.desafio.accenture.backend.javarecruitinghsa.constant.Contansts;
 import com.desafio.accenture.backend.javarecruitinghsa.dto.CouponsDTO;
+import com.desafio.accenture.backend.javarecruitinghsa.dto.response.GenericResponse;
 import com.desafio.accenture.backend.javarecruitinghsa.exception.GenericException;
 import com.desafio.accenture.backend.javarecruitinghsa.service.CouponsService;
 import com.desafio.accenture.backend.javarecruitinghsa.util.JsonUtil;
@@ -23,13 +25,19 @@ public class CuponesController {
 
 
     @GetMapping(value = "/coupons")
-    public ResponseEntity<List<CouponsDTO>> listaCoupons() {
-        List<CouponsDTO> LstCoupons = null;
+    public ResponseEntity<GenericResponse> listaCoupons() {
+        GenericResponse response = new GenericResponse();
         try {
-            LstCoupons = couponsService.getCarruselCupones();
-            return new ResponseEntity<>(LstCoupons, HttpStatus.OK);
+            List<CouponsDTO>  lstCoupons = couponsService.getCarruselCupones();
+            response.setCodResponse(Contansts.CODIGO_RESPUESTA_CORRECTA);
+            response.setMessage("OK");
+            response.setResult(lstCoupons);
+            return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (GenericException e) {
-            return new ResponseEntity<>((List<CouponsDTO>) new CouponsDTO().buildErrorResponse(e), HttpStatus.INTERNAL_SERVER_ERROR);
+            response.setCodResponse(Contansts.CODIGO_RESPUESTA_INCORRECTA);
+            response.setMessage(e.getMessage());
+            response.setResult(null);
+            return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 

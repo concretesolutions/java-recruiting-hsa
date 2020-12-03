@@ -1,7 +1,9 @@
 package com.desafio.accenture.backend.javarecruitinghsa.controller;
 
+import com.desafio.accenture.backend.javarecruitinghsa.constant.Contansts;
 import com.desafio.accenture.backend.javarecruitinghsa.dto.CouponsDTO;
 import com.desafio.accenture.backend.javarecruitinghsa.dto.ProductsSubCategoryDTO;
+import com.desafio.accenture.backend.javarecruitinghsa.dto.response.GenericResponse;
 import com.desafio.accenture.backend.javarecruitinghsa.exception.GenericException;
 import com.desafio.accenture.backend.javarecruitinghsa.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,29 +21,40 @@ public class CategoriesController {
     CategoryService categoryService;
 
     @RequestMapping(value = "/top-categories", produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<List<ProductsSubCategoryDTO>> getTopCategories() {
-        List<ProductsSubCategoryDTO> categoryDTOList = null;
-
+    public ResponseEntity<GenericResponse> getTopCategories() {
+        GenericResponse response = new GenericResponse();
         try {
-            categoryDTOList = categoryService.getAllCategoriesTopFive();
-            return new ResponseEntity<>(categoryDTOList, HttpStatus.OK);
+            List<ProductsSubCategoryDTO> categoryDTOList = categoryService.getAllCategoriesTopFive();
+
+            response.setCodResponse(Contansts.CODIGO_RESPUESTA_CORRECTA);
+            response.setMessage("OK");
+            response.setResult(categoryDTOList);
+            return new ResponseEntity<>(response, HttpStatus.OK);
 
         } catch (GenericException e) {
-            return new ResponseEntity<>((List<ProductsSubCategoryDTO>) new ProductsSubCategoryDTO().buildErrorResponse(e), HttpStatus.INTERNAL_SERVER_ERROR);
+            response.setCodResponse(Contansts.CODIGO_RESPUESTA_INCORRECTA);
+            response.setMessage(e.getMessage());
+            response.setResult(null);
+            return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
     }
 
     @RequestMapping(value = "/getCategories", produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<List<ProductsSubCategoryDTO>> getCategories() {
-        List<ProductsSubCategoryDTO> categoryDTOList = null;
+    public ResponseEntity<GenericResponse> getCategories() {
+        GenericResponse response = new GenericResponse();
 
         try {
-            categoryDTOList = categoryService.getRestCategoriesExceptTopFive();
-            return new ResponseEntity<>(categoryDTOList, HttpStatus.OK);
-
+            List<ProductsSubCategoryDTO> categoryDTOList = categoryService.getRestCategoriesExceptTopFive();
+            response.setCodResponse(Contansts.CODIGO_RESPUESTA_CORRECTA);
+            response.setMessage("OK");
+            response.setResult(categoryDTOList);
+            return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (GenericException e) {
-            return new ResponseEntity<>((List<ProductsSubCategoryDTO>) new ProductsSubCategoryDTO().buildErrorResponse(e), HttpStatus.INTERNAL_SERVER_ERROR);
+            response.setCodResponse(Contansts.CODIGO_RESPUESTA_INCORRECTA);
+            response.setMessage(e.getMessage());
+            response.setResult(null);
+            return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }

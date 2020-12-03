@@ -12,7 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class CategoriesDTO  extends GenericResponse<CategoriesDTO>  {
+public class CategoriesDTO  {
 
     @JsonProperty("id")
     String id;
@@ -22,21 +22,4 @@ public class CategoriesDTO  extends GenericResponse<CategoriesDTO>  {
 
     @JsonProperty("subcategories")
     List<SubCategoryDTO> subcategories;
-
-    public CategoriesDTO() {
-        super(CategoriesDTO.class);
-    }
-
-    @Override
-    public CategoriesDTO buildSuccessResponse() {
-        return this;
-    }
-
-    @Override
-    public <X extends Exception> CategoriesDTO buildErrorResponse(X e) {
-        CouponsDTO couponsDTO = new CouponsDTO();
-        couponsDTO.setCodResponse(Contansts.CODIGO_RESPUESTA_INCORRECTA);
-        couponsDTO.setMessage(e.getMessage());
-        return this;
-    }
 }

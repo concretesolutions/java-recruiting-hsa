@@ -14,7 +14,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class ProductsSubCategoryDTO   extends GenericResponse<ProductsSubCategoryDTO> {
+public class ProductsSubCategoryDTO {
 
     @JsonProperty("id")
     String id;
@@ -45,21 +45,4 @@ public class ProductsSubCategoryDTO   extends GenericResponse<ProductsSubCategor
     @JsonProperty("subcategories")
     List<ProductsSubCategoryDTO> subcategories;
 
-
-    public ProductsSubCategoryDTO() {
-        super(ProductsSubCategoryDTO.class);
-    }
-
-    @Override
-    public ProductsSubCategoryDTO buildSuccessResponse() {
-        return this;
-    }
-
-    @Override
-    public <X extends Exception> ProductsSubCategoryDTO buildErrorResponse(X e) {
-        ProductsSubCategoryDTO productsSubCategoryDTO = new ProductsSubCategoryDTO();
-        productsSubCategoryDTO.setCodResponse(Contansts.CODIGO_RESPUESTA_INCORRECTA);
-        productsSubCategoryDTO.setMessage(e.getMessage());
-        return this;
-    }
 }
