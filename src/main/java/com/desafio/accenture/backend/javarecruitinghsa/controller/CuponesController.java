@@ -6,7 +6,6 @@ import com.desafio.accenture.backend.javarecruitinghsa.dto.CouponsDTO;
 import com.desafio.accenture.backend.javarecruitinghsa.dto.response.GenericResponse;
 import com.desafio.accenture.backend.javarecruitinghsa.exception.GenericException;
 import com.desafio.accenture.backend.javarecruitinghsa.service.CouponsService;
-import com.desafio.accenture.backend.javarecruitinghsa.util.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,7 +1,6 @@
 package com.desafio.accenture.backend.javarecruitinghsa.dto;
 
-import com.desafio.accenture.backend.javarecruitinghsa.constant.Contansts;
-import com.desafio.accenture.backend.javarecruitinghsa.dto.response.GenericResponse;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
