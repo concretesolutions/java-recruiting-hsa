@@ -1,13 +1,9 @@
-package cl.talavera.api;
+package cl.talavera.api.data;
 
 import cl.talavera.api.core.domain.Category;
-import cl.talavera.api.core.port.CategoryDaoPort;
-import cl.talavera.api.data.CategoryDao;
-import cl.talavera.api.data.CategoryResponse;
-import cl.talavera.api.data.CategoryRestRepository;
+import cl.talavera.api.core.port.category.CategoryDaoPort;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.Arrays.asList;

@@ -1,9 +1,8 @@
 package cl.talavera.api.rest;
 
-import cl.talavera.api.core.port.CategoriesPresenterPort;
-import cl.talavera.api.core.port.TopCategoriesInteractorPort;
+import cl.talavera.api.core.port.category.CategoriesPresenterPort;
+import cl.talavera.api.core.port.category.TopCategoriesInteractorPort;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

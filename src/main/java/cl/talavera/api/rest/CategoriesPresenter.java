@@ -1,7 +1,7 @@
 package cl.talavera.api.rest;
 
 import cl.talavera.api.core.domain.Category;
-import cl.talavera.api.core.port.CategoriesPresenterPort;
+import cl.talavera.api.core.port.category.CategoriesPresenterPort;
 
 import java.util.List;
 import java.util.stream.Collectors;

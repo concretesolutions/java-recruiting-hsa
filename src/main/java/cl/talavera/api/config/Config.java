@@ -1,9 +1,9 @@
 package cl.talavera.api.config;
 
 import cl.talavera.api.core.interactor.TopCategoriesInteractor;
-import cl.talavera.api.core.port.CategoriesPresenterPort;
-import cl.talavera.api.core.port.CategoryDaoPort;
-import cl.talavera.api.core.port.TopCategoriesInteractorPort;
+import cl.talavera.api.core.port.category.CategoriesPresenterPort;
+import cl.talavera.api.core.port.category.CategoryDaoPort;
+import cl.talavera.api.core.port.category.TopCategoriesInteractorPort;
 import cl.talavera.api.data.CategoryDao;
 import cl.talavera.api.data.CategoryRestRepository;
 import cl.talavera.api.rest.CategoriesPresenter;

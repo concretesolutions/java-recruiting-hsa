@@ -1,4 +1,4 @@
-package cl.talavera.api.core.port;
+package cl.talavera.api.core.port.category;
 
 import cl.talavera.api.core.domain.Category;
 import cl.talavera.api.rest.CategoryView;

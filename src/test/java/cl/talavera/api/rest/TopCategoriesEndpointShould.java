@@ -1,10 +1,7 @@
 package cl.talavera.api.rest;
 
-import ch.qos.logback.core.pattern.util.RegularEscapeUtil;
-import cl.talavera.api.core.port.CategoriesPresenterPort;
-import cl.talavera.api.core.port.TopCategoriesInteractorPort;
-import cl.talavera.api.rest.CategoryView;
-import cl.talavera.api.rest.TopCategoriesEndpoint;
+import cl.talavera.api.core.port.category.CategoriesPresenterPort;
+import cl.talavera.api.core.port.category.TopCategoriesInteractorPort;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.ResponseEntity;
 

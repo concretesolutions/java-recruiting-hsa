@@ -2,9 +2,9 @@ package cl.talavera.api.interactor;
 
 import cl.talavera.api.core.domain.Category;
 import cl.talavera.api.core.interactor.TopCategoriesInteractor;
-import cl.talavera.api.core.port.CategoriesPresenterPort;
-import cl.talavera.api.core.port.CategoryDaoPort;
-import cl.talavera.api.core.port.TopCategoriesInteractorPort;
+import cl.talavera.api.core.port.category.CategoriesPresenterPort;
+import cl.talavera.api.core.port.category.CategoryDaoPort;
+import cl.talavera.api.core.port.category.TopCategoriesInteractorPort;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

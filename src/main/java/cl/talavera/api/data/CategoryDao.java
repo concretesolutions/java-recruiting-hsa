@@ -1,14 +1,12 @@
 package cl.talavera.api.data;
 
 import cl.talavera.api.core.domain.Category;
-import cl.talavera.api.core.port.CategoryDaoPort;
+import cl.talavera.api.core.port.category.CategoryDaoPort;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class CategoryDao implements CategoryDaoPort {
     private final CategoryRestRepository repository;
