@@ -19,11 +19,13 @@ public class CategoryModel {
     private String smallImageUrl;
 
 
-    public static Category CategoryFrom(CategoryModel response) {
+    public static Category category(CategoryModel response) {
         return Category.builder()
                 .name(response.getName())
                 .relevance(response.getRelevance())
-                .small(response.getSmallImageUrl())
+                .large(response.getLargeImageUrl())
+                .icon(response.getIconImageUrl())
                 .build();
     }
+
 }

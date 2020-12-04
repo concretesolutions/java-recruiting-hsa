@@ -1,9 +1,9 @@
 package cl.talavera.api.web;
 
+import cl.talavera.api.core.domain.Category;
 import cl.talavera.api.core.port.category.CategoriesPresenterPort;
 import cl.talavera.api.core.port.category.ShowCategoriesGridInteractorPort;
 import cl.talavera.api.web.endpoint.ShowCategoriesGridEndpoint;
-import cl.talavera.api.web.view.CategoryView;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.ResponseEntity;
 
@@ -22,10 +22,10 @@ public class ShowCategoriesGridEndpointShould {
         CategoriesPresenterPort presenter = mock(CategoriesPresenterPort.class);
         ShowCategoriesGridEndpoint endpoint = new ShowCategoriesGridEndpoint(interactor,presenter);
 
-        List<CategoryView> view = expectedView();
+        List<Category> view = expectedView();
         when(presenter.retrieve()).thenReturn(view);
 
-        ResponseEntity<List<CategoryView>> response = endpoint.present();
+        ResponseEntity<List<Category>> response = endpoint.present();
 
 
 
@@ -34,7 +34,7 @@ public class ShowCategoriesGridEndpointShould {
         assertThat(response, equalTo(ResponseEntity.ok(view)));
     }
 
-    private List<CategoryView> expectedView() {
-        return asList(CategoryView.builder().build());
+    private List<Category> expectedView() {
+        return asList(Category.builder().build());
     }
 }

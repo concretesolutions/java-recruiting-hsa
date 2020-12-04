@@ -1,9 +1,9 @@
 package cl.talavera.api.web;
 
+import cl.talavera.api.core.domain.Coupon;
 import cl.talavera.api.core.port.coupon.CouponsPresenterPort;
 import cl.talavera.api.core.port.coupon.NonExpiredCouponsInteractorPort;
 import cl.talavera.api.web.endpoint.NonExpiredCouponsEnpoint;
-import cl.talavera.api.web.view.CouponView;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.ResponseEntity;
 
@@ -24,11 +24,11 @@ public class NonExpiredCouponsEndpointShould {
         NonExpiredCouponsEnpoint endpoint = new NonExpiredCouponsEnpoint(interactor,presenter);
 
 
-        List<CouponView> view = expectedView();
+        List<Coupon> view = expectedView();
         when(presenter.retrieve()).thenReturn(view);
 
 
-        ResponseEntity<List<CouponView>> response = endpoint.present();
+        ResponseEntity<List<Coupon>> response = endpoint.present();
 
 
 
@@ -40,8 +40,7 @@ public class NonExpiredCouponsEndpointShould {
 
     }
 
-    private List<CouponView> expectedView() {
-        CouponView v = CouponView.builder().id("id").build();
-        return asList(v);
+    private List<Coupon> expectedView() {
+        return asList(Coupon.builder().id("id").build());
     }
 }

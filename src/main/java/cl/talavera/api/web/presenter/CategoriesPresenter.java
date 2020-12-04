@@ -2,26 +2,23 @@ package cl.talavera.api.web.presenter;
 
 import cl.talavera.api.core.domain.Category;
 import cl.talavera.api.core.port.category.CategoriesPresenterPort;
-import cl.talavera.api.web.view.CategoryView;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class CategoriesPresenter implements CategoriesPresenterPort {
-    private List<CategoryView> view;
+    Logger logger = LoggerFactory.getLogger(CategoriesPresenter.class);
+    private List<Category> view;
 
     @Override
     public void present(List<Category> categories) {
-        this.view = from(categories);
+        this.view = categories;
     }
 
     @Override
-    public List<CategoryView> retrieve() {
+    public List<Category> retrieve() {
         return view;
     }
-    private List<CategoryView> from(List<Category> categories) {
-        return categories.stream()
-                .map(c -> CategoryView.from(c))
-                .collect(Collectors.toList());
-    }
+
 }

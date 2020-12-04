@@ -1,9 +1,9 @@
 package cl.talavera.api.web;
 
+import cl.talavera.api.core.domain.Category;
 import cl.talavera.api.core.port.category.CategoriesPresenterPort;
 import cl.talavera.api.core.port.category.TopCategoriesInteractorPort;
 import cl.talavera.api.web.endpoint.TopCategoriesEndpoint;
-import cl.talavera.api.web.view.CategoryView;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.ResponseEntity;
 
@@ -21,10 +21,10 @@ public class TopCategoriesEndpointShould {
         CategoriesPresenterPort presenter = mock(CategoriesPresenterPort.class);
         TopCategoriesEndpoint endpoint = new TopCategoriesEndpoint(interactor,presenter);
 
-        List<CategoryView> view = expectedView();
+        List<Category> view = expectedView();
         when(presenter.retrieve()).thenReturn(view);
 
-        ResponseEntity<List<CategoryView>> response = endpoint.present();
+        ResponseEntity<List<Category>> response = endpoint.present();
 
 
 
@@ -34,9 +34,9 @@ public class TopCategoriesEndpointShould {
 
     }
 
-    private List<CategoryView> expectedView() {
-        List<CategoryView> list = new ArrayList<>();
-        list.add(CategoryView.builder().name("category").build());
+    private List<Category> expectedView() {
+        List<Category> list = new ArrayList<>();
+        list.add(Category.builder().name("category").build());
         return list;
     }
 }

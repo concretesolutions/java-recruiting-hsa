@@ -1,8 +1,8 @@
 package cl.talavera.api.web.endpoint;
 
+import cl.talavera.api.core.domain.Coupon;
 import cl.talavera.api.core.port.coupon.CouponsPresenterPort;
 import cl.talavera.api.core.port.coupon.NonExpiredCouponsInteractorPort;
-import cl.talavera.api.web.view.CouponView;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,7 +22,7 @@ public class NonExpiredCouponsEnpoint {
     }
 
     @RequestMapping("/coupons/non_expired")
-    public ResponseEntity<List<CouponView>> present() throws ParseException {
+    public ResponseEntity<List<Coupon>> present() throws ParseException {
         interactor.run();
         return ResponseEntity.ok(presenter.retrieve());
     }

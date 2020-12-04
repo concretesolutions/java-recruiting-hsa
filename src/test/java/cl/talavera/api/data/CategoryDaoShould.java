@@ -57,7 +57,6 @@ public class CategoryDaoShould {
         List<CategoryModel> levelTwo = asList(categoryResponse(levelThree, "categoria2", 35));
         return asList(categoryResponse(levelTwo, "categoria1", 4));
 
-
     }
 
     private List<CategoryModel> categories() {

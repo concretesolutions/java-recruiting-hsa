@@ -8,9 +8,9 @@ import lombok.Data;
 public class Category {
     private String name;
     private int relevance;
-    private String small;
+    private String icon;
     private String large;
-    private int level;
+
 
 
 

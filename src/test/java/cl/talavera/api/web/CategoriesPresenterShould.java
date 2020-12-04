@@ -3,7 +3,6 @@ package cl.talavera.api.web;
 import cl.talavera.api.core.domain.Category;
 import cl.talavera.api.core.port.category.CategoriesPresenterPort;
 import cl.talavera.api.web.presenter.CategoriesPresenter;
-import cl.talavera.api.web.view.CategoryView;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -22,14 +21,14 @@ public class CategoriesPresenterShould {
                 .build());
         presenter.present(categories);
 
-        List<CategoryView> view = presenter.retrieve();
+        List<Category> view = presenter.retrieve();
         assertThat(view, equalTo(expected()));
 
     }
 
-    private List<CategoryView> expected() {
-        List<CategoryView> list = new ArrayList<>();
-        list.add(CategoryView.builder()
+    private List<Category> expected() {
+        List<Category> list = new ArrayList<>();
+        list.add(Category.builder()
                 .name("categoria")
                 .build());
         return list;
