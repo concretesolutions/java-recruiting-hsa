@@ -17,12 +17,18 @@ public class CategoryDao implements CategoryDaoPort {
 
     @Override
     public List<Category> getTopCategories() {
-        return SubCategoriesFrom(repository.getCategories());
+        return SubCategoriesFrom(repository.getCategories()).stream()
+                .sorted(Comparator.comparingInt(Category::getRelevance).reversed())
+                .limit(5)
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<Category> getGrid() {
-        return null;
+        return SubCategoriesFrom(repository.getCategories()).stream()
+                .sorted(Comparator.comparingInt(Category::getRelevance).reversed())
+                .skip(5)
+                .collect(Collectors.toList());
     }
 
 
@@ -38,10 +44,7 @@ public class CategoryDao implements CategoryDaoPort {
         });
 
 
-        return categories.stream()
-                .sorted(Comparator.comparingInt(Category::getRelevance).reversed())
-                .limit(5)
-                .collect(Collectors.toList());
+        return categories;
     }
 
     private void add(List<Category> list, CategoryResponse response) {

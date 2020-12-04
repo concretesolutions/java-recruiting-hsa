@@ -25,6 +25,38 @@ public class CategoryDaoShould {
         List<Category> result = dao.getTopCategories();
         assertThat(result, equalTo(expected()));
     }
+    @Test
+    void getGrid() {
+        CategoryRestRepository repository = mock(CategoryRestRepository.class);
+        CategoryDaoPort dao = new CategoryDao(repository);
+
+        when(repository.getCategories()).thenReturn(grid());
+
+        List<Category> result = dao.getGrid();
+        assertThat(result, equalTo(expectedGrid()));
+    }
+
+    private List<Category> expectedGrid() {
+        return asList(
+                Category.builder().name("categoria7").relevance(2).build(),
+                Category.builder().name("categoria6").relevance(1).build()
+        );
+    }
+
+    private List<CategoryResponse> grid() {
+
+        List<CategoryResponse> levelFour = asList(
+                categoryResponse(new ArrayList<>(), "categoria3", 45),
+                categoryResponse(new ArrayList<>(), "categoria5", 34),
+                categoryResponse(new ArrayList<>(), "categoria6", 1),
+                categoryResponse(new ArrayList<>(), "categoria7", 2)
+        );
+        List<CategoryResponse> levelThree = asList(categoryResponse(levelFour, "categoria4", 34));
+        List<CategoryResponse> levelTwo = asList(categoryResponse(levelThree, "categoria2", 35));
+        return asList(categoryResponse(levelTwo, "categoria1", 4));
+
+
+    }
 
     private List<CategoryResponse> categories() {
 
