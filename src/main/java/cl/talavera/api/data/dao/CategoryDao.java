@@ -4,7 +4,6 @@ import cl.talavera.api.core.domain.Category;
 import cl.talavera.api.core.port.category.CategoryDaoPort;
 import cl.talavera.api.data.model.CategoryModel;
 import cl.talavera.api.data.repository.CategoryRestRepository;
-import cl.talavera.api.web.presenter.CategoriesPresenter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
