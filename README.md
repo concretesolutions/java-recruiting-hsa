@@ -74,3 +74,40 @@ Siga los siguientes pasos para implementar y enviar este desafío:
 **No** intente hacer un PUSH directo a ESTE repositorio!
 
 ---
+
+## Docs
+
+
+### Levantamiento en Local
+
+
+ - ejecutar el siguiente comando para levantar la aplicacion:
+
+```bash
+    ./gradlew bootRun 
+```
+ - para  ejecutar la suite de test:
+ 
+```bash
+     ./gradlew test 
+ ```
+
+acceder  a travez de la url  localhost:8080
+
+### Crear imagen Docker
+
+- crear el jar
+ 
+```bash
+    ./gradlew bootJar 
+```
+- construir la imagen
+
+```bash
+   docker build -t api .
+```
+
+### Ejecutar imagen Docker
+```bash
+   docker run -p 8080:8080 api
+```
