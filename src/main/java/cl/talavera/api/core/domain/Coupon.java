@@ -8,4 +8,7 @@ import lombok.Data;
 public class Coupon {
     private String id;
     private String expires;
+    private String seller;
+    private String image;
+    private String description;
 }

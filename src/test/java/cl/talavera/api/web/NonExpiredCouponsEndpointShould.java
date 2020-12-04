@@ -1,9 +1,9 @@
 package cl.talavera.api.web;
 
-import cl.talavera.api.core.port.category.CategoriesPresenterPort;
-import cl.talavera.api.core.port.category.TopCategoriesInteractorPort;
 import cl.talavera.api.core.port.coupon.CouponsPresenterPort;
 import cl.talavera.api.core.port.coupon.NonExpiredCouponsInteractorPort;
+import cl.talavera.api.web.endpoint.NonExpiredCouponsEnpoint;
+import cl.talavera.api.web.view.CouponView;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.ResponseEntity;
 

@@ -1,4 +1,4 @@
-package cl.talavera.api.web;
+package cl.talavera.api.web.endpoint;
 
 import cl.talavera.api.core.port.category.CategoriesPresenterPort;
 import cl.talavera.api.core.port.category.TopCategoriesInteractorPort;

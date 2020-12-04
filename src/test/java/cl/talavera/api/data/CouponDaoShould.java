@@ -1,9 +1,10 @@
 package cl.talavera.api.data;
 
-import cl.talavera.api.core.domain.Category;
 import cl.talavera.api.core.domain.Coupon;
-import cl.talavera.api.core.port.category.CategoryDaoPort;
 import cl.talavera.api.core.port.coupon.CouponDaoPort;
+import cl.talavera.api.data.dao.CouponDao;
+import cl.talavera.api.data.model.CouponModel;
+import cl.talavera.api.data.repository.CouponRestRepository;
 import org.junit.jupiter.api.Test;
 
 import java.text.ParseException;
@@ -41,7 +42,7 @@ public class CouponDaoShould {
         );
     }
 
-    private List<CouponResponse> coupons() throws ParseException {
+    private List<CouponModel> coupons() throws ParseException {
         return asList(
                 coupon("two", "02-01-2020"),
                 coupon("three", "03-01-2020"),
@@ -51,8 +52,8 @@ public class CouponDaoShould {
         );
     }
 
-    private CouponResponse coupon(String three, String s) throws ParseException {
-        CouponResponse couponThree = new CouponResponse();
+    private CouponModel coupon(String three, String s) throws ParseException {
+        CouponModel couponThree = new CouponModel();
         couponThree.setId(three);
         couponThree.setExpiresAt(FORMAT.parse(s));
         return couponThree;

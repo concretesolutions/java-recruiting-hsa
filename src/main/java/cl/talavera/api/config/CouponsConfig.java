@@ -4,10 +4,10 @@ import cl.talavera.api.core.interactor.NonExpiredCouponsInteractor;
 import cl.talavera.api.core.port.coupon.CouponDaoPort;
 import cl.talavera.api.core.port.coupon.CouponsPresenterPort;
 import cl.talavera.api.core.port.coupon.NonExpiredCouponsInteractorPort;
-import cl.talavera.api.data.CouponDao;
-import cl.talavera.api.data.CouponRestRepository;
+import cl.talavera.api.data.dao.CouponDao;
+import cl.talavera.api.data.repository.CouponRestRepository;
 import cl.talavera.api.data.Timer;
-import cl.talavera.api.web.CouponPresenter;
+import cl.talavera.api.web.presenter.CouponPresenter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

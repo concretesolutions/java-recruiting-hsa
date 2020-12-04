@@ -1,7 +1,7 @@
 package cl.talavera.api.core.port.coupon;
 
 import cl.talavera.api.core.domain.Coupon;
-import cl.talavera.api.web.CouponView;
+import cl.talavera.api.web.view.CouponView;
 
 import java.util.List;
 

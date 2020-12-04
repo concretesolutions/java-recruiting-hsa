@@ -1,7 +1,8 @@
-package cl.talavera.api.web;
+package cl.talavera.api.web.presenter;
 
 import cl.talavera.api.core.domain.Coupon;
 import cl.talavera.api.core.port.coupon.CouponsPresenterPort;
+import cl.talavera.api.web.view.CouponView;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,10 +19,7 @@ public class CouponPresenter implements CouponsPresenterPort {
 
     private List<CouponView> from(List<Coupon> coupons) {
         return coupons.stream()
-                .map(c -> CouponView.builder()
-                        .id(c.getId())
-                        .expires(c.getExpires())
-                        .build())
+                .map(c -> CouponView.from(c))
                 .collect(Collectors.toList());
     }
 

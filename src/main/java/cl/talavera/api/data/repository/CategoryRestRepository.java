@@ -1,6 +1,7 @@
-package cl.talavera.api.data;
+package cl.talavera.api.data.repository;
 
 import cl.talavera.api.core.domain.Category;
+import cl.talavera.api.data.model.CategoryModel;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.web.client.RestTemplate;
 
@@ -17,8 +18,8 @@ public class CategoryRestRepository {
         rest = new RestTemplateBuilder().build();
     }
 
-    public List<CategoryResponse> getCategories() {
-        CategoryResponse response = rest.getForObject(url,CategoryResponse.class);
+    public List<CategoryModel> getCategories() {
+        CategoryModel response = rest.getForObject(url, CategoryModel.class);
 
         return response.getSubcategories();
     }

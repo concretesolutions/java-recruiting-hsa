@@ -2,11 +2,13 @@ package cl.talavera.api.data;
 
 import cl.talavera.api.core.domain.Category;
 import cl.talavera.api.core.port.category.CategoryDaoPort;
+import cl.talavera.api.data.dao.CategoryDao;
+import cl.talavera.api.data.model.CategoryModel;
+import cl.talavera.api.data.repository.CategoryRestRepository;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
 
 import static java.util.Arrays.asList;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -43,31 +45,31 @@ public class CategoryDaoShould {
         );
     }
 
-    private List<CategoryResponse> grid() {
+    private List<CategoryModel> grid() {
 
-        List<CategoryResponse> levelFour = asList(
+        List<CategoryModel> levelFour = asList(
                 categoryResponse(new ArrayList<>(), "categoria3", 45),
                 categoryResponse(new ArrayList<>(), "categoria5", 34),
                 categoryResponse(new ArrayList<>(), "categoria6", 1),
                 categoryResponse(new ArrayList<>(), "categoria7", 2)
         );
-        List<CategoryResponse> levelThree = asList(categoryResponse(levelFour, "categoria4", 34));
-        List<CategoryResponse> levelTwo = asList(categoryResponse(levelThree, "categoria2", 35));
+        List<CategoryModel> levelThree = asList(categoryResponse(levelFour, "categoria4", 34));
+        List<CategoryModel> levelTwo = asList(categoryResponse(levelThree, "categoria2", 35));
         return asList(categoryResponse(levelTwo, "categoria1", 4));
 
 
     }
 
-    private List<CategoryResponse> categories() {
+    private List<CategoryModel> categories() {
 
-        List<CategoryResponse> levelFour = asList(categoryResponse(new ArrayList<>(), "categoria3", 2));
-        List<CategoryResponse> levelThree = asList(categoryResponse(levelFour, "categoria4", 1));
-        List<CategoryResponse> levelTwo = asList(categoryResponse(levelThree, "categoria2", 3));
+        List<CategoryModel> levelFour = asList(categoryResponse(new ArrayList<>(), "categoria3", 2));
+        List<CategoryModel> levelThree = asList(categoryResponse(levelFour, "categoria4", 1));
+        List<CategoryModel> levelTwo = asList(categoryResponse(levelThree, "categoria2", 3));
         return asList(categoryResponse(levelTwo, "categoria1", 4));
     }
 
-    private CategoryResponse categoryResponse(List<CategoryResponse> levelFour, String categoria4, int i) {
-        CategoryResponse categoryFour = new CategoryResponse();
+    private CategoryModel categoryResponse(List<CategoryModel> levelFour, String categoria4, int i) {
+        CategoryModel categoryFour = new CategoryModel();
         categoryFour.setName(categoria4);
         categoryFour.setRelevance(i);
         categoryFour.setSubcategories(levelFour);

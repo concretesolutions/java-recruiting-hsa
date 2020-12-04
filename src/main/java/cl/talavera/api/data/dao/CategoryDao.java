@@ -1,7 +1,9 @@
-package cl.talavera.api.data;
+package cl.talavera.api.data.dao;
 
 import cl.talavera.api.core.domain.Category;
 import cl.talavera.api.core.port.category.CategoryDaoPort;
+import cl.talavera.api.data.model.CategoryModel;
+import cl.talavera.api.data.repository.CategoryRestRepository;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -32,13 +34,13 @@ public class CategoryDao implements CategoryDaoPort {
     }
 
 
-    private List<Category> SubCategoriesFrom(List<CategoryResponse> result) {
+    private List<Category> SubCategoriesFrom(List<CategoryModel> result) {
         List<Category> categories = new ArrayList<>();
 
-        result.forEach(levelOne -> { add(categories, levelOne);
-            levelOne.getSubcategories().forEach(levelTwo -> { add(categories, levelTwo);
-                levelTwo.getSubcategories().forEach(levelThree -> { add(categories, levelThree);
-                    levelThree.getSubcategories().forEach( levelFour ->{  add(categories, levelFour); });
+        result.forEach(levelOne -> { add(categories, levelOne,1);
+            levelOne.getSubcategories().forEach(levelTwo -> { add(categories, levelTwo,2);
+                levelTwo.getSubcategories().forEach(levelThree -> { add(categories, levelThree, 3);
+                    levelThree.getSubcategories().forEach( levelFour ->{  add(categories, levelFour, 4); });
                 });
             });
         });
@@ -47,10 +49,9 @@ public class CategoryDao implements CategoryDaoPort {
         return categories;
     }
 
-    private void add(List<Category> list, CategoryResponse response) {
-        list.add(Category.builder()
-                .name(response.getName())
-                .relevance(response.getRelevance())
-                .build());
+    private void add(List<Category> list, CategoryModel response,int level) {
+        Category category = CategoryModel.CategoryFrom(response);
+        category.setLevel(level);
+        list.add(category);
     }
 }

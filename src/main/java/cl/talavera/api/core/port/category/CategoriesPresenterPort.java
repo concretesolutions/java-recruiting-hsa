@@ -1,7 +1,7 @@
 package cl.talavera.api.core.port.category;
 
 import cl.talavera.api.core.domain.Category;
-import cl.talavera.api.web.CategoryView;
+import cl.talavera.api.web.view.CategoryView;
 
 import java.util.List;
 

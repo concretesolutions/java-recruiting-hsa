@@ -1,7 +1,10 @@
-package cl.talavera.api.data;
+package cl.talavera.api.data.dao;
 
 import cl.talavera.api.core.domain.Coupon;
 import cl.talavera.api.core.port.coupon.CouponDaoPort;
+import cl.talavera.api.data.model.CouponModel;
+import cl.talavera.api.data.repository.CouponRestRepository;
+import cl.talavera.api.data.Timer;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -25,22 +28,14 @@ public class CouponDao implements CouponDaoPort {
         return nonExpiredfrom(repository.get());
     }
 
-    private List<Coupon> nonExpiredfrom(List<CouponResponse> couponResponses) throws ParseException {
-
+    private List<Coupon> nonExpiredfrom(List<CouponModel> couponResponses) throws ParseException {
         return couponResponses.stream()
                 .filter(this::nonExpired)
-                .map(c -> build(c))
+                .map(c -> CouponModel.CouponFrom(c,FORMAT))
                 .collect(Collectors.toList());
     }
 
-    private Coupon build(CouponResponse c) {
-        return Coupon.builder()
-                .id(c.getId())
-                .expires(FORMAT.format(c.getExpiresAt()))
-                .build();
-    }
-
-    private boolean nonExpired(CouponResponse c) {
+    private boolean nonExpired(CouponModel c) {
         try {
             return c.getExpiresAt().after(timer.now());
         } catch (ParseException e) {

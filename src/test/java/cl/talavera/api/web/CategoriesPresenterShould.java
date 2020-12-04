@@ -2,6 +2,8 @@ package cl.talavera.api.web;
 
 import cl.talavera.api.core.domain.Category;
 import cl.talavera.api.core.port.category.CategoriesPresenterPort;
+import cl.talavera.api.web.presenter.CategoriesPresenter;
+import cl.talavera.api.web.view.CategoryView;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

@@ -1,7 +1,8 @@
-package cl.talavera.api.web;
+package cl.talavera.api.web.presenter;
 
 import cl.talavera.api.core.domain.Category;
 import cl.talavera.api.core.port.category.CategoriesPresenterPort;
+import cl.talavera.api.web.view.CategoryView;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -20,10 +21,7 @@ public class CategoriesPresenter implements CategoriesPresenterPort {
     }
     private List<CategoryView> from(List<Category> categories) {
         return categories.stream()
-                .map(c -> CategoryView.builder()
-                        .name(c.getName())
-                        .relevance(c.getRelevance())
-                        .build())
+                .map(c -> CategoryView.from(c))
                 .collect(Collectors.toList());
     }
 }

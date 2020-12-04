@@ -1,7 +1,8 @@
-package cl.talavera.api.web;
+package cl.talavera.api.web.endpoint;
 
 import cl.talavera.api.core.port.coupon.CouponsPresenterPort;
 import cl.talavera.api.core.port.coupon.NonExpiredCouponsInteractorPort;
+import cl.talavera.api.web.view.CouponView;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
