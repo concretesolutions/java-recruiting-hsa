@@ -7,6 +7,7 @@ import cl.talavera.api.core.port.coupon.CouponsPresenterPort;
 import cl.talavera.api.core.port.coupon.NonExpiredCouponsInteractorPort;
 import org.junit.jupiter.api.Test;
 
+import java.text.ParseException;
 import java.util.List;
 
 import static java.util.Arrays.asList;
@@ -15,7 +16,7 @@ import static org.mockito.Mockito.times;
 
 public class NonExpiredCouponsInteractorShould {
     @Test
-    void run() {
+    void run() throws ParseException {
 
         CouponsPresenterPort presenter = mock(CouponsPresenterPort.class);
         CouponDaoPort dao = mock(CouponDaoPort.class);

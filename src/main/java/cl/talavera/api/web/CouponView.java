@@ -7,5 +7,6 @@ import lombok.Data;
 @Builder
 public class CouponView {
     private String id;
+    private String expires;
 }
 

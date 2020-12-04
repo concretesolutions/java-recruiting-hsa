@@ -7,6 +7,7 @@ import cl.talavera.api.core.port.coupon.NonExpiredCouponsInteractorPort;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.ResponseEntity;
 
+import java.text.ParseException;
 import java.util.List;
 
 import static java.util.Arrays.asList;
@@ -16,7 +17,7 @@ import static org.mockito.Mockito.*;
 
 public class NonExpiredCouponsEndpointShould {
     @Test
-    void present() {
+    void present() throws ParseException {
 
         NonExpiredCouponsInteractorPort interactor = mock(NonExpiredCouponsInteractorPort.class);
         CouponsPresenterPort presenter = mock(CouponsPresenterPort.class);
