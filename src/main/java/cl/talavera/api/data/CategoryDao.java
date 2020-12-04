@@ -20,6 +20,11 @@ public class CategoryDao implements CategoryDaoPort {
         return SubCategoriesFrom(repository.getCategories());
     }
 
+    @Override
+    public List<Category> getGrid() {
+        return null;
+    }
+
 
     private List<Category> SubCategoriesFrom(List<CategoryResponse> result) {
         List<Category> categories = new ArrayList<>();

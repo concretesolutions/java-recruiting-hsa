@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface CategoryDaoPort {
     List<Category> getTopCategories();
+
+    List<Category> getGrid();
 }

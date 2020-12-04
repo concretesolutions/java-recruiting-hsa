@@ -1,34 +1,36 @@
 package cl.talavera.api.interactor;
 
 import cl.talavera.api.core.domain.Category;
-import cl.talavera.api.core.interactor.TopCategoriesInteractor;
+import cl.talavera.api.core.interactor.ShowCategoriesGridInteractor;
+import cl.talavera.api.core.port.category.ShowCategoriesGridInteractorPort;
 import cl.talavera.api.core.port.category.CategoriesPresenterPort;
 import cl.talavera.api.core.port.category.CategoryDaoPort;
-import cl.talavera.api.core.port.category.TopCategoriesInteractorPort;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import static java.util.Arrays.asList;
 import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.times;
 
-public class TopCategoriesInteractorShould {
+public class ShowCategoriesGridInteractorShould {
+
     @Test
-    void run() {
+    void getGrid() {
 
         CategoriesPresenterPort presenter = mock(CategoriesPresenterPort.class);
         CategoryDaoPort dao = mock(CategoryDaoPort.class);
-        TopCategoriesInteractorPort interactor = new TopCategoriesInteractor(dao,presenter);
+        ShowCategoriesGridInteractorPort interactor = new ShowCategoriesGridInteractor(dao,presenter);
 
         List<Category> categories = categories();
-        when(dao.getTopCategories()).thenReturn(categories);
+        when(dao.getGrid()).thenReturn(categories);
         interactor.run();
 
-        verify(dao,times(1)).getTopCategories();
+        verify(dao,times(1)).getGrid();
         verify(presenter,times(1)).present(categories);
-    }
 
+    }
     private List<Category> categories() {
-        return new ArrayList<>();
+        return asList(Category.builder().build());
     }
 }
