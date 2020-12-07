@@ -1,73 +1,64 @@
 package com.accenture.challenge.mapper.models;
 
-import java.util.Objects;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
-@Entity
 public class Coupon {
 
-    private @Id @GeneratedValue String id;
-    private String description;
-    private String seller;
-    private String image;
-    private String expiresAt;
+    @SerializedName("id")
+    @Expose
+    private Object id;
+    @SerializedName("description")
+    @Expose
+    private Object description;
+    @SerializedName("seller")
+    @Expose
+    private Object seller;
+    @SerializedName("image")
+    @Expose
+    private Object image;
+    @SerializedName("expiresAt")
+    @Expose
+    private Object expiresAt;
 
-    public Coupon(String id){
-        super();
-        this.id = id;
-    }
-    public String getId() {
+    public Object getId() {
         return id;
     }
-    public void setId(String id) {
+
+    public void setId(Object id) {
         this.id = id;
     }
-    public String getDescription() {
+
+    public Object getDescription() {
         return description;
     }
-    public void setDescription(String description) {
+
+    public void setDescription(Object description) {
         this.description = description;
     }
-    public String getSeller() {
+
+    public Object getSeller() {
         return seller;
     }
-    public void setSeller(String seller) {
+
+    public void setSeller(Object seller) {
         this.seller = seller;
     }
-    public String getImage() {
+
+    public Object getImage() {
         return image;
     }
-    public void setImage(String image) {
+
+    public void setImage(Object image) {
         this.image = image;
     }
-    public String getExpiresAt() {
+
+    public Object getExpiresAt() {
         return expiresAt;
     }
-    public void setExpiresAt(String expiresAt) {
+
+    public void setExpiresAt(Object expiresAt) {
         this.expiresAt = expiresAt;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-      if (this == obj) return true;
-      if (!(obj instanceof Coupon)) return false;
-      Coupon Coupon = (Coupon) obj;
-      return Objects.equals(this.id, Coupon.id) && 
-             Objects.equals(this.description, Coupon.description) && 
-             Objects.equals(this.seller, Coupon.seller);
-    }
-    @Override
-    public String toString() {
-    return "Coupon{" + 
-                "id=" + this.id + ", " + 
-                "description='" + this.description + ", " + 
-                "seller='" + this.seller + 
-                "image='" + this.image + 
-                "expiresAt='" + this.expiresAt + 
-                '}';
-  }
-    
 }
