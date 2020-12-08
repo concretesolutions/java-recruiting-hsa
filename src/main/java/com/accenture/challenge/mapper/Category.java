@@ -1,4 +1,4 @@
-package com.accenture.challenge.mapper.models;
+package com.accenture.challenge.mapper;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

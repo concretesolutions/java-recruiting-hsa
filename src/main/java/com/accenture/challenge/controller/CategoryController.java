@@ -19,12 +19,12 @@ import org.springframework.web.client.RestTemplate;
 import com.accenture.challenge.mapper.Coupon;
 
 @RestController
-public class CouponController {
+public class CategoryController {
 
    @Autowired
    RestTemplate restTemplate;
 
-   @RequestMapping(value = "/api/coupons")
+   @RequestMapping(value = "/api/categories")
    public String getCouponstList() {
       HttpHeaders headers = new HttpHeaders();
       headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
@@ -32,7 +32,7 @@ public class CouponController {
       
 	  return
 		  restTemplate.exchange(
-			  "https://cs-hsa-api-coupons.herokuapp.com/coupons", 
+			  "https://cs-hsa-api-coupons.herokuapp.com/categories", 
 			  HttpMethod.GET, 
 			  entity, 
 			  String.class
