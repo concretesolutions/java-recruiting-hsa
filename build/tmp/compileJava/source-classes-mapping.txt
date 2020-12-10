@@ -1,0 +1,28 @@
+com/accenture/jnavarrete/services/CouponsService.java
+ com.accenture.jnavarrete.services.CouponsService
+com/accenture/jnavarrete/AppController.java
+ com.accenture.jnavarrete.AppController
+com/accenture/jnavarrete/model/SubcategoryLvl4Model.java
+ com.accenture.jnavarrete.model.SubcategoryLvl4Model
+com/accenture/jnavarrete/model/SubcategoryLvl3Model.java
+ com.accenture.jnavarrete.model.SubcategoryLvl3Model
+com/accenture/jnavarrete/controllers/CategoriesController.java
+ com.accenture.jnavarrete.controllers.CategoriesController
+com/accenture/jnavarrete/model/CouponsModel.java
+ com.accenture.jnavarrete.model.CouponsModel
+com/accenture/jnavarrete/Application.java
+ com.accenture.jnavarrete.Application
+com/accenture/jnavarrete/model/SubcategoryLvl2Model.java
+ com.accenture.jnavarrete.model.SubcategoryLvl2Model
+com/accenture/jnavarrete/controllers/CouponsController.java
+ com.accenture.jnavarrete.controllers.CouponsController
+com/accenture/jnavarrete/exceptions/Exceptions.java
+ com.accenture.jnavarrete.exceptions.Exceptions
+com/accenture/jnavarrete/services/CategoriesService.java
+ com.accenture.jnavarrete.services.CategoriesService
+com/accenture/jnavarrete/controllers/AppController.java
+ com.accenture.jnavarrete.controllers.AppController
+com/accenture/jnavarrete/model/CategoriesModel.java
+ com.accenture.jnavarrete.model.CategoriesModel
+com/accenture/jnavarrete/exceptions/ServerExceptions.java
+ com.accenture.jnavarrete.exceptions.ServerExceptions
