@@ -37,15 +37,17 @@ El equipo Mobile necesita construir una pantalla de inicio que debe mostrar:
 - Carrusel con cupones que no han expirado.
 - Tabla (Grid) con las categorias **restantes**.
 - Mobile **no** necesita de todas las imagenes del modelo de subcategorías, solamente la **imagen más pequeña**. Tu podrías tener que filtrar la respuesta, si tu quieres.
+- **Para usuarios autenticados**, se debe poder guardar, eliminar y listar las **categorías favoritas** del usuario.
 
 ### Puntos a Considerar
 - La API de Cupones es **inestable** y a veces demora en responder. ¿Qué podemos hacer para que este problema no se replique en otras capas? ¿Habrá algún patrón que nos ayude?
 - La API de Categorias responde un modelo complejo de manejar. ¿Qué podríamos hacer para simplificar este modelo y que las integraciones con su aplicación sean más sencillas?
+- Actualmente no tenemos definido el mecanismo de autenticación, por lo que **deberás incluir uno de tu preferencia** (a modo de prueba de concepto).   
 
 ## ¿Qué nos Gustaría Ver? 
 Eres libre para implementar la solución de la forma que consideres mejor, 
 pero debes considerar el escenario, objetivo, implicaciones de performance y stack/pool de tecnología propuesta abajo.
-- Nos enfocamos mucho en la **calidad** de nuestros proyectos y nos gustaría ver alguna estrategia aplicada. Puedes usar, por ejemplo, **Pruebas Unitárias**.
+- Nos enfocamos mucho en la **calidad** de nuestros proyectos y nos gustaría ver alguna estrategia aplicada. Puedes usar, por ejemplo, **Pruebas Unitarias**.
 - No queremos que la experiencia de usuario se vea afectada por el rendimiento de los servicios;
 - **Usted tiene 1 semana para completar el desafio**. Si necesitas mas tiempo, no hay problema, puede hablar con nosotros y veremos que podemos hacer :)
 - Documentación de como configurar y ejecutar el proyecto. Puede sobrescribir el **README.md** para eso.
@@ -58,8 +60,9 @@ pero debes considerar el escenario, objetivo, implicaciones de performance y sta
 - **Java 8** o **superiores**.
 - Cualquier Framework Web. Sugerencia: [Spring Boot](https://spring.io/projects/spring-boot).
 - Cualquier API Client. Sugerencia: [Feign](https://github.com/OpenFeign/feign).
+- Base de Datos **H2**. [Spring Boot + H2](https://www.baeldung.com/spring-boot-h2-database) 
 - De preferencia [Gradle](https://gradle.org/) como sistema de compilación.
-- Tu eres libre para escoger librerias y frameworks de pruebas que mas te guste. Nuestra sugerencia es: [JUnit](https://junit.org/junit5/), [Mockito](https://site.mockito.org/).
+- Tú eres libre para escoger librerias y frameworks de pruebas que mas te guste. Nuestra sugerencia es: [JUnit](https://junit.org/junit5/), [Mockito](https://site.mockito.org/).
 
 ---
 
