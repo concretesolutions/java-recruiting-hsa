@@ -13,9 +13,11 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Notify New Challenge
+        env:
+          HOOK: ${{ secrets.SLACK_RECRUITING_HOOK }}
         run: |
-          curl -X POST https://hooks.slack.com/services/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 \
-            --header 'Content-type: application/json' \
+          curl -X POST $ \
+            --header 'Content-type: application/json' $HOOK \
               --data '{
                 "mrkdwn": true,
                 "attachments": [
