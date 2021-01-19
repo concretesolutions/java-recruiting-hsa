@@ -9,4 +9,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Notify New Challenge
+        run: |
+          curl -X POST https://hooks.slack.com/services/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 \
+            --header 'Content-type: application/json' \
+              --data '{
+                "mrkdwn": true,
+                "attachments": [
+                  {
+                    "color": "good",
+                    "pretext": "Java - New Challenge Incoming",
+                    "author_name": "${{ github.actor }}",
+                    "author_link": "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY",
+                    "title": "",
+                    "title_link": "",
+                    "mrkdwn_in": ["text", "pretext"],
+                    "text": "Please, review this as soon as possible.\n*Title*: ${pr.pull_request.title}\n*Branch*: ${pr.pull_request.head.repo.default_branch}\n*Clone*: \`git clone ${pr.pull_request.head.repo.ssh_url}\"
+                  }
+                ]
+              }'
