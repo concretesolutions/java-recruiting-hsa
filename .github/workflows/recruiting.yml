@@ -17,7 +17,7 @@ jobs:
           HOOK: ${{ secrets.SLACK_RECRUITING_HOOK }}
         run: |
           curl -X POST $ \
-            --header 'Content-type: application/json' $HOOK \
+            --header 'Content-type: application/json' ${HOOK} \
               --data '{
                 "mrkdwn": true,
                 "attachments": [
