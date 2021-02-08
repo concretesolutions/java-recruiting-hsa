@@ -27,8 +27,8 @@ Para las próximas iteraciones, el equipo va a trabajar en la **Pantalla de Iní
 
 ### APIs
 Necesitarás consumir los siguientes servicios:
-- **Categorias**: [https://cs-hsa-api-categories.herokuapp.com/docs](https://cs-hsa-api-categories.herokuapp.com/docs)
-- **Cupones**: [https://cs-hsa-api-coupons.herokuapp.com/docs](https://cs-hsa-api-coupons.herokuapp.com/docs)
+- **Categorias**: [https://cs-hsa-api-categories.herokuapp.com/docs](https://cs-hsa-api-categories.herokuapp.com/docs) ó [https://cs-hsa-api-categories-rest.herokuapp.com/docs](https://cs-hsa-api-categories-rest.herokuapp.com/docs)
+- **Cupones**: [https://cs-hsa-api-coupons.herokuapp.com/docs](https://cs-hsa-api-coupons.herokuapp.com/docs) ó [https://cs-hsa-api-coupons-rest.herokuapp.com/docs](https://cs-hsa-api-coupons-rest.herokuapp.com/docs)
 
 ### Features
 El equipo Mobile necesita construir una pantalla de inicio que debe mostrar:
