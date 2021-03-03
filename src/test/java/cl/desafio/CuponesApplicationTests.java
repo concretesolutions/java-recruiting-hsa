@@ -17,7 +17,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import cl.desafio.controller.CuponesController;
 import cl.desafio.model.Cupon;
-import cl.desafio.service.CuponService;
+import cl.desafio.service.CuponClient;
 import cl.desafio.service.CuponesService;
 
 @SpringBootTest
@@ -26,7 +26,7 @@ import cl.desafio.service.CuponesService;
 class CuponesApplicationTests {
 
 	@MockBean
-	private CuponService cuponService;
+	private CuponClient cuponClient;
 
 	@Autowired
 	private CuponesService cuponesService;
@@ -47,7 +47,7 @@ class CuponesApplicationTests {
 	@Test
 	// valida que filtro funcione con mock
 	void ListResult() {
-		when(cuponService.getCupones()).thenReturn(Stream.of(
+		when(cuponClient.getCupones()).thenReturn(Stream.of(
 				new Cupon("id1", "description1", "seller1", "url_image1", new Date(new Date().getTime() + 86400000)),
 				new Cupon("id2", "description2", "seller2", "url_image2", new Date(new Date().getTime() - 86400000)),
 				new Cupon("id3", "description3", "seller3", "url_image3", new Date(new Date().getTime() - 86400000)),
@@ -56,5 +56,16 @@ class CuponesApplicationTests {
 		assertThat(cuponesController.getCuponesActivosCache()).hasSize(2);
 		assertThat(cuponesController.getCuponesActivosSinCache()).hasSize(2);
 	}
-
+	
+	@Test
+	void ExceptionResult() {
+		when(cuponClient.getCupones()).thenThrow(RuntimeException.class);
+		assertThat(cuponesController.getCuponesActivosCache()).isEmpty();;
+		assertThat(cuponesController.getCuponesActivosSinCache()).isEmpty();	}
+	
+	@Test
+	void ExceptionNullResult() {
+		when(cuponClient.getCupones()).thenReturn(null);
+		assertThat(cuponesController.getCuponesActivosCache()).isEmpty();;
+		assertThat(cuponesController.getCuponesActivosSinCache()).isEmpty();	}
 }

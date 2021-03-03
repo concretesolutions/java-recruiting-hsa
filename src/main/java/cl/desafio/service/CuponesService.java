@@ -21,18 +21,18 @@ public class CuponesService {
 	private static final Logger LOG = LoggerFactory.getLogger(CuponesService.class);
 
 	@Autowired
-	private CuponService cuponService;
+	private CuponClient cuponClient;
 
 	@Cacheable(value = "cuponesCache", unless = "#result.empty")
 	@HystrixCommand(fallbackMethod = "CuponServiceFallback", commandProperties = {
-			@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000") })
+			@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "2000") })
 	public List<Cupon> getCuponesCache() {
 		return getCuponesVigentes();
 	}
 
 	@HystrixCommand(fallbackMethod = "CuponServiceFallback", commandProperties = {
-			@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000"),
-	        @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "10000"),
+			@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "2000"),
+	
 })
 	public List<Cupon> getCuponesSinCache() {
 		return getCuponesVigentes();
@@ -40,7 +40,7 @@ public class CuponesService {
 
 	public List<Cupon> getCuponesVigentes() {
 		LOG.info("SERVICIO: ");
-		List<Cupon> cuponesFilter = cuponService.getCupones().stream().filter(x -> x.getExpiresAt().after(new Date()))
+		List<Cupon> cuponesFilter = cuponClient.getCupones().stream().filter(x -> x.getExpiresAt().after(new Date()))
 				.collect(Collectors.toList());
 
 		return cuponesFilter;
