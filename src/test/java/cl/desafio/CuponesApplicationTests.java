@@ -45,7 +45,7 @@ class CuponesApplicationTests {
 	}
 
 	@Test
-	// valida que filtro funcione con mock
+	// valida que filtro funcione
 	void ListResult() {
 		when(cuponClient.getCupones()).thenReturn(Stream.of(
 				new Cupon("id1", "description1", "seller1", "url_image1", new Date(new Date().getTime() + 86400000)),
@@ -58,6 +58,7 @@ class CuponesApplicationTests {
 	}
 	
 	@Test
+	// valida que hystrix funcione con fallback
 	void ExceptionResult() {
 		when(cuponClient.getCupones()).thenThrow(RuntimeException.class);
 		assertThat(cuponesController.getCuponesActivosCache()).isEmpty();;
