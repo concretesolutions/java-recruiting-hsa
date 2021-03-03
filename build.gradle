@@ -1,0 +1,29 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.3'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'cl.desafio'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-cache'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.ehcache:ehcache:3.8.1'
+	implementation group: 'javax.cache', name: 'cache-api', version: '1.0.0'
+	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-hystrix', version: '2.2.7.RELEASE'
+	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign', version: '3.0.1'
+	
+}
+
+test {
+	useJUnitPlatform()
+}
