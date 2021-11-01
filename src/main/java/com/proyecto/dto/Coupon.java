@@ -53,4 +53,11 @@ public class Coupon
 	public void setExpiresAt(Date expiresAt) {
 		this.expiresAt = expiresAt;
 	}
+
+	@Override
+	public String toString() {
+		return "Coupon [id=" + id + ", description=" + description + ", seller=" + seller + ", image=" + image
+				+ ", expiresAt=" + expiresAt + "]";
+	}
+
 }
