@@ -11,14 +11,14 @@ import com.proyecto.dto.Category;
 import com.proyecto.service.ICategoriaService;
 
 @RestController
-@RequestMapping("/api/categoria") 
+@RequestMapping("/api/categoria/mobile") 
 public class CategoriaController
 {
 	@Autowired
 	private ICategoriaService servicio;
 	
-	@GetMapping("/listar") 
-	public ResponseEntity<Object> listar()   // http://localhost:8080/api/categoria/listar
+	@GetMapping("/getCarrusel") 
+	public ResponseEntity<Object> listar()   // http://localhost:8080/api/categoria/mobile/getCarrusel
 	{ 
 		Category categoria = servicio.obtener();
 		

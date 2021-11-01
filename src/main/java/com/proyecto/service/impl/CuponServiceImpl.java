@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 import javax.ws.rs.core.MediaType;
@@ -32,8 +34,9 @@ public class CuponServiceImpl implements ICuponService {
 		this.fechaUltimoLlamado = new Date();
 		this.lista = new ArrayList<>();
 	}
-
-	private void llamarServicio() {
+	
+	@Override
+	public void llamarServicio() {
 
 		Client client = Client.create();
 		WebResource webresource = client.resource(urlServicio);
@@ -50,9 +53,36 @@ public class CuponServiceImpl implements ICuponService {
 		SimpleDateFormat s = new SimpleDateFormat("dd-MM-yyyy");
 		
 		if (lista.isEmpty() || !s.format(fechaUltimoLlamado).equals(s.format(new Date())))  // Si se carga por primera vez, u hoy es un nuevo dia
-			this.llamarServicio();
+			llamarServicio();
 		
 		return this.lista;
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -13,14 +13,14 @@ import com.proyecto.dto.Coupon;
 import com.proyecto.service.ICuponService;
 
 @RestController
-@RequestMapping("/api/cupon") 
+@RequestMapping("/api/cupon/mobile") 
 public class CuponController
 {
 	@Autowired
 	ICuponService servicio;
 	
-	@GetMapping("/listar") 
-	public ResponseEntity<Object> listar()   // http://localhost:8080/api/cupon/listar
+	@GetMapping("/getCarrusel") 
+	public ResponseEntity<Object> listar()   // http://localhost:8080/api/cupon/mobile/getCarrusel
 	{ 
 		List<Coupon> lista = servicio.obtener();
 		
