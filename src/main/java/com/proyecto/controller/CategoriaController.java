@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.proyecto.dto.Category;
 import com.proyecto.service.ICategoriaService;
 
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping("/api/categoria/mobile") 
 public class CategoriaController
@@ -17,16 +19,42 @@ public class CategoriaController
 	@Autowired
 	private ICategoriaService servicio;
 	
+
+	@ApiOperation(value = "Carrusel con Top 5 categorias")
 	@GetMapping("/getCarrusel") 
-	public ResponseEntity<Object> listar()   // http://localhost:8080/api/categoria/mobile/getCarrusel
+	public ResponseEntity<Category> getCarrusel()   // http://localhost:8080/api/categoria/mobile/getCarrusel
 	{ 
 		Category categoria = servicio.obtener();
 		
 		if (categoria != null)
 			return ResponseEntity.ok(categoria);
 		else 
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se obtuvieron resultados");
+			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
 	} 
-	
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

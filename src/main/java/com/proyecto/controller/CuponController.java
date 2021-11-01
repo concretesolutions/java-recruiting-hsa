@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.proyecto.dto.Coupon;
 import com.proyecto.service.ICuponService;
 
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping("/api/cupon/mobile") 
 public class CuponController
@@ -19,15 +21,16 @@ public class CuponController
 	@Autowired
 	ICuponService servicio;
 	
+	@ApiOperation(value = "Carrusel con cupones que no han expirado")
 	@GetMapping("/getCarrusel") 
-	public ResponseEntity<Object> listar()   // http://localhost:8080/api/cupon/mobile/getCarrusel
+	public ResponseEntity<List<Coupon>> getCarrusel()   // http://localhost:8080/api/cupon/mobile/getCarrusel
 	{ 
 		List<Coupon> lista = servicio.obtener();
 		
 		if (!lista.isEmpty())
 			return ResponseEntity.ok(lista);
 		else
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se obtuvieron resultados");
+			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
 	} 
 
 }

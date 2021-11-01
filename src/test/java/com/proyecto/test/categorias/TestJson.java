@@ -1,4 +1,4 @@
-package com.proyecto.test;
+package com.proyecto.test.categorias;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -12,10 +12,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-// Click derecho sobre esta clase -> run as -> junit test
-// Basado en:  https://www.javainuse.com/spring/springboot_testcases
+import com.proyecto.test.PruebasUnitarias;
 
-public class TestValidarJson extends PruebasUnitarias 
+public class TestJson extends PruebasUnitarias 
 {
 	@Autowired
 	private WebApplicationContext webApplicationContext;
@@ -28,16 +27,12 @@ public class TestValidarJson extends PruebasUnitarias
 	}
 
 	@Test
-	public void validarJsonEmpleado() throws Exception 
+	public void validarCategoriaCarrusel() throws Exception 
 	{
-		mockMvc.perform(get("/pruebaUnitariaValidarJson")).andExpect(status().isOk())
+		mockMvc.perform(get("/api/categoria/mobile/getCarrusel")).andExpect(status().isOk())
 				.andExpect(content().contentType("application/json;charset=UTF-8"))
-				.andExpect(jsonPath("$.nombre").value("Gonzalo"))
-				.andExpect(jsonPath("$.sueldo").value(5000000));
-		
-		// .andExpect(jsonPath("$.sueldo").value(600000));  // Esto provocara que el test falle, ya que espera 5000000, no 600000
-		// java.lang.AssertionError: JSON path "$.sueldo" expected:<5000000> but was:<600000>
-
+				.andExpect(jsonPath("$.id").value("ROOT"))
+				.andExpect(jsonPath("$.name").value("LEGACY_NAVIGATION"));
 	}
 
 }
