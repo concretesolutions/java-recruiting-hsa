@@ -22,12 +22,17 @@ public class CategoriaController
 
 	@ApiOperation(value = "Carrusel con Top 5 categorias")
 	@GetMapping("/getCarrusel") 
-	public ResponseEntity<Category> getCarrusel()   // http://localhost:8080/api/categoria/mobile/getCarrusel
+	public ResponseEntity<Category> getCarrusel()
 	{ 
 		Category categoria = servicio.obtener();
 		
-		if (categoria != null)
+		if (categoria != null) 
+		{
+			if (categoria.getSubcategories() != null && ! categoria.getSubcategories().isEmpty()) 
+				servicio.filtrarImagenesMobile( categoria.getSubcategories() );
+			
 			return ResponseEntity.ok(categoria);
+		}
 		else 
 			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
 	} 

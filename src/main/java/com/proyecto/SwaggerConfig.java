@@ -30,12 +30,14 @@ public class SwaggerConfig
 	
 	private ApiInfo getApiInfo() 
 	{
+		String miPagina = "https://github.com/jmlizarraga";
+		
 		return new ApiInfo(
 			"Order Service API",
 			"Order Service API Description",
 			"1.0",
-			"https://github.com/jmlizarraga",
-			new Contact("Jose", "https://github.com/jmlizarraga", "https://github.com/jmlizarraga"),
+			miPagina,
+			new Contact("Jose", miPagina, miPagina),
 			"LICENSE",
 			"LICENSE URL",
 			Collections.emptyList()

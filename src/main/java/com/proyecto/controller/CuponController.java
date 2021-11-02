@@ -23,7 +23,7 @@ public class CuponController
 	
 	@ApiOperation(value = "Carrusel con cupones que no han expirado")
 	@GetMapping("/getCarrusel") 
-	public ResponseEntity<List<Coupon>> getCarrusel()   // http://localhost:8080/api/cupon/mobile/getCarrusel
+	public ResponseEntity<List<Coupon>> getCarrusel()
 	{ 
 		List<Coupon> lista = servicio.obtener();
 		
