@@ -34,8 +34,8 @@ public class SwaggerConfig
 			"Order Service API",
 			"Order Service API Description",
 			"1.0",
-			"http://codmind.com/terms",
-			new Contact("Codmind", "https://codmind.com", "apis@codmind.com"),
+			"https://github.com/jmlizarraga",
+			new Contact("Jose", "https://github.com/jmlizarraga", "https://github.com/jmlizarraga"),
 			"LICENSE",
 			"LICENSE URL",
 			Collections.emptyList()
