@@ -5,19 +5,19 @@ joselizarraga.m@gmail.com
 
 # Consideraciones
 
-Por defecto el puerto utilizado es el 8080. Si desea cambiarlo puede usar el siguiente comando en el archivo application.properties <br />
+Por defecto el puerto utilizado es el 8080. Se cambia en el archivo application.properties <br /><br />
 server.port=8999
-<br />
+<br /><br />
 Los endpoints para llamar a las apis se encuentran en este archivo también.
 
 ## Probar la aplicación con Swagger
 
 **Top 5 categorias** <br />
-http://localhost:8080/swagger-ui.html#/categoria-controller/getCarruselUsingGET
+http://localhost:8080/swagger-ui.html#/categoria-controller
 <br />
 
 **Cupones que no han expirado** <br />
-http://localhost:8080/swagger-ui.html#/cupon-controller/getCarruselUsingGET_1
+http://localhost:8080/swagger-ui.html#/cupon-controller
 
 ## Endpoints utilizados
 
