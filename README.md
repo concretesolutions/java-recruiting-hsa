@@ -1,3 +1,4 @@
+## Debes posisionarte dentro de la carpeta del proyecto.
 ## Para pruebas ejecutar las siguientes lineas
  - 1.- sudo sh mvnw clean package
  - 2.- java -jar target/java-recruiting-hsa-1.0.0.jar
