@@ -1,13 +1,13 @@
 ## Para pruebas ejecutar las siguientes lineas
- 1.- sudo sh mvnw clean package
- 2.- java -jar target/java-recruiting-hsa-1.0.0.jar
+ - 1.- sudo sh mvnw clean package
+ - 2.- java -jar target/java-recruiting-hsa-1.0.0.jar
 
 ### Probar en la url: http://localhost:8080/api/swagger-ui/
 
 
 ## Para crear una imagen docker y probar desde ahi
- 1.- sudo docker build -t app .
- 2.- sudo docker run -p 8081:8080 app 
+ - 1.- sudo docker build -t app .
+ - 2.- sudo docker run -p 8081:8080 app 
 
 ### Probar en la url: http://localhost:8081/api/swagger-ui/
 
