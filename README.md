@@ -74,3 +74,69 @@ Siga los siguientes pasos para implementar y enviar este desafío:
 **No** intente hacer un PUSH directo a ESTE repositorio!
 
 ---
+
+# Instalación y Documentación
+
+## Compilación
+Para compilar el proyecto ejecute **mvn clean install** o .**/mvnw clean install** según esté instalado maven.
+
+## Ejecución
+Una vez compilado identifique el archivo compilado **.jar** (normalmente se encontrará en la subcarpeta **target**) mueva el archivo al servidor que lo alojará y ejecute el comando **java -jar {{directorio}}}/recruiting-hsa-accenture-0.0.1-SNAPSHOT --port={{port}}** donde {{directorio}} es el directorio donde se ubica el proyecto dentro del servidor y {{port}} es el puerto en el que se desea ejecutar (Por defecto es el puerto 8080).
+
+## Recomendación
+Se recomienda instalar tras un proxy asignando un dominio y redirigiéndolo al puerto seleccionado manteniendo así todo el tráfico por un puerto 443 certificado con SSL.
+
+## Documentación endpoints
+### Obtener cupones que no han caducado
+**GET** */coupons/actives*
+
+#### response:
+[
+    {
+        "id": *String*,
+        "description": *String*,
+        "seller": *String*,
+        "image": *String*,
+        "expiresAt": *String(yyyy-MM-dd)*
+    }
+]
+
+
+### Obtener categorías según filtro:
+**GET** */categories*
+
+#### queryStringParameters
+**top**: Number // Número de Top filtrables. Si no se especifica entrega todas las categorías. Obligatorio sólo si justTop es *true*
+**justTop**: Indica si sólo se quieren recuperar las categorías top, por defecto es *false*.
+
+#### response
+
+**top es null o justTop es true**:
+[
+    {
+        "id": String,
+        "name": String,
+        "relevance": Number,
+        "smallImageUrl": String
+    }
+]
+
+**top no es null y justTop es true**:
+{
+    "complementList": [
+            {
+                "id": String,
+                "name": String,
+                "relevance": Number,
+                "smallImageUrl": String
+            }
+    ],
+    "topList": [
+        {
+            "id": String,
+            "name": String,
+            "relevance": Number,
+            "smallImageUrl": String
+        }
+    ]
+}
