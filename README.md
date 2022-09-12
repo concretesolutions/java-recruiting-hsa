@@ -10,7 +10,7 @@ Propuesta al desafio tecnico Java Concrete.
 
 # Swagger UI
 
-el proyecto cuenta con [Swagger-UI](http://localhost:8080/api/bff/mobile-team/swagger-ui/index.html), ademas contiene una carpeta con un [archivo json](.github/postman/concrete.postman_collection.json) listo para cargar en [postman](https://www.postman.com/) y ejecutar las pruebas de postman.
+el proyecto cuenta con [Swagger-UI](http://localhost:8080/api/bff/mobile-team/swagger-ui/index.html), ademas contiene una carpeta con un [archivo json](https://github.com/zcamles/java-recruiting-hsa/blob/master/postman/concrete.postman_collection.json) listo para cargar en [postman](https://www.postman.com/) y ejecutar las pruebas de postman.
 
 # Docker 
 
