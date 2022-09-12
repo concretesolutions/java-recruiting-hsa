@@ -1,0 +1,11 @@
+version: '3.2'
+services:
+  concrete-bff:
+    restart: always
+    build:
+      context: .
+      dockerfile: ./docker/local/Dockerfile.local
+    ports:
+      - '8080:8080'
+    expose:
+      - '8080'

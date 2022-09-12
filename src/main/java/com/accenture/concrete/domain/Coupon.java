@@ -3,6 +3,7 @@ package com.accenture.concrete.domain;
 import java.time.LocalDate;
 
 import com.accenture.concrete.response.CouponResponse;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class Coupon {
@@ -42,6 +43,7 @@ public class Coupon {
 		return image;
 	}
 
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	public LocalDate getExpiresAt() {
 		return expiresAt;
 	}

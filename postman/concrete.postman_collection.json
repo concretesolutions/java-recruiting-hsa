@@ -1,0 +1,72 @@
+{
+	"info": {
+		"_postman_id": "28dfb8fe-65bb-447e-ad37-179a49337157",
+		"name": "concrete",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22917876"
+	},
+	"item": [
+		{
+			"name": "coupons",
+			"item": [
+				{
+					"name": "unexpired-coupons",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"unexpired coupons should have status 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"response must be valid and have a body\", function () {\r",
+									"     pm.response.to.be.ok;\r",
+									"     pm.response.to.be.withBody;\r",
+									"     pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"all coupons must be unexpired\", function () {\r",
+									"    let response = pm.response.json();\r",
+									"    response.forEach( coupon => {\r",
+									"        console.log(coupon)\r",
+									"        let expireDate = new Date(coupon.expiresAt).getTime();\r",
+									"        let now = new Date().getTime();\r",
+									"        console.log(`expireDate: ${expireDate}`)\r",
+									"        console.log(`now: ${now}`)\r",
+									"        pm.expect(now).to.be.below(expireDate);\r",
+									"    })\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/bff/mobile-team/coupons/unexpired",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"bff",
+								"mobile-team",
+								"coupons",
+								"unexpired"
+							]
+						},
+						"description": "# What expect\n\nthis service return unexpired coupons based on key \"expiredAt\" it should be before today to be expired."
+					},
+					"response": []
+				}
+			],
+			"description": "all coupons api's related"
+		}
+	]
+}

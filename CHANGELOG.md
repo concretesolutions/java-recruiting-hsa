@@ -8,13 +8,24 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Top 5 categorias.
 - categorias restantes.
 - subcategoria imagen más pequeña.
-- cache para la inestabilidad de la api cupones
 - buscar solucion para la complejidad de la api categorias.
-- anadir dockerfile funcional.
-- anadir docker compose funcional.
 - implementar open-feign dado que Rest template esta fuera de mantencion.
-- implementar swagger
 - logs
+
+## [0.3.1] - 2022-09-11
+### Added
+- swagger and swagger-ui
+- dockerfile environment ready
+- dockerfile local ready
+- docker compose file
+- cache on coupons api
+### Fixed
+- unexpired coupons api return bad formated date.
+### Changed
+- unexpired coupons api return good date (String format).
+### Deprecated
+- Rest template will be replaced by open-feign
+
 
 ## [0.2.0] - 2022-09-10
 ### Added
