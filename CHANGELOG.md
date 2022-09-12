@@ -9,7 +9,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - categorias restantes.
 - subcategoria imagen más pequeña.
 - buscar solucion para la complejidad de la api categorias.
-- implementar open-feign dado que Rest template esta fuera de mantencion.
 - logs
 
 ## [0.3.1] - 2022-09-11
