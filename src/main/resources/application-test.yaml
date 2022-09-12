@@ -1,0 +1,11 @@
+server:
+  servlet:
+    context-path: /api/bff/mobile-team
+    
+concrete:
+  third-apis:
+    coupon:
+      url: https://cs-hsa-api-coupons-rest.herokuapp.com/coupons
+  
+    
+

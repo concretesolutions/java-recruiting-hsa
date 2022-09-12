@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: concrete 
+  profiles:
+    active: ${SPRING_PROFILE:local}
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api/bff/mobile-team
+    
+concrete:
+  third-apis:
+    coupon:
+      url: https://cs-hsa-api-coupons-rest.herokuapp.com/coupons
+  cors:
+    origins:
+      - http://no-domain-cuz-is-for-apps:4200
+    methods:
+      - GET
+      - POST
+      - PUT
+      - DELETE
+      - OPTIONS
+    headers:
+      - Authorization
+      - Accept
+      - Cache-Control
+      - Content-Type
+      - Origin
+      - ajax
+      - x-csrf-token
+      - x-requested-with
+      
+logging:
+  level:
+    root: INFO
+  
+    
+

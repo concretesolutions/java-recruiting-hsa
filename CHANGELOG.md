@@ -6,7 +6,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 - unit testing.
 - Top 5 categorias.
-- cupones que no han expirado.
 - categorias restantes.
 - subcategoria imagen más pequeña.
 - cache para la inestabilidad de la api cupones
@@ -15,6 +14,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - anadir docker compose funcional.
 - implementar open-feign dado que Rest template esta fuera de mantencion.
 - implementar swagger
+- logs
+
+## [0.2.0] - 2022-09-10
+### Added
+- unit testing on coupons logics.
+- not expired coupons added
+- cors
 
 ## [0.1.0] - 2022-09-10
 ### Added
