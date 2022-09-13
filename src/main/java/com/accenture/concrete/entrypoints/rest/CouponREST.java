@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.accenture.concrete.domain.Coupon;
 import com.accenture.concrete.domain.CouponAPI;
 import com.accenture.concrete.domain.CouponUseCase;
+import com.accenture.concrete.response.CategoryResponse;
+
+import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("coupons")
@@ -27,6 +30,11 @@ public class CouponREST {
 		this.useCase = new CouponUseCase(couponApi);
 	}
 	
+	@ApiOperation(
+			response = Coupon[].class,
+			value = "not expired coupons",
+			notes = "this api will return the response from other service, and then will return only not expired coupons."
+			)
 	@GetMapping(path="unexpired", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Coupon>> getNotExpiredCoupons(){
 		LOG.info("finding all not expired coupons");
