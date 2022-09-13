@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cache.annotation.EnableCaching;
 
+import com.accenture.concrete.properties.CategoryProperties;
 import com.accenture.concrete.properties.CorsProperties;
 import com.accenture.concrete.properties.CouponProperties;
 
@@ -12,7 +13,8 @@ import com.accenture.concrete.properties.CouponProperties;
 @SpringBootApplication
 @EnableConfigurationProperties({
 	CouponProperties.class,
-	CorsProperties.class
+	CorsProperties.class,
+	CategoryProperties.class
 })
 public class ConcreteApplication {
 

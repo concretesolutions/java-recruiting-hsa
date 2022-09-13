@@ -5,8 +5,6 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.accenture.concrete.service.CouponAPI;
-
 public class CouponUseCase {
 
 	private static final Logger LOG = LogManager.getLogger(CouponUseCase.class);

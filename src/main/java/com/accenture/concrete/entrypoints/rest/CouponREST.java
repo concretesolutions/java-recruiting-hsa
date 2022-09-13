@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.accenture.concrete.domain.Coupon;
-import com.accenture.concrete.domain.CouponUseCase;	
-import com.accenture.concrete.service.CouponAPI;
+import com.accenture.concrete.domain.CouponAPI;
+import com.accenture.concrete.domain.CouponUseCase;
 
 @RestController
 @RequestMapping("coupons")

@@ -13,6 +13,8 @@ concrete:
   third-apis:
     coupon:
       url: https://cs-hsa-api-coupons-rest.herokuapp.com/coupons
+    category:
+      url: https://cs-hsa-api-categories-rest.herokuapp.com/categories
   cors:
     origins:
       - http://no-domain-cuz-is-for-apps:4200

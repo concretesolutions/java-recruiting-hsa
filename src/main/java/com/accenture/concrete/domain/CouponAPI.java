@@ -1,8 +1,6 @@
-package com.accenture.concrete.service;
+package com.accenture.concrete.domain;
 
 import java.util.List;
-
-import com.accenture.concrete.domain.Coupon;
 
 public interface CouponAPI {
 

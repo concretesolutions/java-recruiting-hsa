@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.accenture.concrete.domain.Coupon;
+import com.accenture.concrete.domain.CouponAPI;
 import com.accenture.concrete.mocker.CouponResponseMocker;
 
 public class CouponServiceMock implements CouponAPI{

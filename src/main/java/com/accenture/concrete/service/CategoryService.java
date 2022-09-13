@@ -10,41 +10,40 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.accenture.concrete.domain.CategoryAPI;
 import com.accenture.concrete.domain.Coupon;
-import com.accenture.concrete.domain.CouponAPI;
+import com.accenture.concrete.properties.CategoryProperties;
 import com.accenture.concrete.properties.CouponProperties;
+import com.accenture.concrete.response.CategoryResponse;
 import com.accenture.concrete.response.CouponResponse;
 
 @Service
-public class CouponService implements CouponAPI {
+public class CategoryService implements CategoryAPI {
 	
-	private static final Logger LOG = LogManager.getLogger(CouponService.class);
+	private static final Logger LOG = LogManager.getLogger(CategoryService.class);
 
-	private CouponProperties properties;
+	private CategoryProperties properties;
 	
 	private RestTemplate restTemplate;
 	
 	@Autowired
-	public CouponService(CouponProperties properties) {
+	public CategoryService(CategoryProperties properties) {
 		this.properties = properties;
 		this.restTemplate = new RestTemplate();
 	}
 	
-	@CachePut(value="coupons")
-	public List<Coupon> findAll(){
+	@CachePut(value="categories")
+	public CategoryResponse findAll(){
 		
-		CouponResponse[] response = restTemplate
-				.getForEntity(properties.getUriCoupons(), CouponResponse[].class)
+		CategoryResponse response = restTemplate
+				.getForEntity(properties.getUriCategories(), CategoryResponse.class)
 				.getBody();
 		
 		if(LOG.isDebugEnabled()) {
 			LOG.debug(response);
 		}
 		
-		return List.of(response)
-				.stream()
-				.map(Coupon::new)
-				.toList();
+		return response;
 		
 	}
 	
