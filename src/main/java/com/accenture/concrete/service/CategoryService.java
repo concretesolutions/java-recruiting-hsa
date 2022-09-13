@@ -1,21 +1,15 @@
 package com.accenture.concrete.service;
 
-import java.util.List;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CachePut;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.accenture.concrete.domain.CategoryAPI;
-import com.accenture.concrete.domain.Coupon;
 import com.accenture.concrete.properties.CategoryProperties;
-import com.accenture.concrete.properties.CouponProperties;
 import com.accenture.concrete.response.CategoryResponse;
-import com.accenture.concrete.response.CouponResponse;
 
 @Service
 public class CategoryService implements CategoryAPI {

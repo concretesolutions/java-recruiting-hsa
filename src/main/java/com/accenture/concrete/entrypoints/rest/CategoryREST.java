@@ -32,9 +32,15 @@ public class CategoryREST {
 	}
 	
 	@GetMapping(path="top", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<CategoryResponse>> getTopCategories(@RequestParam(name = "quantity", defaultValue = "5") int quantity){
+	public ResponseEntity<List<CategoryResponse>> getTop5Categories(){
 		LOG.info("obtaining top categories");
-		return ResponseEntity.ok(useCase.getTopCategories(quantity));
+		return ResponseEntity.ok(useCase.getTop5Categories());
+	}
+	
+	@GetMapping(path="remaining", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<CategoryResponse>> getRemainingCategories(){
+		LOG.info("obtaining top categories");
+		return ResponseEntity.ok(useCase.getRemainingCategories());
 	}
 	
 }
