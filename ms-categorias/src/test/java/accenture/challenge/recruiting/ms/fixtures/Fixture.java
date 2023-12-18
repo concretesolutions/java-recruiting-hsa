@@ -8,7 +8,6 @@ import org.apache.commons.io.IOUtils;
 import java.io.FileInputStream;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-import java.util.Collection;
 import java.util.HashMap;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
@@ -28,7 +27,7 @@ public final class Fixture {
         }
     }
 
-    public static FeignException.FeignClientException getMockFeignClientException(int status, String mensaje, String body) {
+    public static FeignException.FeignClientException.FeignClientException getMockFeignClientException(int status, String mensaje, String body) {
         return new FeignException.FeignClientException(status, mensaje, getMockRequest(),
                 body.getBytes(StandardCharsets.UTF_8), null);
     }
