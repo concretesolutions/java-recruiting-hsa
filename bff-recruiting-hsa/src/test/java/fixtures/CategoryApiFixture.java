@@ -1,4 +1,4 @@
-package accenture.challenge.recruiting.ms.fixtures;
+package fixtures;
 
 import accenture.challenge.recruiting.ms.domains.CategoryThree;
 
