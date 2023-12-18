@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @FeignClient(name = "Category-MS-Client",
-             url  = "http://localhost:8080",
-             path = "/challenge/categories")
+             url  = "${api.categoria.base}",
+             path = "${api.categoria.path.obtener}")
 public interface CategoryClient {
 
     @GetMapping

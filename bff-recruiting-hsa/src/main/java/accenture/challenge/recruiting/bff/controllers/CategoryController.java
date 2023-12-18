@@ -23,8 +23,8 @@ public class CategoryController {
     private final ICategory iCategory;
 
     @ApiOperation(
-            value = "Obtiene categorias ordenadas por reelevancia",
-            notes = "Obtiene categorias ordenadas por reelevancia",
+            value = "Obtiene top 5 categorias ordenadas por reelevancia",
+            notes = "Obtiene top 5 categorias ordenadas por reelevancia",
             produces = "ResponseEntity<List<CategoryDto>>")
     @ApiResponses({
             @ApiResponse(code = 500, message = "Error General"),
