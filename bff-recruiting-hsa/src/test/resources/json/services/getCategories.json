@@ -1,0 +1,32 @@
+[
+  {
+    "id": "sports",
+    "name": "Sports",
+    "relevance": 1,
+    "iconImageUrl": "https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg"
+  },
+  {
+    "id": "books",
+    "name": "Books",
+    "relevance": 2,
+    "iconImageUrl": "https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg"
+  },
+  {
+    "id": "outdoor",
+    "name": "Outdoor",
+    "relevance": 3,
+    "iconImageUrl": "https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg"
+  },
+  {
+    "id": "food",
+    "name": "Food",
+    "relevance": 4,
+    "iconImageUrl": "https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg"
+  },
+  {
+    "id": "travel",
+    "name": "Travel",
+    "relevance": 5,
+    "iconImageUrl": "https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg"
+  }
+]
