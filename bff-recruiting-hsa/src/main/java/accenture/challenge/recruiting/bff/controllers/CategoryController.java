@@ -1,5 +1,6 @@
 package accenture.challenge.recruiting.bff.controllers;
 
+import accenture.challenge.recruiting.bff.aspects.MarcaFlujo;
 import accenture.challenge.recruiting.bff.dtos.CategoryDto;
 import accenture.challenge.recruiting.bff.services.ICategory;
 import io.swagger.annotations.Api;
@@ -30,6 +31,7 @@ public class CategoryController {
             @ApiResponse(code = 500, message = "Error General"),
             @ApiResponse(code = 200, message = "Obtiene resultado")
     })
+    @MarcaFlujo
     @GetMapping("/top-5")
     public ResponseEntity<List<CategoryDto>> getCategoriesOrderRelevance() {
         var categoriesOrderrelevance = iCategory.getCategoriesOrderRelevanceAsc();
