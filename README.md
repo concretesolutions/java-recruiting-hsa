@@ -1,6 +1,4 @@
-<a href="https://concrete.com.br/"><img src=".github/concrete_symbol.png" width="180px" align="right" /></a>
-
-# Desafio Java Concrete
+# Desafio Node Accenture
 
 Desafio técnico para evaluar el conocimiento de los aspirantes a unirse al equipo de **Backend**.
 
@@ -49,17 +47,16 @@ pero debes considerar el escenario, objetivo, implicaciones de performance y sta
 - No queremos que la experiencia de usuario se vea afectada por el rendimiento de los servicios;
 - **Usted tiene 1 semana para completar el desafio**. Si necesitas mas tiempo, no hay problema, puede hablar con nosotros y veremos que podemos hacer :)
 - Documentación de como configurar y ejecutar el proyecto. Puede sobrescribir el **README.md** para eso.
+- Emplear algun middleware para el logger de los mensajes de request y response (https://expressjs.com/en/guide/using-middleware.html).
 
 ### Deseables
 - Podría ser bueno una documentación de API. Sugerencia: [Swagger](https://swagger.io/).
 - Ejecutando con [Docker](https://www.docker.com/).
 
 ### Stack/Pool de Tecnologías
-- **Java 8** o **superiores**.
-- Cualquier Framework Web. Sugerencia: [Spring Boot](https://spring.io/projects/spring-boot).
-- Cualquier API Client. Sugerencia: [Feign](https://github.com/OpenFeign/feign).
-- De preferencia [Gradle](https://gradle.org/) como sistema de compilación.
-- Tu eres libre para escoger librerias y frameworks de pruebas que mas te guste. Nuestra sugerencia es: [JUnit](https://junit.org/junit5/), [Mockito](https://site.mockito.org/).
+- **Node**
+- Cualquier Framework Web. Sugerencia: [Nest](https://nestjs.com).
+- Tu eres libre para escoger librerias y frameworks de pruebas que mas te guste. Nuestra sugerencia es: [Jest](https://jestjs.io/).
 
 ---
 

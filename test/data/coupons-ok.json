@@ -1,0 +1,23 @@
+[
+    {
+        "id": "COUPON_1",
+        "description": "50% Discount",
+        "seller": "Crazy Seller",
+        "image": "https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg",
+        "expiresAt": "2045-12-01"
+    },
+    {
+        "id": "COUPON_2",
+        "description": "5% Discount",
+        "seller": "The Seller",
+        "image": "https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg",
+        "expiresAt": "2042-12-25"
+    },
+    {
+        "id": "COUPON_4",
+        "description": "1% Discount",
+        "seller": "Mega Discount",
+        "image": "https://i4.visitchile.com/img/GalleryContent/8822/slider/Torres_del_Paine.jpg",
+        "expiresAt": "2055-10-01"
+    }
+]
